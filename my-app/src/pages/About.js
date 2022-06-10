@@ -1,10 +1,13 @@
 // == Imports
 import React from "react";
+
+
+//Components
 import Navigation from "../components/Navigation";
 import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
 
-
-const Home = () => {
+const About = () => {
     return (
         <div className="home" >
             <div className="mainbarContainer">
@@ -16,12 +19,13 @@ const Home = () => {
                 </div>
                 <br />
                     <div className="homeContent">
-                        Ici je suis sur ma page Home
+                        Ici je suis sur ma page About
                     </div>
+            <Footer />
 
         </div>
     );
 };
 
-export default Home;
+export default About;
 

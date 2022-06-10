@@ -7,15 +7,23 @@ const Sidebar = () => {
     return (
     <div className="sidebar">
         <ul>
-            <li><NavLink to="/" > 
+            <li>
+              <NavLink to="/tutos" > 
               <span>Tutoriel</span>
-            </NavLink></li>
-            <li><NavLink to="/" > 
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/amis" > 
               <span>Amis</span>
-            </NavLink></li>
-            <li><NavLink to="/" > 
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/eco-village-vue" > 
               <span>Les Ecovillages</span>
-            </NavLink></li>
+            </NavLink>
+            </li>
         </ul>
     </div>    
     );
