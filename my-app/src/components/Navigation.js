@@ -3,83 +3,67 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 
+
+
 const Navigation = () => {
 
-    return (
-    <div className="navigation">
-        <ul>
-            <li><NavLink to="/" > 
-              <span>Accueil</span>
-            </NavLink></li>
-            <li><NavLink to="/ajouter-un-post" > 
-              <span>Ajouter un post</span>
-            </NavLink></li>
-            <li>Menu burger</li>
-            <li>Affichage Pseudo </li>
-        </ul>
-        <nav className="navbar" role="navigation" aria-label="main navigation">
-          <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"/>
-          </a>
+  return (
+    < nav className="navbar">
+      {/*Logo Essencial*/}
+      <div className="navbar-brand">
+        <a className="navbar-item" href="/">
+          <img src={"/essencial.svg"} width="112" height="28" />
+        </a>
+      </div>
 
-          <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-          </div>
+      <div className="navbar-start mb-2" >
 
-          <div id="navbarBasicExample" className="navbar-menu">
-          <div className="navbar-start">
-            <a className="navbar-item">
-              Home
+        <input className="input mt-2 ml-6" type="text" placeholder="Recherche" />
+
+        <a href="/" className="navbar-item ml-6 ">
+          <span className="icon-text">
+            <span className="icon">
+              <i className="fa fa-home mt-1"></i>
+            </span>
+            <span className="is-size-4 mt-1" ></span>
+          </span>
+        </a>
+
+        <a href="/ajouter-un-post"className="navbar-item ml-6 ">
+          <span className="icon">
+            <i className="fa fa-edit mt-1 "></i>
+          </span>
+        </a>
+
+
+      </div>
+      <div className="navbar-end" >
+
+      <div className="navbar-item has-dropdown is-hoverable  mr-6">
+          <span className="icon">
+            <i className="fas fa-align-justify mt-5 "></i>
+          </span>
+          <div className="navbar-dropdown">
+            <a href="/gestion-de-profil" className="navbar-item">
+              Gestion de profil
             </a>
+           
 
-            <a className="navbar-item">
-              Documentation
+            <hr  className="navbar-divider" />
+            <a href="/accueil-connexion" className="navbar-item">
+              Se deconnecter
             </a>
-
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">
-                Menu
-              </a>
-
-              <div className="navbar-dropdown">
-                <a className="navbar-item">
-                  About
-                </a>
-                <a className="navbar-item">
-                  Jobs
-                </a>
-                <a className="navbar-item">
-                  Contact
-                </a>
-                <hr className="navbar-divider"/>
-                <a className="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div>
-            
           </div>
+        </div>
 
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <a className="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a className="button is-light">
-                  Log in
-                </a>
-              </div>
-            </div>
-          </div>
-          </div>
-          </nav>
-    </div>    
-    );
+        <i className="fas fa-user mt-2 ml-6"></i>
+        <a className="navbar-item is-size-4 mr-6">
+          Bienvenue Koala
+        </a>
+      </div>
+
+    </nav>
+  );
 };
 
 export default Navigation;
