@@ -6,25 +6,31 @@ const Footer = () => {
 
     return (
     <div className="Footer">
-        <ul>
-            <li>
-                <NavLink to="/a-propos" > 
-                    <span>A propos</span>
+    
+        <nav className="level">
+            <p className="level-item has-text-centered">
+                <NavLink to="/a-propos" >
+                    <a className="link is-info">A propos</a>
                 </NavLink>
-            </li>
+                <img src={"/a-propos.png"} />
+            </p>
 
-            <li>
-                <NavLink to="/contact" > 
-                    <span>Contact</span>
+            <p className="level-item has-text-centered">
+            <NavLink to="/contact" >
+                    <a className="link is-info">Contact</a>
                 </NavLink>
-            </li>
-
-            <li>
-                <NavLink to="/confidentialite" > 
-                    <span>Confidentialité</span>
+                <img src={"/contact.png"} />
+            </p>
+                
+            <p className="level-item has-text-centered">
+                <NavLink to="/confidentialite" >
+                    <a className="link is-info">Confidentialité</a>
                 </NavLink>
-            </li>
-        </ul>
+                <p>
+                <img src={"/politique-de-confidentialite.png"} />
+                </p>
+            </p>
+        </nav>   
     </div>    
     );
 };
