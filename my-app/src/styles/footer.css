@@ -1,0 +1,19 @@
+
+a {
+    margin-right: 5px;
+}
+
+a ::after {
+    content: "";
+    display:block;
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    margin: 0 auto;
+    background: #000;
+    transition: width 0.2s ease-in-out;
+}
+
+a:hover::after {
+    width: 11%;
+}
