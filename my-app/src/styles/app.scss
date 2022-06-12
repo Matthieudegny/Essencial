@@ -1,0 +1,33 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+
+    &-header{
+        height: 10vh;
+    }
+
+    &-main{
+        height: 70vh;
+        width: 100vw;
+        display: flex;
+
+        &-aside{
+            width: 25vw;
+            height: 70vh;
+        }
+
+        &-page{
+            width: 100%;
+            background-color: gainsboro;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &-footer{
+        height: 20vh;
+    }
+
+}
