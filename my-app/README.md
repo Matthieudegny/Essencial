@@ -5,7 +5,7 @@ possibilité dans le fichier App.js d'implémenter directement les composants fi
 permettant de ne pas avoir à rappler dans chaque page ces derniers, ex:
 
 Version d'origine ->
-// == Imports
+`// == Imports
 import React from "react";
 //Components
 import Navigation from "../components/Navigation";
@@ -30,10 +30,10 @@ const About = () => {
         </div>
     );
 };
-export default About;
+export default About;`
 
 version en chargeant directement les composants fixes à la base app ->
-// == Imports
+`// == Imports
 import React from "react";
 const About = () => {
     return (
@@ -46,7 +46,7 @@ const About = () => {
         </div>
     );
 };
-export default About;
+export default About;`
 
 
 Vous pouvez faire un npm start,
