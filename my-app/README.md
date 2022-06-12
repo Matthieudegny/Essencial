@@ -5,13 +5,14 @@ possibilité dans le fichier App.js d'implémenter directement les composants fi
 permettant de ne pas avoir à rappler dans chaque page ces derniers, ex:
 
 Version d'origine ->
-`// == Imports
-import React from "react";
-//Components
-import Navigation from "../components/Navigation";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-const About = () => {
+
+    ``// == Imports
+    import React from "react";
+    //Components
+    import Navigation from "../components/Navigation";
+    import Sidebar from "../components/Sidebar";
+    import Footer from "../components/Footer";
+    const About = () => {
     return (
         <div className="home" >
             <div className="mainbarContainer">
@@ -29,24 +30,25 @@ const About = () => {
 
         </div>
     );
-};
-export default About;`
+    };
+    export default About;``
 
 version en chargeant directement les composants fixes à la base app ->
-`// == Imports
-import React from "react";
-const About = () => {
-    return (
-        <div className="home" >
-     
-            <div className="homeContent">
-                Ici je suis sur ma page About
-            </div>
 
-        </div>
-    );
-};
-export default About;`
+    ``// == Imports
+    import React from "react";
+    const About = () => {
+        return (
+            <div className="home" >
+        
+                <div className="homeContent">
+                    Ici je suis sur ma page About
+                </div>
+
+            </div>
+        );
+    };
+    export default About;``
 
 
 Vous pouvez faire un npm start,
