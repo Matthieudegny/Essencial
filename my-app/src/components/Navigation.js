@@ -6,6 +6,7 @@ import essencialLogo from '../media/essencial.svg'
 import '../styles/navigation.scss'
 
 
+
 const Navigation = () => {
 
   //hook de react router permet de rediriger 
@@ -55,26 +56,9 @@ const Navigation = () => {
         <i className="fa fa-edit mt-1 "></i>
       </NavLink>
 
-     
+      <i class="fa-solid fa-bars"></i>
 
-      <div className="nav-container-hamb">
-        <div className="navbar-item has-dropdown is-hoverable  ">
-          <span className="icon">
-            <i className="fas fa-align-justify nav-hamb"></i>
-          </span>
-          <div className="navbar-dropdown">
-            <a href="/gestion-de-profil" className="navbar-item">
-              Gestion de profil
-            </a>
-            
-
-            <hr  className="navbar-divider" />
-            <a href="/accueil-connexion" className="navbar-item">
-              Se deconnecter
-            </a>
-          </div>
-        </div>
-      </div>
+    
 
     </div>
 
