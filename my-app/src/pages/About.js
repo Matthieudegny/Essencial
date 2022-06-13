@@ -6,9 +6,9 @@ const About = () => {
     return (
         <div className="home" >
      
-            <div className="homeContent">
-                Ici je suis sur ma page About
-            </div>
+           
+             Ici je suis sur ma page About
+          
 
         </div>
     );
