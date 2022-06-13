@@ -1,0 +1,57 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+  
+
+    &-header{
+        height: 10vh;
+    }
+
+    &-main{
+        height: 80vh;
+        width: 100vw;
+        display: flex;
+
+        &-aside{
+            width: 25vw;
+            height: 80vh;
+        }
+
+        &-page{
+            width: 100%;
+            background-color: gainsboro;
+            display: flex;
+            flex-direction: column;
+            
+
+            &-caroussel{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 15vh;
+                width: 100%;
+                background-color: aqua;
+            }
+
+            &-wall{
+                height: 100%;
+                overflow-y: scroll;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    &-footer{
+        height: 20vh;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+  .App-main-page{
+      min-width: 100vw;
+  }
+}

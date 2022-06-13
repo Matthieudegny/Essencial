@@ -1,85 +1,78 @@
 // == Imports
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {useState} from 'react';
+import { NavLink, useNavigate } from "react-router-dom";
+import essencialLogo from '../media/essencial.svg'
+import '../styles/navigation.scss'
+
 
 
 const Navigation = () => {
 
-    return (
-    <div className="navigation">
-        <ul>
-            <li><NavLink to="/" > 
-              <span>Accueil</span>
-            </NavLink></li>
-            <li><NavLink to="/ajouter-un-post" > 
-              <span>Ajouter un post</span>
-            </NavLink></li>
-            <li>Menu burger</li>
-            <li>Affichage Pseudo </li>
-        </ul>
-        <nav className="navbar" role="navigation" aria-label="main navigation">
-          <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"/>
-          </a>
+  //hook de react router permet de rediriger 
+  const navigate = useNavigate();
 
-          <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-          </div>
+  const [searchValue, setSearchValue] = useState('');
 
-          <div id="navbarBasicExample" className="navbar-menu">
-          <div className="navbar-start">
-            <a className="navbar-item">
-              Home
-            </a>
+  //à la modification de l'input, sa valeur est enregisrée dans le hook d'état searchValue
+  const handleSearchChange = (event) => {
+    const { value } = event.target;
+    setSearchValue(value);
+  };
 
-            <a className="navbar-item">
-              Documentation
-            </a>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    //je n'ai pas encore géré l'envoi du data (celui de l'input) utilise on redux? ou props?
+    //react rooter hook
+    navigate('/recherche');
+  }
 
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">
-                Menu
-              </a>
+  return (
+  
+  <div className="nav">
 
-              <div className="navbar-dropdown">
-                <a className="navbar-item">
-                  About
-                </a>
-                <a className="navbar-item">
-                  Jobs
-                </a>
-                <a className="navbar-item">
-                  Contact
-                </a>
-                <hr className="navbar-divider"/>
-                <a className="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div>
-            
-          </div>
+    <div className="nav-logoTitle">
+      <img className="nav-logoTitle-image" src={essencialLogo} alt="" />
+    </div>
 
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <a className="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a className="button is-light">
-                  Log in
-                </a>
-              </div>
-            </div>
-          </div>
-          </div>
-          </nav>
-    </div>    
-    );
+    <div className="nav-input-container">
+      <form action=""  onSubmit={handleSubmit}>
+        <input 
+        onChange={handleSearchChange}
+        onSubmit={handleSubmit}
+        className="nav-input" 
+        type="text" 
+        placeholder="Recherche"  />
+      </form>
+    </div>
+
+    <div className="nav-logoLinks-container">
+
+      <NavLink to="/">
+        <i className="fa fa-home mt-1"></i>
+      </NavLink>
+
+      <NavLink to="/ajouter-un-post">
+        <i className="fa fa-edit mt-1 "></i>
+      </NavLink>
+
+      <i class="fa-solid fa-bars"></i>
+
+    
+
+    </div>
+
+    <div className="nav-logoConnexion">
+      <i className="fas fa-user"></i>
+      Bienvenue pseudo
+    </div>
+
+   
+    
+
+    </div>
+
+  );
 };
 
 export default Navigation;

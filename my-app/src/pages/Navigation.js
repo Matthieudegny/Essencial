@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const Navigation = () => {
 
     return (
-    <div classNameName="navigation">
+    <div className="navigation">
         <ul>
             <li><NavLink to="/" > 
               <span>Accueil</span>
