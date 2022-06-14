@@ -24,6 +24,7 @@ const Sidebar = () => {
           <span>Les Ecovillages</span>
         </NavLink>
       </div> 
+     
     
     </div>    
     );

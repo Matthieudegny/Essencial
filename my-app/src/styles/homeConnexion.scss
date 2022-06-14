@@ -1,0 +1,32 @@
+.homeConnexion{
+    display:flex;
+    color: white;
+
+    &-form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20vw;
+        height:35vh;
+        background-color:grey;
+    }
+
+    &-logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30vw;
+        
+    }
+
+    &-visiteur{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 20vw;
+        height:35vh;
+        background-color:grey;
+        font-size: 1.5vw;
+    }
+}
