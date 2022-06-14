@@ -1,8 +1,7 @@
-// == Import
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import '../../styles/app.scss'
-
+// == Imports
+import React from "react";
+import { Route, Routes,NavLink } from 'react-router-dom';
+import Conteneur from '../Conteneur'
 //Composants
 import HomeLog from '../../pages/HomeLog';
 import Addpost from '../../pages/AddPost';
@@ -19,42 +18,17 @@ import HomeVillage from '../../pages/HomeVillage';
 import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
 
-// data, styles et utilitaires
-//import logo from '../../media/logo.svg';
 
-import '../../styles/index.scss';
-import Navigation from '../Navigation';
-import Sidebar from '../Sidebar';
-import Footer from '../Footer';
-import Caroussel from '../Caroussel';
+const Inscription = () => {
+    return (
+        <div className="inscription" >
+    
+            <div className="inscription">
+                Ici je suis sur ma page Inscription
+            </div>
 
-
-// == Composant
-function App() {
-  
-  return (
-    <div className="App">
-
-      <header className='App-header'>
-
-        <Navigation/>
-
-      </header>
-
-      <main className='App-main'>
-
-        <aside className='App-main-aside'>
-          <Sidebar />
-        </aside>
-
-        <div className='App-main-page'>
-
-          <div className="App-main-page-caroussel">
-            <Caroussel />
-          </div>
-
-          <div className='App-main-page-wall'>
             <Routes>
+              <Route path="/conteneur" element={Conteneur()} />
               <Route path="/" element={HomeLog()} />
               <Route path="/accueil-inscription" element={HomeInscription()}/>
               <Route path="/accueil-connexion" element={HomeVisitor()} />
@@ -70,21 +44,13 @@ function App() {
               <Route path="/recherche" element={Research()} />
               <Route path="/home-log-village" element={HomeVillage()} />
             </Routes>
-          </div>
-         
+
+            <NavLink to="/conteneur">
+              SingleApp
+            </NavLink>
+
         </div>
+    );
+};
 
-      </main>
-
-      <footer className='App-main-footer'>
-        <Footer />
-      </footer>
-
-     
-    </div>
-  );
-}
-
-// ==   Export
-export default App;
-//<Route path="*" element={NotFound()} />
+export default Inscription;
