@@ -2,7 +2,10 @@
 .login-form {
   
   &-element {
-    display: flex;
+    margin:1em;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
 
@@ -17,8 +20,9 @@
   }
 
   &-button {
-    font-size: 1em;
-    color: #fff;
+    
+    font-size: 0.5em;
+    color: 3333;
     border-radius: .3em;
     border: 0;
     padding: .7em;

@@ -9,15 +9,16 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
+  console.log(state,'log du reducer user');//ici le state est ok 
   switch (action.type) {
-    // case CHANGE_LOGIN_FIELD:
-    //   return {
-    //     ...state,
-    //     [action.payload.inputName]: action.payload.value,
-    //     // quand action.payload.inputName="email"
-    //     // email: action.payload.value
-    //     // sans les crochet ca met literallement le nom de ta variable exemple: {"action.payload.inputName": value}
-    //   };
+    case CHANGE_LOGIN_FIELD:
+      return {
+        ...state,
+        [action.payload.inputName]: action.payload.value,
+            // quand action.payload.inputName="email"
+            // email: action.payload.value
+            // sans les crochet ca met literallement le nom de ta variable exemple: {"action.payload.inputName": value}
+      };
 
     case SAVE_USER:
       return {
@@ -29,14 +30,14 @@ const reducer = (state = initialState, action = {}) => {
         password: '', // on vide le password on a plus besoin de le sauvegarder (SECURITE)
       };
 
-    // case LOGOUT:
-    //   return {
-    //     ...state,
-    //     isLogged: false,
-    //     pseudo: '',
-    //     token: null,
-    //     email: '',
-    //   };
+    case LOGOUT:
+      return {
+        ...state,
+        isLogged: false,
+        pseudo: '',
+        token: null,
+        email: '',
+      };
     default:
       return state;
   }

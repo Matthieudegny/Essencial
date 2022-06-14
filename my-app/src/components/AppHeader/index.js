@@ -4,18 +4,20 @@ import { actionChangeLoginField, actionLogout, actionSubmitLogin } from '../../a
 import './style.scss';
 
 
+
 function AppHeader() {
   const dispatch = useDispatch();
-  // const email = useSelector((state) => state.user.email);
-  // const password = useSelector((state) => state.user.password);
-  // const isLogged = useSelector((state) => state.user.isLogged);
+  const email = useSelector((state) => state.email);
+  // const { email } = useSelector((state) => state.user);
+  const password = useSelector((state) => state.password);
+  const isLogged = useSelector((state) => state.isLogged);
 
   return (
     <header className="header">
-      <img src='' className="header-logo" alt="Logo oRecipes" />
+      
       <LoginForm
-        // email={email}
-        // password={password}
+        email={email}
+        password={password}
         changeField={(value, inputName) => {
           console.log('changeField', { value, inputName });
           dispatch(
@@ -36,7 +38,7 @@ function AppHeader() {
             // on envoie l'action LOGOUT au reducer pour qu'il remette tout à 0
           );
         }}
-        // isLogged={isLogged}
+        isLogged={isLogged}
       />
     </header>
   );

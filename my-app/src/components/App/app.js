@@ -21,7 +21,7 @@ import Contact from '../../pages/Contact';
 
 
 // data, styles et utilitaires
-//import logo from '../../media/logo.svg';
+
 
 import '../../styles/index.scss';
 import Navigation from '../Navigation';
@@ -32,7 +32,6 @@ import Footer from '../Footer';
 
 // == Composant
 function App() {
-
   const test = true;
   console.log(test);
   return (

@@ -3,12 +3,11 @@
   position: relative;
 
   &-input {
-    width: 100%;
-    padding: .7em;
-    font-size: 1em;
+    width: 110%;
+    font-size: 0.6em;
     border: 1px solid #ddd;
     border-radius: .3em;
-    height: 2.5em;
+    height: 2em;
 
     &:focus {
      
@@ -35,7 +34,7 @@
       display: block;
     }
     .field-input {
-      padding: 1.4em .7em .4em;
+      padding: 2em .7em .7em;
     }
   }
 }

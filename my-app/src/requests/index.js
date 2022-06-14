@@ -16,11 +16,11 @@ export function removeAuthorization() {
   // on supprime le token par defaut de notre instance
   axiosInstance.defaults.headers.common.Authorization = '';
 }
-
+/* 
 export async function requestRecipesList() {
   const response = await axiosInstance.get('/recipes');
   return response.data;
-}
+} */
 
 export async function requestLogin(email, password) {
   // on utilise notre instance personnalisé de axios, donc on a pas besoin

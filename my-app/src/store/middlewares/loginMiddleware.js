@@ -1,8 +1,7 @@
 
 import {
-  SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER,
-} from '../../actions/user';
- import {removeAuthorization, requestLogin, saveAuthorization,} from '../../requests/index';
+  SUBMIT_LOGIN, actionSaveUser, LOGOUT, /* SAVE_USER, */} from '../../actions/user';
+ import {removeAuthorization, requestLogin,  /* saveAuthorization, */ } from '../../requests';
 
 const loginMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
@@ -11,7 +10,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
       console.log("loginMiddleware j'ai intercepté SUBMIT_LOGIN");
 
       const state = store.getState();
-      const { email, password } = state.user;
+      const { email, password } = state;
       console.log('je fait mon getState pour recuperer', { email, password });
 
       try {
@@ -33,7 +32,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
       return; // on bloque mon action SUBMIT_LOGIN pour ne pas l'envoyer aux reducers
     }
 
-    case SAVE_USER: {
+   /*  case SAVE_USER: {
       // 1. je sauvegarder le token dans mon instance perso axios
       saveAuthorization(action.payload.token);
 
@@ -51,7 +50,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
         console.error(err);
       }
       break;
-    }
+    } */
 
     case LOGOUT: {
       // on supprime le token de axios
