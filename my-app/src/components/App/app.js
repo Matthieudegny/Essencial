@@ -32,6 +32,7 @@ import Footer from '../Footer';
 
 // == Composant
 function App() {
+
   const test = true;
   console.log(test);
   return (

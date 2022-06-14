@@ -1,24 +1,15 @@
 // == Imports
 import React from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import essencialLogo from '../media/essencial.svg';
 import '../styles/homeConnexion.scss';
+import AppHeader from '../components/AppHeader/index';
 const HomeConnexion = () => {
-   /*  const [searchValue, setSearchValue] = useState('');
 
-    //à la modification de l'input, sa valeur est enregisrée dans le hook d'état searchValue
-    const handleSearchChange = (event) => {
-      const { value } = event.target;
-      setSearchValue(value);
-    };
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      //je n'ai pas encore géré l'envoi du data (celui de l'input) utilise on redux? ou props?
-      //react rooter hook
-      navigate('/recherche');
-    } */
     return (
         <div className="homeConnexion" >
+
+            <AppHeader />
 
             <div className="homeConnexion-form">
                 <form>
