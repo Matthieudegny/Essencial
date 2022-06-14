@@ -10,6 +10,8 @@ const HomeConnexion = () => {
                 Ici je suis sur ma page HomeConnexion
             </div>
 
+            <p>testttttttt</p>
+
         </div>
     );
 };
