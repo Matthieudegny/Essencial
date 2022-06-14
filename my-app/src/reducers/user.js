@@ -7,7 +7,7 @@ export const initialState = {
   pseudo: '',
   token: null,
 };
-console.log(initialState.email)
+
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     // case CHANGE_LOGIN_FIELD:
