@@ -5,10 +5,8 @@ import React from "react";
 import '../styles/caroussel.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../styles/caroussel.scss'
 import Slider from "react-slick";
 import MinCard from "../pages/MinCard";
-import { TrendingUpTwoTone } from "@mui/icons-material";
 
 const Caroussel = () => {
 

@@ -19,6 +19,7 @@ import HomeVillage from '../../pages/HomeVillage';
 import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
 
+
 // data, styles et utilitaires
 //import logo from '../../media/logo.svg';
 
