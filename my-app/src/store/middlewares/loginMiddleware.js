@@ -25,6 +25,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
         store.dispatch(
           actionSaveUser(pseudo, token),
         );
+        console.log(token)
       }
       catch (err) {
       // on capture les eventuelles erreur de la requete
