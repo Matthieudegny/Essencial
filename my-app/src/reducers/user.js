@@ -1,7 +1,7 @@
 import { CHANGE_LOGIN_FIELD, LOGOUT, SAVE_USER } from '../actions/user';
 
 export const initialState = {
-  email: 'bouclierman@herocorp.io', // '',
+  email: '',
   password: 'jennifer', // '',
   isLogged: false,
   pseudo: '',
