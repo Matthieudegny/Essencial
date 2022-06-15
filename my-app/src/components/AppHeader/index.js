@@ -6,9 +6,10 @@ import './style.scss';
 
 function AppHeader() {
   const dispatch = useDispatch();
-  // const email = useSelector((state) => state.user.email);
-  // const password = useSelector((state) => state.user.password);
-  // const isLogged = useSelector((state) => state.user.isLogged);
+  const email = useSelector((state) => state.email);
+  const password = useSelector((state) => state.password);
+  const isLogged = useSelector((state) => state.isLogged);
+
 
   return (
     <header className="header">
