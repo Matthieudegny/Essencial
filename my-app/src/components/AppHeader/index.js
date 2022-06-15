@@ -19,7 +19,7 @@ function AppHeader() {
         email={email}
         password={password}
         changeField={(value, inputName) => {
-          console.log('changeField', { value, inputName });
+          //console.log('changeField', { value, inputName });
           dispatch(
             actionChangeLoginField(value, inputName),
           );

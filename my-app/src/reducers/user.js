@@ -9,7 +9,7 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
-  console.log(state,'log du reducer user');//ici le state est ok 
+  //console.log(state,'log du reducer user');//ici le state est ok 
   switch (action.type) {
     case CHANGE_LOGIN_FIELD:
       return {
