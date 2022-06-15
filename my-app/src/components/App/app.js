@@ -21,7 +21,7 @@ import Contact from '../../pages/Contact';
 
 
 // data, styles et utilitaires
-//import logo from '../../media/logo.svg';
+
 
 import '../../styles/index.scss';
 import Navigation from '../Navigation';
