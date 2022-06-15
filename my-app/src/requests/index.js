@@ -34,16 +34,27 @@ export async function requestLogin(email, password) {
     //paramétrage du CORS object dans post -> 
     //"email": "exemple@gmail.com", 
     //"password": "kldshfksh"
-    email, 
-    password
+    email,
+    password,
   });
   console.log(response)
-  return response;
+  return response.data;
 }
 
-export async function requestFavorites() {
-  // ici l'instance axios connait la baseURL, et connais le header authorization,
-  // donc il n'est pas necessaire de redonner le token
-  const response = await axiosInstance.get('/favorites');
+export async function requestInscriptionForm(name, firstname, email, pseudo, address, zip_code, state, path) {
+  // on utilise notre instance personnalisé de axios, donc on a pas besoin
+  // de preciser la baseURL ("http://localhost:3001")
+  //console.log("je me connecte à l'API d'Arthur 'https://essencial-api.herokuapp.com' ");
+  const response = await axiosInstance.post('/api/user/create', {
+    //paramétrage du CORS object dans post -> 
+    name,
+    firstname,
+    email,
+    pseudo,
+    address,
+    zip_code,
+    state,
+    path,
+  });
   return response.data;
 }
