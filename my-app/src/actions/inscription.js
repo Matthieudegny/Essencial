@@ -1,7 +1,7 @@
 export const CHANGE_LOGIN_FIELD = 'CHANGE_LOGIN_FIELD';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const SAVE_USER = 'SAVE_USER';
-export const LOGOUT = 'LOGOUT';
+
 
 /**
  * action pour demander à changer les valeur de mon formulaire login
@@ -34,4 +34,3 @@ export const actionSaveUser = (pseudo, token) => ({
   },
 });
 
-export const actionLogout = () => ({ type: LOGOUT });
