@@ -1,12 +1,22 @@
 
 .login-form {
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 25vw;
+ 
   &-element {
-    margin:1em;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    margin: auto;
+
+    h2{
+      color: black;
+    }
   }
 
   &-message {
@@ -21,7 +31,7 @@
 
   &-button {
     
-    font-size: 0.5em;
+    font-size: 0.6em;
     color: 3333;
     border-radius: .3em;
     border: 0;
