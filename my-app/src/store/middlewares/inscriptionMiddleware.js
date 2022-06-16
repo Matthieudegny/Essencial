@@ -12,11 +12,12 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
      const state = store.getState();
      console.log(store.getState(),'stateinscription')
      //je recupere mon state dans le reducer .inscription 
-     const { last_name, first_name, email, pseudo, address, region, zip_code, path } = state.inscription;
+    console.log('logstate.inscription',state.inscription);
+     const { last_name, first_name, email, pseudo, password, address, region, zip_code, city, path } = state.inscription;
      
      
     
-     console.log('je fait mon getState pour recuperer', { last_name, first_name, email, pseudo, address, region, zip_code, path});
+     console.log('je fait mon getState pour recuperer', { last_name, first_name, email, pseudo, password, address, region, zip_code, city, path});
 
      try {
        // on execute la requete POST /createUser
@@ -25,8 +26,8 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
 
 // !!! ici se trouve le soucis + +++
 
-         const { last_name, first_name, email, pseudo, address, region,  zip_code, path } = await requestInscriptionForm(/* last_name, first_name, email, pseudo, address, zip_code, path */);
-         console.log("la requete est terminé et j'ai récupéré:", { last_name, first_name, email, pseudo, address, region, zip_code,  path });
+         const { user, photo} = await requestInscriptionForm( last_name, first_name, email, pseudo, password, address, region, zip_code, city, path );
+         console.log("la requete est terminé et j'ai récupéré:", { user,photo});
 
 
 
@@ -34,7 +35,7 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
         
          console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
          store.dispatch(
-           actionSaveUser(last_name, first_name, email, pseudo, address, region, zip_code, path),
+           actionSaveUser(last_name, first_name, email, pseudo, password, address, region, zip_code, city, path),
          );
        }
        catch (err) {
