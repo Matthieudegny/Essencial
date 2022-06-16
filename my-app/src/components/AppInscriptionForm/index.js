@@ -8,14 +8,14 @@ import './style.scss';
 function AppInscriptionForm() {
   const dispatch = useDispatch();
 
-  const name = useSelector((state) => state.inscription.name);
-  const firstname = useSelector((state) => state.inscription.firstname);
+  const last_name = useSelector((state) => state.inscription.last_name);
+  const first_name = useSelector((state) => state.inscription.first_name);
   const email = useSelector((state) => state.inscription.email);
   const pseudo = useSelector((state) => state.inscription.pseudo);
   const password = useSelector((state) => state.inscription.password);
   const address = useSelector((state) => state.inscription.address);
   const zip_code = useSelector((state) => state.inscription.zip_code);
- /*  const state = useSelector((state) => state.inscription.state); */
+  const region = useSelector((state) => state.inscription.region);
   const path = useSelector((state) => state.inscription.path);
 
   return (
@@ -24,14 +24,14 @@ function AppInscriptionForm() {
       {/* ! info a supprimer si tout est ok ! name, firstname, email, pseudo, password, address, zipcode, state, path */}
 
       <InscriptionForm
-        name={name}
-        firstname={firstname}
+        last_name={last_name}
+        first_name={first_name}
         email={email}
         pseudo={pseudo}
         password={password}
         address={address}
         zip_code={zip_code}
-        /* state={state} */
+        region={region} 
         path={path}
         changeField={(value, inputName) => {
           //console.log('changeField', { value, inputName });
