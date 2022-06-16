@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
+
 import Field from './Field';
 
 import './style.scss';
-import { useEffect } from 'react';
 
 function LoginForm({
   email,
@@ -13,7 +13,6 @@ function LoginForm({
   isLogged,
   loggedMessage,
 }) {
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
@@ -22,8 +21,6 @@ function LoginForm({
   return (
     <div className="login-form">
       {isLogged && (
-
-
         <div className="login-form-logged">
           <p className="login-form-message">
             {loggedMessage}
@@ -34,15 +31,12 @@ function LoginForm({
             onClick={handleLogout}
           >
             Déconnexion
-          </button> 
-          
-         </div>
+          </button>
+        </div>
       )}
       {!isLogged && (
 
         <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-
-          <h2>Se connecter</h2>
           <Field
             name="email"
             placeholder="Adresse Email"
@@ -60,7 +54,7 @@ function LoginForm({
             type="submit"
             className="login-form-button"
           >
-            Valider
+            OK
           </button>
         </form>
       )}

@@ -21,10 +21,12 @@ const loginMiddleware = (store) => (next) => async (action) => {
         //j'ai enlevé le response.data dans request l31 -> pour récupérer l'objet data complet de l'API et non juste logged,pseudo,token
         console.log("la requete est terminé et j'ai récupéré:", { logged, pseudo, token });
         //console.log(reponse)
+        console.log(token);
         console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
         store.dispatch(
           actionSaveUser(pseudo, token),
         );
+        console.log(token)
       }
       catch (err) {
       // on capture les eventuelles erreur de la requete

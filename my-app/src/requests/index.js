@@ -38,7 +38,7 @@ export async function requestLogin(email, password) {
     password
   });
   console.log(response)
-  return response;
+  return response.data;
 }
 
 export async function requestFavorites() {
