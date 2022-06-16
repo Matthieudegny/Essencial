@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Field from './Field';
-
+//import { useSelector, useDispatch } from 'react-redux';
 import './style.scss';
 import { useEffect } from 'react';
 
@@ -13,10 +13,12 @@ function LoginForm({
   isLogged,
   loggedMessage,
 }) {
+  //const readytoberedirect = useSelector((state) => state.user.isLogged);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
+    // if(readytoberedirect) console.log("prê à etre redirigé")
   };
 
   return (
