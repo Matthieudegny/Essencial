@@ -9,7 +9,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
       console.log("loginMiddleware j'ai intercepté SUBMIT_LOGIN");
 
       const state = store.getState();
-      const { email, password } = state;
+      const { email, password } = state.user;
       console.log('je fait mon getState pour recuperer', { email, password });
 
       try {

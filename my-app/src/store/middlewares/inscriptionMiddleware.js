@@ -1,6 +1,6 @@
 
 import {SUBMIT_FORM, actionSaveUser /* SAVE_USER, */} from '../../actions/inscription';
-import {requestInscriptionForm,  /* saveAuthorization, */ } from '../../requests/index';
+import {requestInscriptionForm,  /* saveAuthorization, */ } from '../../requests/';
 
 const inscriptionMiddleware = (store) => (next) => async (action) => {
  switch (action.type) {
@@ -10,8 +10,8 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
      
 
      const state = store.getState();
-     console.log(state);
-     const { name, firstname, email, pseudo, address, zip_code, path } = state;
+     console.log(store.getState(),'stateinscription')
+     const { name, firstname, email, pseudo, address, zip_code, path } = state.inscription;
      
      
     
@@ -20,9 +20,17 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
      try {
        // on execute la requete POST /createUser
          console.log('je lance ma requete create user');
-         const { name, firstname, email, pseudo, address, zip_code, path} = await requestInscriptionForm(name, firstname, email, pseudo, address, zip_code, path);
+
+
+//   !!! ici se trouve le soucis
+
+         const { name, firstname, email, pseudo, address, zip_code, path } = await requestInscriptionForm(name, firstname, email, pseudo, address, zip_code, path);
          console.log("la requete est terminé et j'ai récupéré:", { name, firstname, email, pseudo, address, zip_code,  path });
- 
+
+
+
+
+        
          console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
          store.dispatch(
            actionSaveUser(name, firstname, email, pseudo, address, zip_code,  path),
