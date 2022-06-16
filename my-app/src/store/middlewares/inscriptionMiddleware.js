@@ -8,7 +8,7 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
      // on intercepte mon action SUBMIT_FORM
      console.log("loginMiddleware j'ai intercepté SUBMIT_FORM");
      
-
+    //commentaire à supprimer
      const state = store.getState();
      console.log(store.getState(),'stateinscription')
      const { name, firstname, email, pseudo, address, zip_code, path } = state.inscription;
