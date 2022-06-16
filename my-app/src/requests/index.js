@@ -41,17 +41,18 @@ export async function requestLogin(email, password) {
   return response.data;
 }
 
-export async function requestInscriptionForm(name, firstname, email, pseudo, address, zip_code, path) {
+export async function requestInscriptionForm(last_name, first_name, email, pseudo, address,region, zip_code, path) {
   // on utilise notre instance personnalisé de axios, donc on a pas besoin
   // de preciser la baseURL ("http://localhost:3001")
   //console.log("je me connecte à l'API d'Arthur 'https://essencial-api.herokuapp.com' ");
   const response = await axiosInstance.post('/api/user/create', {
     //paramétrage du CORS object dans post -> 
-    name,
-    firstname,
+    last_name,
+    first_name,
     email,
     pseudo,
     address,
+    region,
     zip_code,
     path,
   });

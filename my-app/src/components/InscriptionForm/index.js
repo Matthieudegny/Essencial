@@ -5,12 +5,13 @@ import Field from './Field';
 import './style.scss';
 
 function InscriptionForm({
-  name,
-  firstname,
+  last_name,
+  first_name,
   email,
   pseudo,
   password,
   address,
+  region, 
   zip_code,
   path,
   changeField, // (value, inputName = ["nom","prenom"]) => {}
@@ -26,16 +27,16 @@ function InscriptionForm({
 
       <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
         <Field
-          name="name"
+          name="last_name"
           placeholder="Nom"
           onChange={changeField}
-          value={name}
+          value={last_name}
         />
         <Field
-          name="firstname"
+          name="first_name"
           placeholder="Prenom"
           onChange={changeField}
-          value={firstname}
+          value={first_name}
         />
         <Field
           name="email"
@@ -68,12 +69,12 @@ function InscriptionForm({
           onChange={changeField}
           value={zip_code}
         />
-       {/*  <Field
-          name="state"
+        <Field
+          name="region"
           placeholder="Region"
           onChange={changeField}
-          value={state}
-        /> */}
+          value={region}
+        />
           <Field
           name="path"
           placeholder="Url_image"
@@ -93,14 +94,14 @@ function InscriptionForm({
 }
 
 InscriptionForm.propTypes = {
-  name: PropTypes.string.isRequired,
-  firstname: PropTypes.string.isRequired,
+  last_name: PropTypes.string.isRequired,
+  first_name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   pseudo: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired, 
-  zip_code: PropTypes.string.isRequired,
-  /* state: PropTypes.string.isRequired, */
+  /* zip_code: PropTypes.number.isRequired,  */
+  region: PropTypes.string.isRequired, 
   path: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
    handleForm: PropTypes.func.isRequired, 

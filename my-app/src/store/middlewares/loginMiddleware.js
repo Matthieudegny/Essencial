@@ -9,11 +9,11 @@ const loginMiddleware = (store) => (next) => async (action) => {
       console.log("loginMiddleware j'ai intercepté SUBMIT_LOGIN");
 
       const state = store.getState();
+      //je recupere mon state dans le reducer .user 
       const { email, password } = state.user;
       console.log('je fait mon getState pour recuperer', { email, password });
 
       try {
-
         // on execute la requete POST /login
           console.log('je lance ma requete login');
           const { logged, pseudo, token } = await requestLogin(email, password);
@@ -29,7 +29,6 @@ const loginMiddleware = (store) => (next) => async (action) => {
           console.error(err);
         }
   
-
       return; // on bloque mon action SUBMIT_LOGIN pour ne pas l'envoyer aux reducers
     }
 

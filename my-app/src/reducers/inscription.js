@@ -1,12 +1,13 @@
 import { CHANGE_FORM_FIELD, SAVE_USER } from '../actions/inscription';
 
 export const initialState = {
-  name: 'durand',
-  firstname: 'gaston',
+  last_name: 'durand',
+  first_name: 'gaston',
   email: 'gaston@laposte.net',
   pseudo: 'gastondelaposte',
   password: 'test',
   address: 'rue de la poste',
+  region: 'Elsass',
   zip_code: '67000',
   path: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1189.jpg',
 };
@@ -26,12 +27,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         // on est inscrit donc on sauvegarde les infos du formulaire     
-        name: action.payload.name,
-        firstname: action.payload.firstname,
+        last_name: action.payload.last_name,
+        first_name: action.payload.first_name,
         email: action.payload.email,
         pseudo: action.payload.pseudo,
         password: action.payload.mot_de_passe,
         address: action.payload.address,
+        region: action.payload.region,
         zip_code: action.payload.zip_code,
         path: action.payload.path,
 

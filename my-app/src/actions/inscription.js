@@ -22,19 +22,20 @@ export const actionSubmitForm = () => ({
 
 /**
  * Demande au reducer user de sauvegarder l'utilisateur actuel
- * @param {String} name le nom du user
- * @param {String} firstname le prenom de connection
+ * @param {String} last_name le nom du user
+ * @param {String} first_name le prenom de connection
  * @param {String} email le email de connection
  * @param {String} pseudo le pseudo de connection
  * @param {String} address l'adresse de connection
- * @param {String} zipcode le zipcode de connection
+ * @param {String} region l'adresse de connection
+ * @param {Number} zip_code le zipcode de connection
  * @param {String} path le urlimage de connection
  * @returns
  */
-export const actionSaveUser = (name, firstname, email, pseudo, address, zipcode, path ) => ({
+export const actionSaveUser = (last_name, first_name, email, pseudo, address, region, zip_code, path ) => ({
   type: SAVE_USER,
   payload: {
-    name, firstname, email, pseudo, address, zipcode, path
+    last_name, first_name, email, pseudo, address, region, zip_code, path
   },
 });
 
