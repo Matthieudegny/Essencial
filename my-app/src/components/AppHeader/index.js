@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate} from 'react-router-dom';
 import LoginForm from '../LoginForm';
 import { actionChangeLoginField, actionLogout, actionSubmitLogin } from '../../actions/user';
 import './style.scss';
-
+import { NavLink } from "react-router-dom";
 
 
 function AppHeader() {
@@ -11,6 +12,8 @@ function AppHeader() {
   // const { email } = useSelector((state) => state.user);
   const password = useSelector((state) => state.password);
   const isLogged = useSelector((state) => state.isLogged);
+
+  const navigate = useNavigate();
 
   return (
     <header className="header">
@@ -28,6 +31,7 @@ function AppHeader() {
           console.log('handleLogin');
           dispatch(
             actionSubmitLogin(),
+            navigate('/accueil-utilisateur-connecter')
             // on envoie mon action submitLogin au middleware, pour qu'il declenche la requete de login
           );
         }}
@@ -40,6 +44,11 @@ function AppHeader() {
         }}
         isLogged={isLogged}
       />
+       <div className="inscription">
+                <NavLink to="/accueil-inscription" > 
+                 <span>S'inscrire</span>
+                </NavLink>
+        </div>
     </header>
   );
 }

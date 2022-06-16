@@ -8,22 +8,21 @@ const Sidebar = () => {
     return (
     <div className="sidebar">
 
-     
-       <div className="sidebar-link">
-        <NavLink to="/tutos" > 
-          <span>Tutoriel</span>
-        </NavLink>
-      </div>
-      <div className="sidebar-link">
-        <NavLink to="/amis" > 
-          <span>Amis</span>
-        </NavLink>
-      </div>
-      <div className="sidebar-link">
-        <NavLink to="/eco-village-vue" > 
-          <span>Les Ecovillages</span>
-        </NavLink>
-      </div> 
+      <NavLink className="sidebar-link" to="/tutos" >
+       <div >
+          <span className="sidebar-span">Tutoriel</span>
+        </div>
+      </NavLink>
+      <NavLink className="sidebar-link" to="/amis" > 
+        <div >
+            <span className="sidebar-span">Amis</span>
+        </div>
+      </NavLink>
+      <NavLink className="sidebar-link" to="/eco-village-vue" > 
+        <div >
+            <span className="sidebar-span">Les Ecovillages</span>
+        </div> 
+      </NavLink>
      
     
     </div>    
