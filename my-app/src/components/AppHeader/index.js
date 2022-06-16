@@ -8,10 +8,10 @@ import { NavLink } from "react-router-dom";
 
 function AppHeader() {
   const dispatch = useDispatch();
-  const email = useSelector((state) => state.email);
+  const email = useSelector((state) => state.user.email);
   // const { email } = useSelector((state) => state.user);
-  const password = useSelector((state) => state.password);
-  const isLogged = useSelector((state) => state.isLogged);
+  const password = useSelector((state) => state.user.password);
+  const isLogged = useSelector((state) => state.user.isLogged);
 
   const navigate = useNavigate();
 
