@@ -23,7 +23,7 @@ function AppHeader() {
  
   //useEffect qui se déclenche uniquement qd la veleur isLogged change et redirect est true
   useEffect(() => {
-    if(redirect)navigate('/accueil-utilisateur-connecter')
+    if(redirect)navigate('/accueil')
   }, [isLogged]); 
 
 
@@ -42,12 +42,11 @@ function AppHeader() {
         handleLogin={() => {
           console.log('handleLogin');
           dispatch(
+             // on envoie mon action submitLogin au middleware, pour qu'il declenche la requete de login
             actionSubmitLogin(),
             //je modifie l'état de redirect qui permet au cas ou le isLogged est modifié de permettre le navigate (useEffect)
-            setredirect(true)
-            //si logged istrue pour login alors je redirige avec hook navigate, sinon afficher erreur "id non correspondant"
-            
-            // on envoie mon action submitLogin au middleware, pour qu'il declenche la requete de login
+            setredirect(true)            
+           
           );
         }}
         handleLogout={() => {

@@ -59,7 +59,7 @@ function App() {
             <Routes>
               <Route path="/" element={HomeConnexion()} />
               <Route path="/accueil-inscription" element={HomeInscription()} />
-              <Route path="/accueil-utilisateur-connecter" element={HomeLog()} />
+              <Route path="/accueil" element={HomeLog()} />
               <Route path="/ajouter-un-post" element={Addpost()} />
               <Route path="/amis" element={Friends()} />
               <Route path="/tutos" element={ViewTutos()} />
