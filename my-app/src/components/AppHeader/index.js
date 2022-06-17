@@ -44,10 +44,9 @@ function AppHeader() {
           dispatch(
              // on envoie mon action submitLogin au middleware, pour qu'il declenche la requete de login
             actionSubmitLogin(),
-            //je modifie l'état de redirect qui permet au cas ou le isLogged est modifié de permettre le navigate (useEffect)
-            setredirect(true)            
-           
           );
+          //je modifie l'état de redirect qui permet au cas ou le isLogged est modifié de permettre le navigate (useEffect)
+          setredirect(true)
         }}
         handleLogout={() => {
           console.log('handleLogout');
