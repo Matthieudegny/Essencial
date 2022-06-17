@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
 
 export function saveAuthorization(token) {
   // on va modifier les valeurs par defaut de notre instance axios pour sauvegarder le token
-  axiosInstance.defaults.headers.common.Authorization = `bearer ${token}`;
+  axiosInstance.defaults.headers.common.Authorization = `jwt ${token}`;
 }
 
 export function removeAuthorization() {
@@ -22,6 +22,8 @@ export async function requestRecipesList() {
   const response = await axiosInstance.get('/recipes');
   return response.data;
 } */
+
+// ici ma requete pour le login 
 
 export async function requestLogin(email, password) {
   // on utilise notre instance personnalisé de axios, donc on a pas besoin
@@ -41,11 +43,13 @@ export async function requestLogin(email, password) {
   return response.data;
 }
 
+// ici ma requete pour le formulaire d'inscription
+
 export async function requestInscriptionForm(last_name, first_name, email, pseudo, password, address,region, zip_code, city, path) {
   // on utilise notre instance personnalisé de axios, donc on a pas besoin
   // de preciser la baseURL ("http://localhost:3001")
   //console.log("je me connecte à l'API d'Arthur 'https://essencial-api.herokuapp.com' ");
-  console.log('LOGDEBUG',{
+ /*  console.log('LOGDEBUG',{
     //paramétrage du CORS object dans post -> 
     last_name,
     first_name,
@@ -57,7 +61,7 @@ export async function requestInscriptionForm(last_name, first_name, email, pseud
     zip_code,
     city,
     path,
-  });
+  }); */
   const response = await axiosInstance.post('/api/user/create', {
     //paramétrage du CORS object dans post -> 
     last_name,
@@ -73,4 +77,21 @@ export async function requestInscriptionForm(last_name, first_name, email, pseud
   });
   console.log(response)
   return response.data;
+}
+
+// ici ma requete pour ajouter un post 
+
+export async function requestAddPost( title, content, path) {
+  // on utilise notre instance personnalisé de axios, donc on a pas besoin
+  // de preciser la baseURL ("http://localhost:3001")
+  //console.log("je me connecte à l'API d'Arthur 'https://essencial-api.herokuapp.com' ");
+  const response = await axiosInstance.post('/api/post/create', {
+    //paramétrage du CORS object dans post -> 
+    title,
+    content,
+    path,
+  });
+  console.log(response)
+  return response.data;
+
 }

@@ -40,5 +40,3 @@ export const actionSaveUser = (last_name, first_name, email, pseudo, password, a
     last_name, first_name, email, pseudo, password, address, region, zip_code, city, path
   },
 });
-
-/*pour info a supr si tout est ok  @param {boolean} logged le boolean pour dire qu'il est connecté */
