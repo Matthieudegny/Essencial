@@ -13,6 +13,7 @@ function InscriptionForm({
   address,
   region, 
   zip_code,
+  city,
   path,
   changeField, // (value, inputName = ["nom","prenom"]) => {}
   handleForm,
@@ -70,6 +71,12 @@ function InscriptionForm({
           value={zip_code}
         />
         <Field
+          name="city"
+          placeholder="Ville"
+          onChange={changeField}
+          value={city}
+        />
+        <Field
           name="region"
           placeholder="Region"
           onChange={changeField}
@@ -98,10 +105,11 @@ InscriptionForm.propTypes = {
   first_name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   pseudo: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired, 
   address: PropTypes.string.isRequired, 
-  /* zip_code: PropTypes.number.isRequired,  */
+  zip_code: PropTypes.string.isRequired, 
   region: PropTypes.string.isRequired, 
+  city: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
    handleForm: PropTypes.func.isRequired, 

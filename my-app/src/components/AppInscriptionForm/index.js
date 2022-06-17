@@ -16,6 +16,7 @@ function AppInscriptionForm() {
   const address = useSelector((state) => state.inscription.address);
   const region = useSelector((state) => state.inscription.region);
   const zip_code = useSelector((state) => state.inscription.zip_code);
+  const city = useSelector((state) => state.inscription.city);
   const path = useSelector((state) => state.inscription.path);
 
   return (
@@ -32,6 +33,7 @@ function AppInscriptionForm() {
         address={address}
         region={region} 
         zip_code={zip_code} 
+        city={city}
         path={path}
         changeField={(value, inputName) => {
           //console.log('changeField', { value, inputName });
