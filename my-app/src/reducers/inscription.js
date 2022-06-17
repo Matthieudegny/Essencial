@@ -32,7 +32,7 @@ const reducer = (state = initialState, action = {}) => {
         first_name: action.payload.first_name,
         email: action.payload.email,
         pseudo: action.payload.pseudo,
-        password: action.payload.mot_de_passe,
+        password: action.payload.password,
         address: action.payload.address,
         region: action.payload.region,
         zip_code: action.payload.zip_code,
