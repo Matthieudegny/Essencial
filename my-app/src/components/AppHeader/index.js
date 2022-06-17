@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate} from 'react-router-dom';
 import React, { useState, useEffect  } from 'react';
 import LoginForm from '../LoginForm';
-import { actionChangeLoginField, actionLogout, actionSubmitLogin } from '../../actions/user';
+import { actionChangeLoginField, actionSubmitLogin } from '../../actions/user';
 import './style.scss';
 import { NavLink } from "react-router-dom";
 
@@ -47,13 +47,6 @@ function AppHeader() {
           );
           //je modifie l'état de redirect qui permet au cas ou le isLogged est modifié de permettre le navigate (useEffect)
           setredirect(true)
-        }}
-        handleLogout={() => {
-          console.log('handleLogout');
-          dispatch(
-            actionLogout(),
-            // on envoie l'action LOGOUT au reducer pour qu'il remette tout à 0
-          );
         }}
         isLogged={isLogged}
       />
