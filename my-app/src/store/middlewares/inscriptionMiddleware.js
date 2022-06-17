@@ -24,7 +24,7 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
          console.log('je lance ma requete create user');
 
 
-// !!! ici se trouve le soucis + +++
+
 
          const { user, photo} = await requestInscriptionForm( last_name, first_name, email, pseudo, password, address, region, zip_code, city, path );
          console.log("la requete est terminé et j'ai récupéré:", { user,photo});
