@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate} from 'react-router-dom';
+import React, { useState, useEffect  } from 'react';
 import LoginForm from '../LoginForm';
 import { actionChangeLoginField, actionLogout, actionSubmitLogin } from '../../actions/user';
 import './style.scss';
@@ -13,7 +14,18 @@ function AppHeader() {
   const password = useSelector((state) => state.user.password);
   const isLogged = useSelector((state) => state.user.isLogged);
 
+  //hook pour enregistrer un état qui représente la condition si le use effect doit
+  //se déclencher
+  const [redirect, setredirect] = useState(false);
+
+  //hook de react router pour rediriger
   const navigate = useNavigate();
+ 
+  //useEffect qui se déclenche uniquement qd la veleur isLogged change et redirect est true
+  useEffect(() => {
+    if(redirect)navigate('/accueil')
+  }, [isLogged]); 
+
 
   return (
     <header className="header">
@@ -30,10 +42,11 @@ function AppHeader() {
         handleLogin={() => {
           console.log('handleLogin');
           dispatch(
+             // on envoie mon action submitLogin au middleware, pour qu'il declenche la requete de login
             actionSubmitLogin(),
-            navigate('/accueil-utilisateur-connecter')
-            // on envoie mon action submitLogin au middleware, pour qu'il declenche la requete de login
           );
+          //je modifie l'état de redirect qui permet au cas ou le isLogged est modifié de permettre le navigate (useEffect)
+          setredirect(true)
         }}
         handleLogout={() => {
           console.log('handleLogout');
