@@ -1,6 +1,6 @@
 
-import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, /* SAVE_USER, */} from '../../actions/user';
- import {removeAuthorization, requestLogin,  /* saveAuthorization, */ } from '../../requests';
+import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER, } from '../../actions/user';
+ import {removeAuthorization, requestLogin,  saveAuthorization } from '../../requests';
 
 const loginMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
@@ -33,25 +33,15 @@ const loginMiddleware = (store) => (next) => async (action) => {
       return; // on bloque mon action SUBMIT_LOGIN pour ne pas l'envoyer aux reducers
     }
 
-   /*  case SAVE_USER: {
+     case SAVE_USER: {
       // 1. je sauvegarder le token dans mon instance perso axios
       saveAuthorization(action.payload.token);
 
       // j'envoie l'action SAVE_USER aux reducers
       // avant de faire ma requete, pour ne pas bloquer mon action SAVE_USER
       next(action);
-
-      try {
-        // 2. j'appel ma requete securisé, mais comme j'ai posé le token dans mon instance, ma requete pourra l'utiliser
-        const { favorites } = await requestFavorites();
-        console.log('resultat de la requete favorites=', favorites);
-        store.dispatch(actionSetFavorites(favorites));
-      }
-      catch (err) {
-        console.error(err);
-      }
       break;
-    } */
+    }
 
     case LOGOUT: {
       // on supprime le token de axios

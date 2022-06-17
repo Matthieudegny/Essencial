@@ -36,6 +36,8 @@ function App() {
   console.log(test);
   return (
     <div className="App">
+{/*ici exemple de condition d'affichage de module JSX
+*/}
      {/*  {test && (<header className='App-header'>
   <Navigation />
   </header>) } */}

@@ -1,14 +1,13 @@
 // == Imports
 import React from "react";
+import AppPostForm from "../components/AppPostForm";
 
 
 const Addpost = () => {
     return (
         <div className="home" >
     
-            <div className="homeContent">
-                Ici je suis sur ma page Ajouter un post
-            </div>
+            <AppPostForm />
             
         </div>
     );
