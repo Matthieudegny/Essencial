@@ -8,7 +8,6 @@ function LoginForm({
   password,
   changeField, // (value, inputName = ["email","password"]) => {}
   handleLogin,
-  handleLogout,
   isLogged,
   loggedMessage,
 }) {
@@ -22,20 +21,12 @@ function LoginForm({
     <div className="login-form">
       {isLogged && (
 
-
-        <div className="login-form-logged">
-          <p className="login-form-message">
-            {loggedMessage}
+        <div>
+          <p>
+            Vous êtes bien connecté
           </p>
-          <button
-            type="button"
-            className="login-form-button"
-            onClick={handleLogout}
-          >
-            Déconnexion
-          </button> 
           
-         </div>
+        </div>
       )}
       {!isLogged && (
 
@@ -72,7 +63,6 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
-  handleLogout: PropTypes.func.isRequired,
   isLogged: PropTypes.bool,
   loggedMessage: PropTypes.string,
 };

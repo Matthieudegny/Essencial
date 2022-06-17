@@ -4,7 +4,13 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 25vw;
+  width: 100%;
+  box-shadow: 0px 5px 29px 0px #86B19A;
+
+  & p{
+    color: rgb(10, 10, 10);
+    font-size: 2vw;
+  }
  
   &-element {
     display:flex;
