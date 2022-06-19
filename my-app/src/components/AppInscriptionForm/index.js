@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import InscriptionForm from '../InscriptionForm';
+
 import { actionChangeFormField, actionSubmitForm } from '../../actions/inscription';
 import './style.scss';
 
@@ -22,7 +23,7 @@ function AppInscriptionForm() {
   return (
     <header className="header">
 
-      {/* ! info a supprimer si tout est ok ! name, firstname, email, pseudo, password, address, zipcode, state, path */}
+      
 
       <InscriptionForm
         last_name={last_name}
