@@ -1,9 +1,16 @@
 import { CHANGE_FORM_FIELD, SAVE_USER } from '../actions/inscription';
 
 export const initialState = {
+  name: 'VIllage essencial',
+  last_name_manager: 'durand',
+  first_name_manager: 'ginette',
   last_name: 'durand',
+  description:'lorem ipsum et taratata turlututu ',
   first_name: 'ginette',
+  date_of_birth_manager:'01/06/2022',
   email: 'ginette@laposte.net',
+  phone_number: '07.07.07.07.07',
+  website: 'essencial.com',
   pseudo: 'ginettelaposte',
   password: 'test',
   address: 'rue de la poste',
@@ -27,9 +34,16 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_USER:
       return {
         ...state,
-        // on est inscrit donc on sauvegarde les infos du formulaire     
+        // on est inscrit donc on sauvegarde les infos du formulaire 
+        last_name_manager: action.payload.last_name_manager,   
+        first_name_manager: action.payload.first_name_manager,
+        date_of_birth_manager: action.payload.date_of_birth_manager,
+        website: action.payload.website,
+        phone_number:action.payload.phone_number,
         last_name: action.payload.last_name,
         first_name: action.payload.first_name,
+        name: action.payload.name,
+        description: action.payload.description,
         email: action.payload.email,
         pseudo: action.payload.pseudo,
         password: action.payload.password,

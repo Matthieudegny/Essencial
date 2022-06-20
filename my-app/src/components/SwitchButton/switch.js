@@ -1,25 +1,26 @@
-import { useEffect, useState, useRef } from "react";
-
+/* import { useSelector, useState, } from "react-redux"; */
 import './style.scss';
 
 
 
-const Switch = () => {
 
-  const [value, setValue] = useState(false);
+function Switch({isswitch, setSwitch})  {
+/*   const switchvalue = useSelector((state) => state.switchvalue);
+  console.log(switch); 
+   */
+  
+  
   return (
     <>
     <p>Particulier</p>
       <input 
-      
-        checked={value}
-        onChange={() => setValue(!value)}
+        onChange={() => setSwitch(!isswitch)}
         className="react-switch-checkbox "
         id={`react-switch-new`}
         type="checkbox"
       />
       <label
-        style={{ background: value && '#86B19A' }}
+        style={{ background: isswitch && '#86B19A' }}
         className="react-switch-label"
         htmlFor={`react-switch-new`}
       >

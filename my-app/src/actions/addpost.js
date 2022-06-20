@@ -25,6 +25,8 @@ export const actionSubmitPost = () => ({
  * @param {String} title le titre du post
  * @param {String} content le texte du post
  * @param {String} path l'url de l'image du post
+ * @param {String} category_1 l'url de l'image du post
+ * @param {String} category_2 l'url de l'image du post
  * @returns
  */
 //sauvergarde l'utilisateur 
@@ -35,9 +37,9 @@ export const actionSubmitPost = () => ({
   },
 });
 // sauvegarde le post
-export const actionSavePost = (title, content, path ) => ({
+export const actionSavePost = (title, content, path, category_1, category_2 ) => ({
   type: SAVE_POST,
   payload: {
-    title, content, path
+    title, content, path, category_1, category_2
   },
 });
