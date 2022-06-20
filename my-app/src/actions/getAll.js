@@ -6,9 +6,13 @@ export const actionGetAllUsers = () => ({
   type: GET_ALL_USERS,
 });
 
-export const actionSaveAllUsers = (allUersArray) => ({
-    type: SAVE_ALL_USERS,
-    payload: {allUersArray}
-})
+export const actionSaveAllUsers = (allUsersArray) => {
+    console.log("alors?")
+
+    return  {
+        type: SAVE_ALL_USERS,
+        payload: allUsersArray
+    }
+}
 
 

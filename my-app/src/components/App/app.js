@@ -29,7 +29,6 @@ import Sidebar from '../Sidebar';
 import Footer from '../Footer';
 
 
-
 // == Composant
 function App() {
   const test = true;
@@ -69,13 +68,14 @@ function App() {
               <Route path="/admin" element={Admin()} />
               <Route path="/contact" element={Contact()} />
               <Route path="/eco-village-vue" element={ViewVillage()} />
-              <Route path="/user-vue" element={ViewUser()} />
+              <Route path="/user-vue/:userId" element={<ViewUser />} />
               <Route path="/gestion-de-profil" element={UpdateProfil()} />
               <Route path="/confidentialite" element={Confidentiality()} />
               <Route path="/recherche" element={Research()} />
               <Route path="/home-log-village" element={HomeVillage()} />
             </Routes>
 
+            
 
           </div>
 

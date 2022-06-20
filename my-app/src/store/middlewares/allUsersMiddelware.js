@@ -13,17 +13,12 @@ const allUsersMiddleware = (store) => (next) => async (action) => {
          console.log('je lance ma requete requestGetAllUsers');
          const response = await requestGetAllUSers();
          console.log("la requete est terminé et j'ai récupéré mon tableau de user");
-         console.log(typeof(response.data))
 
-         console.log(response.data)
-        //  const allUers = response.data
-        //  const allUsersArray = Object.entries(allUers)
-        //  console.log(allUsersArray)
 
-        // console.log("je dispatch SAVE_ALL_USERS dans mon reducer allUsers");
-        //  store.dispatch(
-        //    actionSaveAllUsers(allUsersArray),
-        //  );
+        console.log("je dispatch SAVE_ALL_USERS dans mon reducer allUsers");
+         store.dispatch(
+           actionSaveAllUsers(response.data),
+         );
        }
        catch (err) {
        // on capture les eventuelles erreur de la requete
