@@ -71,8 +71,6 @@ const Navigation = () => {
       </NavLink>
 
       <div 
-      onMouseEnter={() => setIsActiveBurger(true)}
-      onMouseLeave={() => setIsActiveBurger(false)}
       className="menu-burger">
         <button  
         // onClick={handleClickBurger}
@@ -80,6 +78,7 @@ const Navigation = () => {
         onMouseLeave={() => setIsActiveBurger(false)}
         className="menu-burger-button">
           <i className="fa fa-solid fa-bars mt-1 menu-burger-button-item"></i> 
+          {/* <i className={`menu-burger-button-item ${isActiveBurger ? 'fa fa-times' : 'fa fa-solid fa-bars mt-1'}`}></i>  */}
         </button>
           <ul 
           onMouseEnter={() => setIsActiveBurger(true)}

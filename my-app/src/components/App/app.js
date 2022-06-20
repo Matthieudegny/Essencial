@@ -18,7 +18,7 @@ import Admin from '../../pages/Admin';
 import HomeVillage from '../../pages/HomeVillage';
 import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
-
+import ViewUser from '../../pages/ViewUser'
 
 // data, styles et utilitaires
 
@@ -69,6 +69,7 @@ function App() {
               <Route path="/admin" element={Admin()} />
               <Route path="/contact" element={Contact()} />
               <Route path="/eco-village-vue" element={ViewVillage()} />
+              <Route path="/user-vue" element={ViewUser()} />
               <Route path="/gestion-de-profil" element={UpdateProfil()} />
               <Route path="/confidentialite" element={Confidentiality()} />
               <Route path="/recherche" element={Research()} />
