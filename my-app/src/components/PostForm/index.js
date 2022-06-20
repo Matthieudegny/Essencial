@@ -75,8 +75,8 @@ InscriptionForm.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  /* category_1: PropTypes.string.isRequired,
-  category_2: PropTypes.string.isRequired, */
+ /*  category_1: PropTypes.string.isRequired,
+  category_2: PropTypes.string.isRequired,  */
   changeField: PropTypes.func.isRequired,
   handleForm: PropTypes.func.isRequired,
 };
