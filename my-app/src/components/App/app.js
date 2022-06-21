@@ -18,7 +18,7 @@ import Admin from '../../pages/Admin';
 import HomeVillage from '../../pages/HomeVillage';
 import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
-
+import ViewUser from '../../pages/ViewUser'
 
 // data, styles et utilitaires
 
@@ -27,7 +27,6 @@ import '../../styles/index.scss';
 import Navigation from '../Navigation';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
-
 
 
 // == Composant
@@ -69,12 +68,14 @@ function App() {
               <Route path="/admin" element={Admin()} />
               <Route path="/contact" element={Contact()} />
               <Route path="/eco-village-vue" element={ViewVillage()} />
+              <Route path="/user-vue/:userId" element={<ViewUser />} />
               <Route path="/gestion-de-profil" element={UpdateProfil()} />
               <Route path="/confidentialite" element={Confidentiality()} />
               <Route path="/recherche" element={Research()} />
               <Route path="/home-log-village" element={HomeVillage()} />
             </Routes>
 
+            
 
           </div>
 

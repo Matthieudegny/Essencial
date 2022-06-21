@@ -122,3 +122,10 @@ export async function requestAddPost(title, content, path) {
   return response.data;
 
 }
+
+export async function requestGetAllUSers() {
+
+  const response = await axiosInstance.get('/api/user')
+
+  return response
+}
