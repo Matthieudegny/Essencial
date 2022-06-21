@@ -32,7 +32,7 @@ const Friends = () => {
                     imageLink={path}
                     pseudo={pseudo}
                     region={region}
-                 />
+                  />
 
                 </NavLink>
                 ))}
