@@ -31,8 +31,8 @@ import Footer from '../Footer';
 
 // == Composant
 function App() {
-  const test = true;
-  console.log(test);
+  /* const test = true;
+  console.log(test); */
   return (
     <div className="App">
 {/*ici exemple de condition d'affichage de module JSX

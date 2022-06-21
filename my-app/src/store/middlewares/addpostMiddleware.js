@@ -22,7 +22,7 @@ const addpostMiddleware = (store) => (next) => async (action) => {
      try {
        // on execute la requete POST /createAddPost
          console.log('je lance ma requete create addPost');
-
+         saveAuthorization(action.payload.token);
 
 
 

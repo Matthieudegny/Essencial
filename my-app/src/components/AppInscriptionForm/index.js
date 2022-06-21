@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import InscriptionForm from '../InscriptionForm';
+
 import { actionChangeFormField, actionSubmitForm } from '../../actions/inscription';
 import './style.scss';
 
@@ -14,15 +15,15 @@ function AppInscriptionForm() {
   const pseudo = useSelector((state) => state.inscription.pseudo);
   const password = useSelector((state) => state.inscription.password);
   const address = useSelector((state) => state.inscription.address);
-  const region = useSelector((state) => state.inscription.region);
   const zip_code = useSelector((state) => state.inscription.zip_code);
   const city = useSelector((state) => state.inscription.city);
+  const region = useSelector((state) => state.inscription.region);
   const path = useSelector((state) => state.inscription.path);
-
+  
   return (
     <header className="header">
 
-      {/* ! info a supprimer si tout est ok ! name, firstname, email, pseudo, password, address, zipcode, state, path */}
+      
 
       <InscriptionForm
         last_name={last_name}
@@ -31,9 +32,9 @@ function AppInscriptionForm() {
         pseudo={pseudo}
         password={password}
         address={address}
-        region={region} 
         zip_code={zip_code} 
         city={city}
+        region={region} 
         path={path}
         changeField={(value, inputName) => {
           //console.log('changeField', { value, inputName });

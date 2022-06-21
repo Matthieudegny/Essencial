@@ -11,6 +11,8 @@ function AppPostForm() {
   const title= useSelector((state) => state.addpost.title);
   const content = useSelector((state) => state.addpost.content);
   const path = useSelector((state) => state.addpost.path);
+  const category_1 = useSelector((state) => state.addpost.category_1);
+  const category_2 = useSelector((state) => state.addpost.category_2);
 
   return (
     <header className="header">
@@ -19,6 +21,8 @@ function AppPostForm() {
         title={title}
         content={content}
         path={path}
+        category_1={category_1}
+        category_2={category_2}
         changeField={(value, inputName) => {
           //console.log('changeField', { value, inputName });
           dispatch(
