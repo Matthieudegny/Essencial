@@ -19,7 +19,7 @@ import HomeVillage from '../../pages/HomeVillage';
 import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
 import ViewUser from '../../pages/ViewUser'
-
+import EcoVillages from '../../pages/EcoVillages';
 // data, styles et utilitaires
 
 
@@ -63,6 +63,7 @@ function App() {
               <Route path="/accueil" element={HomeLog()} />
               <Route path="/ajouter-un-post" element={Addpost()} />
               <Route path="/amis" element={Friends()} />
+              <Route path="/ecoVillages" element={EcoVillages()} />
               <Route path="/tutos" element={ViewTutos()} />
               <Route path="/a-propos" element={About()} />
               <Route path="/admin" element={Admin()} />

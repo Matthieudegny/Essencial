@@ -129,3 +129,10 @@ export async function requestGetAllUSers() {
 
   return response
 }
+
+export async function requestGetAllVillages() {
+
+  const response = await axiosInstance.get('/api/ecovillage')
+
+  return response
+}
