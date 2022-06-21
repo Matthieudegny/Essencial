@@ -2,22 +2,28 @@
 import React from "react";
 import MinCard from "./MinCard";
 import '../styles/viewTutos.scss'
-
+import Caroussel from "../components/Caroussel";
 const ViewTutos = () => {
 
-    const items = []
+  const items = []
 
-    for (let i =0 ; i<9 ; i++) {
-        items.push(< MinCard key={i} />)
-      }
+  for (let i = 0; i < 9; i++) {
+    items.push(< MinCard key={i} />)
+  }
 
-    return (
-        <div className="viewTutos" >
+  return (
+    <div className="viewTutos" >
 
-          {items}
+      <div className="carroussel-container">
+        <Caroussel />
 
-        </div>
-    );
+      </div>
+
+
+      {items}
+
+    </div>
+  );
 };
 
 export default ViewTutos;
