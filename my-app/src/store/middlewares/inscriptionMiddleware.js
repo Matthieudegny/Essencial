@@ -1,6 +1,6 @@
 
 import {SUBMIT_FORM, actionSaveUser /* SAVE_USER, */} from '../../actions/inscription';
-import {requestInscriptionForm,  /* saveAuthorization, */ } from '../../requests/';
+import {requestInscriptionForm /* saveAuthorization, */ } from '../../requests/';
 
 const inscriptionMiddleware = (store) => (next) => async (action) => {
  switch (action.type) {
@@ -13,9 +13,9 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
      console.log(store.getState(),'stateinscription')
      //je recupere mon state dans le reducer .inscription 
     console.log('logstate.inscription',state.inscription);
-     const { last_name, first_name, email, pseudo, password, address, region, zip_code, city, path } = state.inscription;
+     const { last_name, first_name, email, pseudo, password, address, region, zip_code, city, path} = state.inscription;
      
-     
+     //test
     
      console.log('je fait mon getState pour recuperer', { last_name, first_name, email, pseudo, password, address, region, zip_code, city, path});
 
@@ -35,13 +35,14 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
         
          console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
          store.dispatch(
-           actionSaveUser(last_name, first_name, email, pseudo, password, address, region, zip_code, city, path),
+           actionSaveUser( last_name, first_name, email, pseudo, password, address, region, zip_code, city, path),
          );
        }
        catch (err) {
        // on capture les eventuelles erreur de la requete
          console.error(err);
        }
+
  
      return; // on bloque mon action SUBMIT_LOGIN pour ne pas l'envoyer aux reducers
    }

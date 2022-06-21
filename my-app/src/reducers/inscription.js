@@ -7,9 +7,9 @@ export const initialState = {
   pseudo: 'ginettelaposte',
   password: 'test',
   address: 'rue de la poste',
-  region: 'Elsass',
-  city: 'Miami',
   zip_code: '67000',
+  city: 'Miami',
+  region: 'Elsass',
   path: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1189.jpg',
 };
 
@@ -27,16 +27,16 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_USER:
       return {
         ...state,
-        // on est inscrit donc on sauvegarde les infos du formulaire     
+        // on est inscrit donc on sauvegarde les infos du formulaire 
         last_name: action.payload.last_name,
         first_name: action.payload.first_name,
         email: action.payload.email,
         pseudo: action.payload.pseudo,
         password: action.payload.password,
         address: action.payload.address,
-        region: action.payload.region,
         zip_code: action.payload.zip_code,
         city: action.payload.city,
+        region: action.payload.region,
         path: action.payload.path,
 
       };

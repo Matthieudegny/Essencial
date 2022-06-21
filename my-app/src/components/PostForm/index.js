@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import Field from './Field';
+import Select from './Select';
 
 import './style.scss';
 
@@ -8,6 +9,8 @@ function InscriptionForm({
   title,
   content,
   path,
+  category_1,
+  category_2,
   changeField, // (value, inputName = ["nom","prenom"]) => {}
   handleForm,
 }) {
@@ -27,18 +30,32 @@ function InscriptionForm({
           value={title}
         />
         <Field
-        className="content"
+          className="content"
           name="content"
           placeholder="post"
           onChange={changeField}
           value={content}
         />
 
-          <Field
+        <Field
           name="path"
           placeholder="Url de votre image"
           onChange={changeField}
           value={path}
+        />
+
+        <Select
+          name="category_1"
+          value={category_1}
+          onChange={changeField}
+          placeholder="catégorie 1"
+        />
+
+        <Select
+          name="category_2"
+          value={category_2}
+          onChange={changeField}
+          placeholder="catégorie 2"
         />
 
         <button
@@ -54,12 +71,14 @@ function InscriptionForm({
 }
 
 InscriptionForm.propTypes = {
-   
-  title: PropTypes.string.isRequired, 
+
+  title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
+ /*  category_1: PropTypes.string.isRequired,
+  category_2: PropTypes.string.isRequired,  */
   changeField: PropTypes.func.isRequired,
-  handleForm: PropTypes.func.isRequired, 
+  handleForm: PropTypes.func.isRequired,
 };
 
 
