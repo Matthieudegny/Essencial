@@ -13,7 +13,7 @@ const enhancers = composeEnhancers(
 
  applyMiddleware(loginMiddleware, inscriptionMiddleware, inscriptionVillageMiddleware, addpostMiddleware, allUsersMiddleware),
 
-
+);
 const store = createStore(reducer, enhancers);
 console.log(store.getState(),' mon store')
 
