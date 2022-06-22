@@ -35,6 +35,7 @@ const Navigation = () => {
     console.log('handleLogout');
     dispatch(
       actionLogout(),
+      navigate('/')
       // on envoie l'action LOGOUT au reducer pour qu'il remette tout à 0
     );
     //j'envoie une confirmation uniquement si isLogged istrue
@@ -62,9 +63,17 @@ const Navigation = () => {
 
     <div className="nav-logoLinks-container">
 
-      <NavLink to="/">
+      {isLogged ? (
+        <NavLink to="/accueil">
+        <i className="fa fa-home mt-1"></i>        
+      </NavLink>
+      ) : (
+        <NavLink to="/">
         <i className="fa fa-home mt-1"></i>
       </NavLink>
+      )}
+
+      
 
       <NavLink to="/ajouter-un-post">
         <i className="fa fa-edit mt-1 nav-logoLinks-item"></i>

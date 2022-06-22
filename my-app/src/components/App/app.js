@@ -61,6 +61,7 @@ function App() {
               <Route path="/" element={HomeConnexion()} />
               <Route path="/accueil-inscription" element={HomeInscription()} />
               <Route path="/accueil" element={HomeLog()} />
+              <Route path="/home-log-village" element={HomeVillage()} />
               <Route path="/ajouter-un-post" element={Addpost()} />
               <Route path="/amis" element={Friends()} />
               <Route path="/tutos" element={ViewTutos()} />
@@ -72,7 +73,7 @@ function App() {
               <Route path="/gestion-de-profil" element={UpdateProfil()} />
               <Route path="/confidentialite" element={Confidentiality()} />
               <Route path="/recherche" element={Research()} />
-              <Route path="/home-log-village" element={HomeVillage()} />
+              
             </Routes>
 
             

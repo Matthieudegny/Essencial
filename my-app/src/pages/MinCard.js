@@ -12,9 +12,10 @@ const MinCard = ({
      
             <img src={imageLink} alt="user" />
 
-            <h1>{pseudo}</h1>
+            <h1>{pseudo}<i class="fas fa-heart"></i></h1>
 
             <h2>{region}</h2>
+        
 
         </div>
     );

@@ -32,7 +32,7 @@ export async function requestLogin(email, password) {
   // const response = await axiosInstance.post('/login', {
   //   email, password,
   // });
-  const response = await axiosInstance.post('/api/user/connexion', {
+  const response = await axiosInstance.post('/api/connexion', {
     //paramétrage du CORS object dans post -> 
     //"email": "exemple@gmail.com", 
     //"password": "kldshfksh"
