@@ -14,10 +14,7 @@ const ViewTutos = () => {
   return (
     <div className="viewTutos" >
 
-      <div className="carroussel-container">
-        <Caroussel />
-
-      </div>
+  
 
 
       {items}
