@@ -25,17 +25,16 @@ const Friends = () => {
               {usersArray.map(({
                 id, path, pseudo, region
               }) => (
-                <NavLink to={`/user-vue/${id}`} > 
+                <NavLink  key={id} to={`/user-vue/${id}`} > 
  
 
-                 {/*  {console.log(id)} */}
+                 
 
-                  <MinCard
-                    key={id}
+               {   <MinCard                
                     imageLink={path}
                     pseudo={pseudo}
                     region={region}
-                  />
+                  />}
 
                 </NavLink>
                 ))}
