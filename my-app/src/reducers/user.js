@@ -6,6 +6,7 @@ export const initialState = {
   isLogged: false,
   pseudo: '',
   token: null,
+  id:'',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -27,6 +28,7 @@ const reducer = (state = initialState, action = {}) => {
         isLogged: true,
         pseudo: action.payload.pseudo,
         token: action.payload.token,
+        id:  action.payload.id,
         password: '', // on vide le password on a plus besoin de le sauvegarder (SECURITE)
       };
 

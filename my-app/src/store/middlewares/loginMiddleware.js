@@ -16,8 +16,8 @@ const loginMiddleware = (store) => (next) => async (action) => {
       try {
         // on execute la requete POST /login
           console.log('je lance ma requete login');
-          const { logged, pseudo, token } = await requestLogin(email, password);
-          console.log("la requete est terminé et j'ai récupéré:", { logged, pseudo, token });
+          const { logged, pseudo, token, id } = await requestLogin(email, password);
+          console.log("la requete est terminé et j'ai récupéré:", { logged, pseudo, token, id });
 
           console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
           store.dispatch(
