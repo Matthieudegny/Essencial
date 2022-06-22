@@ -42,7 +42,7 @@ export async function requestLogin(email, password) {
     email,
     password,
   });
-  console.log(response)
+  //console.log(response)
   return response.data;
 }
 
@@ -65,7 +65,7 @@ export async function requestInscriptionForm(last_name, first_name, email, pseud
      city,
      path,
    }); */
-  const response = await axiosInstance.post('/api/user/create', {
+  const response = await axiosInstance.post('/api/create', {
     //paramétrage du CORS object dans post -> 
     last_name,
     first_name,
@@ -131,6 +131,13 @@ export async function requestAddPost(title, content, path, category_1, category_
 export async function requestGetAllUSers() {
 
   const response = await axiosInstance.get('/api/user')
+
+  return response
+}
+
+export async function requestGetAllVillages() {
+
+  const response = await axiosInstance.get('/api/ecovillage')
 
   return response
 }

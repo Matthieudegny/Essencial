@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { findUser } from '../selectors/user';
+
 // import '../styles/viewUser.scss'
 
 function ViewTutos()  {
@@ -20,7 +20,7 @@ function ViewTutos()  {
       return testedUser.id === test
     })
     setUser(user)
-   
+   //remplacer find par une requête user/id
   },[userId])
 
     return (
