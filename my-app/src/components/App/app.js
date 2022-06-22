@@ -19,8 +19,10 @@ import HomeVillage from '../../pages/HomeVillage';
 import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
 import ViewUser from '../../pages/ViewUser'
+import EcoVillages from '../../pages/EcoVillages';
+import ViewUser from '../../pages/ViewUser';
+import error404 from '../../pages/error404';
 
-// data, styles et utilitaires
 
 
 import '../../styles/index.scss';
@@ -64,6 +66,7 @@ function App() {
               <Route path="/home-log-village" element={HomeVillage()} />
               <Route path="/ajouter-un-post" element={Addpost()} />
               <Route path="/amis" element={Friends()} />
+              <Route path="/ecoVillages" element={EcoVillages()} />
               <Route path="/tutos" element={ViewTutos()} />
               <Route path="/a-propos" element={About()} />
               <Route path="/admin" element={Admin()} />
@@ -73,7 +76,9 @@ function App() {
               <Route path="/gestion-de-profil" element={UpdateProfil()} />
               <Route path="/confidentialite" element={Confidentiality()} />
               <Route path="/recherche" element={Research()} />
-              
+              <Route path="/home-log-village" element={HomeVillage()} />
+              <Route path="*" element={error404()} />
+
             </Routes>
 
             

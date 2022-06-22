@@ -9,12 +9,17 @@ export const SAVE_USER = 'SAVE_USER';
  * @param {String} inputName le nom de mon input (email|password)
  * @returns
  */
-export const actionChangeFormField = (value, inputName) => ({
-  type: CHANGE_FORM_FIELD,
-  payload: {
-    value, inputName,
-  },
-});
+export const actionChangeFormField = (value, inputName) => {
+  console.log("CHANGE_FORM_FIELD")
+  return {
+    type: CHANGE_FORM_FIELD,
+    payload: {
+      value, inputName,
+    },
+  }
+}
+
+
 //test
 export const actionSubmitForm = () => ({
   type: SUBMIT_FORM,

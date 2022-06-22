@@ -2,7 +2,7 @@
 import React from "react";
 
 
-const About = () => {
+const error404 = () => {
     return (
         <div className="home" >
      
@@ -14,5 +14,5 @@ const About = () => {
     );
 };
 
-export default About;
+export default error404;
 

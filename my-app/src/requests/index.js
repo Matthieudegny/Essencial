@@ -11,7 +11,9 @@ const axiosInstance = axios.create({
 export function saveAuthorization(token) {
   // on va modifier les valeurs par defaut de notre instance axios pour sauvegarder le token
   axiosInstance.defaults.headers.common.Authorization = `jwt ${token}`;
+  
 }
+
 
 export function removeAuthorization() {
   // on supprime le token par defaut de notre instance
@@ -32,6 +34,7 @@ export async function requestLogin(email, password) {
   // const response = await axiosInstance.post('/login', {
   //   email, password,
   // });
+
   const response = await axiosInstance.post('/api/connexion', {
     //paramétrage du CORS object dans post -> 
     //"email": "exemple@gmail.com", 
@@ -39,7 +42,7 @@ export async function requestLogin(email, password) {
     email,
     password,
   });
-  console.log(response)
+  //console.log(response)
   return response.data;
 }
 
@@ -62,7 +65,7 @@ export async function requestInscriptionForm(last_name, first_name, email, pseud
      city,
      path,
    }); */
-  const response = await axiosInstance.post('/api/user/create', {
+  const response = await axiosInstance.post('/api/create', {
     //paramétrage du CORS object dans post -> 
     last_name,
     first_name,
@@ -108,7 +111,7 @@ export async function requestInscriptionFormVillage(name, path, description, web
 
 // ici ma requete pour ajouter un post 
 
-export async function requestAddPost(title, content, path) {
+export async function requestAddPost(title, content, path, category_1, category_2) {
   // on utilise notre instance personnalisé de axios, donc on a pas besoin
   // de preciser la baseURL ("http://localhost:3001")
   //console.log("je me connecte à l'API d'Arthur 'https://essencial-api.herokuapp.com' ");
@@ -117,6 +120,8 @@ export async function requestAddPost(title, content, path) {
     title,
     content,
     path,
+    category_1,
+    category_2,
   });
   console.log(response)
   return response.data;
@@ -126,6 +131,13 @@ export async function requestAddPost(title, content, path) {
 export async function requestGetAllUSers() {
 
   const response = await axiosInstance.get('/api/user')
+
+  return response
+}
+
+export async function requestGetAllVillages() {
+
+  const response = await axiosInstance.get('/api/ecovillage')
 
   return response
 }

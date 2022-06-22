@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { findUser } from '../selectors/user';
 import '../styles/viewUser.scss'
+// import '../styles/viewUser.scss'
+
 
 function ViewTutos()  {
 
@@ -20,7 +22,7 @@ function ViewTutos()  {
       return testedUser.id === test
     })
     setUser(user)
-   
+   //remplacer find par une requête user/id
   },[userId])
 
   console.log(user)

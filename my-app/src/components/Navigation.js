@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actionLogout } from '../actions/user';
 
 const Navigation = () => {
-
   //hook de react router permet de rediriger 
   const navigate = useNavigate();
 
@@ -37,10 +36,12 @@ const Navigation = () => {
       actionLogout(),
       navigate('/')
       // on envoie l'action LOGOUT au reducer pour qu'il remette tout à 0
+      navigate('/')
     );
     //j'envoie une confirmation uniquement si isLogged istrue
     if(isLogged)window.alert("Vous êtes bien déconnecté")
   }
+
 
   return (
   
@@ -102,7 +103,7 @@ const Navigation = () => {
             <NavLink to="/amis">
               <li className="menu-burger-li sideBar">Amis</li>
             </NavLink>
-            <NavLink to="/eco-village-vue">
+            <NavLink to="/ecoVillages">
               <li className="menu-burger-li sideBar">Les éco-villages</li>
             </NavLink>
             <li 
@@ -116,7 +117,7 @@ const Navigation = () => {
 
     <div className="nav-logoConnexion">
       <i className="fas fa-user"></i>
-      Bienvenue pseudo
+      Bienvenue 
     </div>
 
    
