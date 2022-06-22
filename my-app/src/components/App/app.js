@@ -22,12 +22,12 @@ import ViewUser from '../../pages/ViewUser'
 import EcoVillages from '../../pages/EcoVillages';
 import error404 from '../../pages/error404';
 
-
-
 import '../../styles/index.scss';
 import Navigation from '../Navigation';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
+
+//il faut ajouter le token dans app 
 
 
 // == Composant
