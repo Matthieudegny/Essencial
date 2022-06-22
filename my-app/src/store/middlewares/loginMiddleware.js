@@ -1,6 +1,6 @@
 
-import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER, } from '../../actions/user';
- import {removeAuthorization, requestLogin,  saveAuthorization } from '../../requests';
+import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER,GET_INFOS } from '../../actions/user';
+ import {removeAuthorization, requestLogin, requestInfosUser,  saveAuthorization } from '../../requests';
 
 const loginMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
@@ -25,6 +25,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
           );
           localStorage.setItem('token', JSON.stringify(token));
         }
+
         catch (err) {
         // on capture les eventuelles erreur de la requete
           console.error(err);
@@ -48,6 +49,26 @@ const loginMiddleware = (store) => (next) => async (action) => {
       // on supprime le token de axios
       removeAuthorization();
       localStorage.clear();
+      next(action);
+      break;
+    }
+
+    case GET_INFOS: {
+
+      try{
+
+        const infosUser = await requestInfosUser(action.payload.id, action.payload.type);
+        console.log("afsfss?",infosUser)
+      }
+      
+      catch(err){
+
+        console.log("alors?")
+        console.log(err)
+
+      }
+
+     
       next(action);
       break;
     }
