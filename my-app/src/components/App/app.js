@@ -41,25 +41,32 @@ import '../../styles/app.scss'
 
 // == Composant
 function App() {
-
+  const dispatch = useDispatch();
   //1 étape obtenir le token
-  // const tokencoded = localStorage.getItem('token');
- //2 etape décrypter le token (installer le module + code)
-
- //var token = "eyJ0eXAiO.../// jwt token"
-//  const tokenDecoded = jwt_decode(tokencoded);
-//  console.log('ici log decoded',tokenDecoded)
-
- //3 etape créer la requete ds un use effect (requete -> obtenir les infos du user et les save ds le state )
-//  const dispatch = useDispatch();
-//  const idToken = tokenDecoded.id
-//  const id = idToken.toString()
+   const tokencoded = localStorage.getItem('token');
 
 
-// useEffect(() => {
-//   //envoie de la requete avec id + type
-//   dispatch(actiongetinfos(id, tokenDecoded.type))
-// },[])
+
+//je protège mon code avec une condition en cas de non présence du token
+ if(tokencoded){
+   //2 etape décrypter le token (installer le module + code)
+  let tokenDecoded = jwt_decode(tokencoded);
+  console.log(tokenDecoded)
+  const idToken = tokenDecoded.id
+  const id = idToken.toString()
+  //3 etape créer la requete 
+  dispatch(actiongetinfos(id, tokenDecoded.type))
+  }
+
+
+
+useEffect(() => {
+  //envoie de la requete avec id + type
+  
+},[])
+
+
+
  
 
   /* const test = true;
