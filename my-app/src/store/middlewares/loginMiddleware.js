@@ -6,20 +6,20 @@ const loginMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
     case SUBMIT_LOGIN: {
       // on intercepte mon action SUBMIT_LOGIN
-      console.log("loginMiddleware j'ai intercepté SUBMIT_LOGIN");
+      //console.log("loginMiddleware j'ai intercepté SUBMIT_LOGIN");
 
       const state = store.getState();
       //je recupere mon state dans le reducer .user 
       const { email, password } = state.user;
-      console.log('je fait mon getState pour recuperer', { email, password });
+      //console.log('je fait mon getState pour recuperer', { email, password });
 
       try {
         // on execute la requete POST /login
-          console.log('je lance ma requete login');
+          //console.log('je lance ma requete login');
           const { logged, pseudo, token } = await requestLogin(email, password);
-          console.log("la requete est terminé et j'ai récupéré:", { logged, pseudo, token });
+          //console.log("la requete est terminé et j'ai récupéré:", { logged, pseudo, token });
 
-          console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
+          //console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
           store.dispatch(
             actionSaveUser(pseudo, token),
           );

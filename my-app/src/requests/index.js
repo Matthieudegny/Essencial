@@ -32,14 +32,14 @@ export async function requestLogin(email, password) {
   // const response = await axiosInstance.post('/login', {
   //   email, password,
   // });
-  const response = await axiosInstance.post('/api/user/connexion', {
+  const response = await axiosInstance.post('/api/connexion', {
     //paramétrage du CORS object dans post -> 
     //"email": "exemple@gmail.com", 
     //"password": "kldshfksh"
     email,
     password,
   });
-  console.log(response)
+  //console.log(response)
   return response.data;
 }
 
@@ -62,7 +62,7 @@ export async function requestInscriptionForm(last_name, first_name, email, pseud
      city,
      path,
    }); */
-  const response = await axiosInstance.post('/api/user/create', {
+  const response = await axiosInstance.post('/api/create', {
     //paramétrage du CORS object dans post -> 
     last_name,
     first_name,
