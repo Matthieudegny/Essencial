@@ -30,15 +30,15 @@ function Select({
        >
         
         <option value="">--Choisissez une catégorie--</option>
-        <option value="tutoriel">Tutoriel</option>
-        <option value="maison">Maison</option>
-        <option value="alimentation">Alimentation</option>
-        <option value="gestion_de_l_eau">Gestion de l'eau</option>
-        <option value="gestion_des_dechets">Gestion des déchêts</option>
-        <option value="potager">Potager</option>
-        <option value="energie">Energie</option>
+        <option value="Tutoriel">Tutoriel</option>
+        <option value="Maison">Maison</option>
+        <option value="Alimentation">Alimentation</option>
+        <option value="Gestion de l'eau">Gestion de l'eau</option>
+        <option value="Gestion des déchêts">Gestion des déchêts</option>
+        <option value="Potager">Potager</option>
+        <option value="Energie">Energie</option>
       </select>
-
+      {/* const categories = ["Tutoriel","Maison", "Alimentation", "Gestion de l'eau", "Gestion des déchêts", "Potager", "Energie"]; */}
     </div>
   );
 }

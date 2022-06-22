@@ -18,8 +18,8 @@ import Admin from '../../pages/Admin';
 import HomeVillage from '../../pages/HomeVillage';
 import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
-import ViewUser from '../../pages/ViewUser'
-
+import ViewUser from '../../pages/ViewUser';
+import error404 from '../../pages/error404';
 // data, styles et utilitaires
 
 
@@ -73,6 +73,7 @@ function App() {
               <Route path="/confidentialite" element={Confidentiality()} />
               <Route path="/recherche" element={Research()} />
               <Route path="/home-log-village" element={HomeVillage()} />
+              <Route path="*" element={error404()} />
             </Routes>
 
             

@@ -6,16 +6,16 @@ const allUsersMiddleware = (store) => (next) => async (action) => {
  switch (action.type) {
    case GET_ALL_USERS: {
      // on intercepte mon action SUBMIT_LOGIN
-     console.log("allUsersMiddleware j'ai intercepté GET_ALL_USERS");
+     /* console.log("allUsersMiddleware j'ai intercepté GET_ALL_USERS"); */
 
      try {
        // on execute la requete POST /login
-         console.log('je lance ma requete requestGetAllUsers');
+         /* console.log('je lance ma requete requestGetAllUsers'); */
          const response = await requestGetAllUSers();
-         console.log("la requete est terminé et j'ai récupéré mon tableau de user");
+         /* console.log("la requete est terminé et j'ai récupéré mon tableau de user"); */
 
 
-        console.log("je dispatch SAVE_ALL_USERS dans mon reducer allUsers");
+        /* console.log("je dispatch SAVE_ALL_USERS dans mon reducer allUsers"); */
          store.dispatch(
            actionSaveAllUsers(response.data),
          );
