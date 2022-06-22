@@ -20,7 +20,6 @@ import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
 import ViewUser from '../../pages/ViewUser'
 import EcoVillages from '../../pages/EcoVillages';
-import ViewUser from '../../pages/ViewUser';
 import error404 from '../../pages/error404';
 
 

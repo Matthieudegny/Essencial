@@ -36,7 +36,7 @@ const Navigation = () => {
       actionLogout(),
       navigate('/')
       // on envoie l'action LOGOUT au reducer pour qu'il remette tout à 0
-      navigate('/')
+     
     );
     //j'envoie une confirmation uniquement si isLogged istrue
     if(isLogged)window.alert("Vous êtes bien déconnecté")
