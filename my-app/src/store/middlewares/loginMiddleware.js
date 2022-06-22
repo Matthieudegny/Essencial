@@ -59,7 +59,9 @@ const loginMiddleware = (store) => (next) => async (action) => {
 
         const infosUser = await requestInfosUser(action.payload.id, action.payload.type);
 
-      }catch(err){
+      }
+      
+      catch(err){
 
         console.log("alors?")
         console.log(err)

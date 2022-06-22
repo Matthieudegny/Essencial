@@ -145,7 +145,7 @@ export async function requestGetAllVillages() {
 export async function requestInfosUser(id, type) {
   console.log(type, id);
   //const response = await axiosInstance.get(`/api/user/1`)
-  const response = await axiosInstance.get('/api/user/1')
+  const response = await axiosInstance.get(`/api/user/${1}`)
   
   return response
 }
