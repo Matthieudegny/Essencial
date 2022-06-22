@@ -1,8 +1,12 @@
 // == Import
 import React from 'react';
+import { useEffect,useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import '../../styles/app.scss'
-
+import { useSelector, useDispatch } from 'react-redux';
+import jwt_decode from "jwt-decode";
+import { actiongetinfos } from "../../actions/user";
+/*  */
+//===========================================================//
 //Composants
 import HomeLog from '../../pages/HomeLog';
 import Addpost from '../../pages/AddPost';
@@ -22,30 +26,56 @@ import ViewUser from '../../pages/ViewUser'
 import EcoVillages from '../../pages/EcoVillages';
 import error404 from '../../pages/error404';
 
-import '../../styles/index.scss';
+//===========================================================//
 import Navigation from '../Navigation';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
+//sTYLES 
+import '../../styles/index.scss';
+import '../../styles/app.scss'
+
+
 
 //il faut ajouter le token dans app 
 
 
 // == Composant
 function App() {
+
+  //1 étape obtenir le token
+  const tokencoded = localStorage.getItem('token');
+ //2 etape décrypter le token (installer le module + code)
+
+ //var token = "eyJ0eXAiO.../// jwt token"
+ const tokenDecoded = jwt_decode(tokencoded);
+ console.log('ici log decoded',tokenDecoded)
+
+ //3 etape créer la requete ds un use effect (requete -> obtenir les infos du user et les save ds le state )
+ const dispatch = useDispatch();
+ const idToken = tokenDecoded.id
+ const id = idToken.toString()
+
+
+useEffect(() => {
+  //envoie de la requete avec id + type
+  dispatch(actiongetinfos(id, tokenDecoded.type))
+},[])
+ 
+
   /* const test = true;
   console.log(test); */
   return (
     <div className="App">
-{/*ici exemple de condition d'affichage de module JSX
+      {/*ici exemple de condition d'affichage de module JSX
 */}
-     {/*  {test && (<header className='App-header'>
+      {/*  {test && (<header className='App-header'>
   <Navigation />
   </header>) } */}
-       <header className='App-header'>
+      <header className='App-header'>
 
         <Navigation />
 
-      </header> 
+      </header>
 
       <main className='App-main'>
 
@@ -55,7 +85,7 @@ function App() {
 
         <div className='App-main-page'>
 
-       
+
 
           <div className='App-main-page-wall'>
             <Routes>
@@ -80,7 +110,7 @@ function App() {
 
             </Routes>
 
-            
+
 
           </div>
 
