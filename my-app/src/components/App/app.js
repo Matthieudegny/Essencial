@@ -20,7 +20,9 @@ import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
 import ViewUser from '../../pages/ViewUser'
 import EcoVillages from '../../pages/EcoVillages';
-// data, styles et utilitaires
+import ViewUser from '../../pages/ViewUser';
+import error404 from '../../pages/error404';
+
 
 
 import '../../styles/index.scss';
@@ -74,6 +76,7 @@ function App() {
               <Route path="/confidentialite" element={Confidentiality()} />
               <Route path="/recherche" element={Research()} />
               <Route path="/home-log-village" element={HomeVillage()} />
+              <Route path="*" element={error404()} />
             </Routes>
 
             

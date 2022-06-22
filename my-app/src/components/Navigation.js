@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actionLogout } from '../actions/user';
 
 const Navigation = () => {
-
   //hook de react router permet de rediriger 
   const navigate = useNavigate();
 
@@ -41,6 +40,7 @@ const Navigation = () => {
     //j'envoie une confirmation uniquement si isLogged istrue
     if(isLogged)window.alert("Vous êtes bien déconnecté")
   }
+
 
   return (
   
@@ -108,7 +108,7 @@ const Navigation = () => {
 
     <div className="nav-logoConnexion">
       <i className="fas fa-user"></i>
-      Bienvenue pseudo
+      Bienvenue 
     </div>
 
    

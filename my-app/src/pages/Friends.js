@@ -26,7 +26,10 @@ const Friends = () => {
                 id, path, pseudo, region
               }) => (
                 <NavLink to={`/user-vue/${id}`} > 
-  
+ 
+
+                 {/*  {console.log(id)} */}
+
                   <MinCard
                     key={id}
                     imageLink={path}
