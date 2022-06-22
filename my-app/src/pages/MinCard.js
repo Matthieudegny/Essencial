@@ -20,5 +20,5 @@ const MinCard = ({
         </div>
     );
 };
-
+//test
 export default MinCard;
