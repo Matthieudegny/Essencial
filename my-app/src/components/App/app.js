@@ -43,23 +43,23 @@ import '../../styles/app.scss'
 function App() {
 
   //1 étape obtenir le token
-  const tokencoded = localStorage.getItem('token');
+  // const tokencoded = localStorage.getItem('token');
  //2 etape décrypter le token (installer le module + code)
 
  //var token = "eyJ0eXAiO.../// jwt token"
- const tokenDecoded = jwt_decode(tokencoded);
- console.log('ici log decoded',tokenDecoded)
+//  const tokenDecoded = jwt_decode(tokencoded);
+//  console.log('ici log decoded',tokenDecoded)
 
  //3 etape créer la requete ds un use effect (requete -> obtenir les infos du user et les save ds le state )
- const dispatch = useDispatch();
- const idToken = tokenDecoded.id
- const id = idToken.toString()
+//  const dispatch = useDispatch();
+//  const idToken = tokenDecoded.id
+//  const id = idToken.toString()
 
 
-useEffect(() => {
-  //envoie de la requete avec id + type
-  dispatch(actiongetinfos(id, tokenDecoded.type))
-},[])
+// useEffect(() => {
+//   //envoie de la requete avec id + type
+//   dispatch(actiongetinfos(id, tokenDecoded.type))
+// },[])
  
 
   /* const test = true;
