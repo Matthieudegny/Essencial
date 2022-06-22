@@ -52,9 +52,15 @@ const loginMiddleware = (store) => (next) => async (action) => {
     }
 
     case LOGOUT: {
+      //je récupére mon state 
+      const state = store.getState();
+      //je réinitialise mon state 
+       
+
       // on supprime le token de axios
       removeAuthorization();
       localStorage.clear();
+      
       next(action);
       break;
     }

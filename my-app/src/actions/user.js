@@ -36,7 +36,12 @@ export const actionSaveUser = (pseudo, token) => ({
   },
 });
 
-export const actionLogout = () => ({ type: LOGOUT });
+export const actionLogout = () => ({ 
+  type: LOGOUT
+
+
+
+});
 
 export const actiongetinfos = (id,type) => ({
   type: GET_INFOS,
@@ -51,17 +56,3 @@ export const actionSaveInfoForGetInStore = (data) => ({
     data,
   }
 })
-
-/* address: "933 Voie de la Pompe"
-city: "La Seyne-sur-Mer"
-date_of_birth: "1977-07-18T20:31:05.469Z"
-description: null
-email: "Matthias27@gmail.com"
-first_name: "Matthias"
-last_name: "Jacquet"
-path: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/917.jpg"
-phone_number: "0664676766"
-pseudo: "Matthias69"
-region: "Provence-Alpes-Côte d'Azur"
-zip_code: "13861"
- */
