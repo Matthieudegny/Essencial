@@ -1,7 +1,7 @@
 
-import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER,GET_INFOS } from '../../actions/user';
+import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER,GET_INFOS, actionSaveInfoForGetInStore} from '../../actions/user';
  import {removeAuthorization, requestLogin, requestInfosUser,  saveAuthorization } from '../../requests';
-
+ import jwt_decode from "jwt-decode";
 const loginMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
     case SUBMIT_LOGIN: {
@@ -23,6 +23,12 @@ const loginMiddleware = (store) => (next) => async (action) => {
           store.dispatch(
             actionSaveUser(pseudo, token),
           );
+
+          const tokenDecoded = jwt_decode(token);
+          console.log(tokenDecoded);
+          const data = await requestInfosUser(tokenDecoded.id, tokenDecoded.type);
+          store.dispatch(actionSaveInfoForGetInStore(data.data));
+          
           localStorage.setItem('token', JSON.stringify(token));
         }
 
@@ -56,9 +62,9 @@ const loginMiddleware = (store) => (next) => async (action) => {
     case GET_INFOS: {
 
       try{
-
         const infosUser = await requestInfosUser(action.payload.id, action.payload.type);
         console.log("afsfss?",infosUser)
+        store.dispatch(actionSaveInfoForGetInStore(infosUser.data));
       }
       
       catch(err){

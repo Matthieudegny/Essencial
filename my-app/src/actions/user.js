@@ -4,7 +4,7 @@ export const SAVE_USER = 'SAVE_USER';
 export const GET_TOKEN = 'GET_TOKEN';
 export const LOGOUT = 'LOGOUT';
 export const GET_INFOS = 'GET_INFOS';
-
+export const GET_SAVE_INFOS = 'GET_SAVE_INFOS';
 /**
  * action pour demander à changer les valeur de mon formulaire login
  * @param {String} value la valeur de notre input
@@ -44,3 +44,24 @@ export const actiongetinfos = (id,type) => ({
     id, type
   }
 })
+
+export const actionSaveInfoForGetInStore = (data) => ({
+  type: GET_SAVE_INFOS,
+  payload:{
+    data,
+  }
+})
+
+/* address: "933 Voie de la Pompe"
+city: "La Seyne-sur-Mer"
+date_of_birth: "1977-07-18T20:31:05.469Z"
+description: null
+email: "Matthias27@gmail.com"
+first_name: "Matthias"
+last_name: "Jacquet"
+path: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/917.jpg"
+phone_number: "0664676766"
+pseudo: "Matthias69"
+region: "Provence-Alpes-Côte d'Azur"
+zip_code: "13861"
+ */

@@ -1,4 +1,4 @@
-import { CHANGE_LOGIN_FIELD, LOGOUT, SAVE_USER } from '../actions/user';
+import { CHANGE_LOGIN_FIELD, LOGOUT, SAVE_USER, GET_SAVE_INFOS } from '../actions/user';
 
 export const initialState = {
   email: '',
@@ -29,6 +29,14 @@ const reducer = (state = initialState, action = {}) => {
         token: action.payload.token,
         password: '', // on vide le password on a plus besoin de le sauvegarder (SECURITE)
       };
+
+    case GET_SAVE_INFOS:
+      console.log(action.payload.data);
+      return {
+        ...state,
+        email: action.payload.data.email,
+
+      }
 
     case LOGOUT:
       return {
