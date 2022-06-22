@@ -10,7 +10,6 @@ import inscriptionVillageMiddleware from './middlewares/inscriptionVillageMiddle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
-
  applyMiddleware(loginMiddleware, inscriptionMiddleware, inscriptionVillageMiddleware, addpostMiddleware, allUsersMiddleware),
 );
 

@@ -63,6 +63,7 @@ function App() {
               <Route path="/" element={HomeConnexion()} />
               <Route path="/accueil-inscription" element={HomeInscription()} />
               <Route path="/accueil" element={HomeLog()} />
+              <Route path="/home-log-village" element={HomeVillage()} />
               <Route path="/ajouter-un-post" element={Addpost()} />
               <Route path="/amis" element={Friends()} />
               <Route path="/ecoVillages" element={EcoVillages()} />
@@ -77,6 +78,7 @@ function App() {
               <Route path="/recherche" element={Research()} />
               <Route path="/home-log-village" element={HomeVillage()} />
               <Route path="*" element={error404()} />
+
             </Routes>
 
             

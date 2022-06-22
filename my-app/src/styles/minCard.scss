@@ -1,8 +1,10 @@
 .minCard{
-    background-image: url(../media/victor-malyushev-w_N-XCjiM0o-unsplash.jpg);
+    background-color: #86B19A;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    box-shadow: 0px 5px 29px 0px #86B19A;
+    border-radius: 10px;
 
     width: 300px;
     height: 350px;
@@ -12,10 +14,15 @@
     flex-direction: column;
     justify-content: space-around;
 
+    img{
+        padding: 2%;
+    }
+
     h1{
         font-size: 2vw;
         color: white;
         text-shadow: 2px 2px 19px white;
+        
     }
 
     h3{
