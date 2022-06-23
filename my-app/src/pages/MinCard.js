@@ -5,7 +5,8 @@ import '../styles/minCard.scss'
 const MinCard = ({
     imageLink,
     pseudo,
-    region
+    region,
+    description
 }) => {
     return (
         <div className="minCard" >
@@ -16,7 +17,9 @@ const MinCard = ({
              <i className="fas fa-heart"></i>
              </h1>
 
-            <h2>{region}</h2>
+             <h2>{description}</h2>
+
+            <h3>{region}</h3>
         
 
         </div>

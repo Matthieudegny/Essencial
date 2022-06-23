@@ -33,6 +33,7 @@ export const actionSubmitForm = () => ({
  * @param {String} first_name le prenom de connection
  * @param {String} email le email de connection
  * @param {String} pseudo le pseudo de connection
+ * @param {String} description le pseudo de connection
  * @param {String} password le pseudo de connection
  * @param {String} address l'adresse de connection
  * @param {String} zip_code le zipcode de connection
@@ -41,8 +42,8 @@ export const actionSubmitForm = () => ({
  * @param {String} path l'url-image de connection
  * @returns
  */
-export const actionSaveUser = (last_name, first_name, email, pseudo, password, address, zip_code, city, region, path ) => ({
+export const actionSaveUser = (last_name, first_name, email, pseudo, description, password, address, zip_code, city, region, path ) => ({
   type: SAVE_USER,
   payload: {
-    last_name, first_name, email, pseudo, password, address, zip_code, city, region, path },
+    last_name, first_name, email, pseudo, description, password, address, zip_code, city, region, path },
 });

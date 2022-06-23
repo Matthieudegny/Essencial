@@ -13,6 +13,7 @@ function AppInscriptionForm() {
   const first_name = useSelector((state) => state.inscription.first_name);
   const email = useSelector((state) => state.inscription.email);
   const pseudo = useSelector((state) => state.inscription.pseudo);
+  const description = useSelector((state) => state.inscription.description);
   const password = useSelector((state) => state.inscription.password);
   const address = useSelector((state) => state.inscription.address);
   const zip_code = useSelector((state) => state.inscription.zip_code);
@@ -30,6 +31,7 @@ function AppInscriptionForm() {
         first_name={first_name}
         email={email}
         pseudo={pseudo}
+        description={description}
         password={password}
         address={address}
         zip_code={zip_code} 

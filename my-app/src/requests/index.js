@@ -48,7 +48,7 @@ export async function requestLogin(email, password) {
 
 // ici ma requete pour le formulaire d'inscription
 
-export async function requestInscriptionForm(last_name, first_name, email, pseudo, password, address, region, zip_code, city, path) {
+export async function requestInscriptionForm(last_name, first_name, email, pseudo, description, password, address, region, zip_code, city, path) {
   // on utilise notre instance personnalisé de axios, donc on a pas besoin
   // de preciser la baseURL ("http://localhost:3001")
   //console.log("je me connecte à l'API d'Arthur 'https://essencial-api.herokuapp.com' ");
@@ -58,6 +58,7 @@ export async function requestInscriptionForm(last_name, first_name, email, pseud
      first_name,
      email,
      pseudo,
+     description,
      password,
      address,
      region,
@@ -71,6 +72,7 @@ export async function requestInscriptionForm(last_name, first_name, email, pseud
     first_name,
     email,
     pseudo,
+    description,
     password,
     address,
     region,

@@ -1,4 +1,5 @@
 import Field from './Field';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 
@@ -7,6 +8,7 @@ function InscriptionForm({
   first_name,
   email,
   pseudo,
+  description,
   password,
   address,
   zip_code,
@@ -51,6 +53,12 @@ function InscriptionForm({
             placeholder="Pseudo"
             onChange={changeField}
             value={pseudo}
+          />
+          <Field
+            name="description"
+            placeholder="Décrivez-vous en quelques mots"
+            onChange={changeField}
+            value={description}
           />
           <Field
             name="password"
@@ -106,26 +114,21 @@ function InscriptionForm({
 }
 
 InscriptionForm.propTypes = {
- /*  last_name_manager: PropTypes.string.isRequired,
-  first_name_manager: PropTypes.string.isRequired,
+  
   last_name: PropTypes.string.isRequired,
   first_name: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired,
-  phone_number: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  date_of_birth_manager: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   pseudo: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   zip_code: PropTypes.string.isRequired,
-  region: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
+  region: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
-  handleForm: PropTypes.func.isRequired, */
+  handleForm: PropTypes.func.isRequired, 
 };
-
 
 
 export default InscriptionForm;
