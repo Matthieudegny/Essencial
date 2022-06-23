@@ -4,7 +4,7 @@ export const SAVE_USER = 'SAVE_USER';
 export const GET_TOKEN = 'GET_TOKEN';
 export const LOGOUT = 'LOGOUT';
 export const GET_INFOS = 'GET_INFOS';
-
+export const GET_SAVE_INFOS = 'GET_SAVE_INFOS';
 /**
  * action pour demander à changer les valeur de mon formulaire login
  * @param {String} value la valeur de notre input
@@ -36,11 +36,23 @@ export const actionSaveUser = (pseudo, token) => ({
   },
 });
 
-export const actionLogout = () => ({ type: LOGOUT });
+export const actionLogout = () => ({ 
+  type: LOGOUT
+
+
+
+});
 
 export const actiongetinfos = (id,type) => ({
   type: GET_INFOS,
   payload:{
     id, type
+  }
+})
+
+export const actionSaveInfoForGetInStore = (data) => ({
+  type: GET_SAVE_INFOS,
+  payload:{
+    data,
   }
 })

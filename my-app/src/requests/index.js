@@ -65,7 +65,7 @@ export async function requestInscriptionForm(last_name, first_name, email, pseud
      city,
      path,
    }); */
-  const response = await axiosInstance.post('/api/create', {
+  const response = await axiosInstance.post('/api/user/create', {
     //paramétrage du CORS object dans post -> 
     last_name,
     first_name,

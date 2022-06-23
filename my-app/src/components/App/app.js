@@ -41,6 +41,20 @@ import '../../styles/app.scss'
 
 // == Composant
 function App() {
+  const dispatch = useDispatch();
+  const token = localStorage.getItem('token');
+  
+  //useEffect On utilise ce Hook pour indiquer à React que notre composant doit exécuter quelque chose après chaque affichage
+  useEffect(() => {
+    if (token !== null) {
+      //1 étape decoder le token avec jwt_decode
+      const user = jwt_decode(token);
+      //* si j'ai besoin d'afficher un loading (spinner) ou de ne pas afficher un composant le temps de savoir si un user est co, je lance ce dispatch
+      console.log(user);
+      //on envoie l'action getinfos au store avec dispatch 
+      dispatch(actiongetinfos(user.id, user.type));
+    } 
+  }, []);
 
   //1 étape obtenir le token
   // const tokencoded = localStorage.getItem('token');
