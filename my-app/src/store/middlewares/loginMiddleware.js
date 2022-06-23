@@ -1,7 +1,8 @@
 
-import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER,GET_INFOS, actionSaveInfoForGetInStore} from '../../actions/user';
- import {removeAuthorization, requestLogin, requestInfosUser,  saveAuthorization } from '../../requests';
- import jwt_decode from "jwt-decode";
+import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER, GET_INFOS, actionSaveInfoForGetInStore, SAVE_VILLAGE, actionSaveVillage} from '../../actions/user';
+import {removeAuthorization, requestLogin, requestInfosUser,  saveAuthorization } from '../../requests';
+import jwt_decode from "jwt-decode";
+ 
 const loginMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
     case SUBMIT_LOGIN: {
@@ -19,9 +20,11 @@ const loginMiddleware = (store) => (next) => async (action) => {
           const { logged, pseudo, token } = await requestLogin(email, password);
           console.log("la requete est terminé et j'ai récupéré:", { logged, pseudo, token });
 
+    
           //console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
           store.dispatch(
             actionSaveUser(pseudo, token),
+            
           );
 
           const tokenDecoded = jwt_decode(token);
@@ -31,12 +34,12 @@ const loginMiddleware = (store) => (next) => async (action) => {
           
           localStorage.setItem('token', JSON.stringify(token));
         }
-
         catch (err) {
-        // on capture les eventuelles erreur de la requete
-          console.error(err);
-          window.alert("Un problème est survenu lors de votre connexion, veuillez vérifier votre identifiant et votre mot de passe, en cas de besoin vous pouvez utiliser Essencial en mode visiteur ou contacter nos developpeur via le formulaire Contact ")
-        }
+          // on capture les eventuelles erreur de la requete
+            console.error(err);
+            window.alert("Un problème est survenu lors de votre connexion, veuillez vérifier votre identifiant et votre mot de passe, en cas de besoin vous pouvez utiliser Essencial en mode visiteur ou contacter nos developpeur via le formulaire Contact ")
+          }
+       
      
       return; // on bloque mon action SUBMIT_LOGIN pour ne pas l'envoyer aux reducers
     }
@@ -47,6 +50,13 @@ const loginMiddleware = (store) => (next) => async (action) => {
       
       // j'envoie l'action SAVE_USER aux reducers
       // avant de faire ma requete, pour ne pas bloquer mon action SAVE_USER
+      next(action);
+      break;
+    }
+
+    case SAVE_VILLAGE: {
+      saveAuthorization(action.payload.token);
+
       next(action);
       break;
     }

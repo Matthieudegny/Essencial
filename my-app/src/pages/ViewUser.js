@@ -25,7 +25,7 @@ function ViewTutos()  {
    //remplacer find par une requête user/id
   },[userId])
 
-  console.log(user)
+  console.log("ici",user)
 
     return (
         <div className="viewUser" >
@@ -33,9 +33,13 @@ function ViewTutos()  {
           {user && (
             <>
               <img src={user.path} alt="user" />
-              <h1>First Name = {user.first_name}</h1>
-              <h1>Last Name = {user.last_name}</h1>
+              {/* <h1>First Name = {user.first_name}</h1>
+              <h1>Last Name = {user.last_name}</h1> */}
+
               <h1>Pseudo = {user.pseudo}</h1>
+              <h2>Region = {user.pseudo} </h2>
+              <h3>Description = {user.description} </h3>
+
             </>
           )}
 

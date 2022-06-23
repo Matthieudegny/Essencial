@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect  } from 'react';
 import MinCard from "./MinCard";
 import { actionGetAllUsers } from '../actions/getAll';
-import { NavLink } from "react-router-dom";
 import '../styles/friends.scss'
 
 const Friends = () => {
@@ -25,18 +24,14 @@ const Friends = () => {
               {usersArray.map(({
                 id, path, pseudo, region
               }) => (
-                <NavLink  key={id} to={`/user-vue/${id}`} > 
- 
 
-                 
-
-               {   <MinCard                
+                  <MinCard                
                     imageLink={path}
                     pseudo={pseudo}
                     region={region}
-                  />}
+                    id={id}
+                  />
 
-                </NavLink>
                 ))}
             </>
           ) : (

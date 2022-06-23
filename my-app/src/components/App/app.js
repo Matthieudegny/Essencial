@@ -4,7 +4,8 @@ import { useEffect,useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { actiongetinfos } from "../../actions/user";
+import { actiongetinfos,actionSaveInfoForGetInStore } from "../../actions/user";
+
 /*  */
 //===========================================================//
 //Composants
@@ -53,28 +54,9 @@ function App() {
       console.log(user);
       //on envoie l'action getinfos au store avec dispatch 
       dispatch(actiongetinfos(user.id, user.type));
+      dispatch(actionSaveInfoForGetInStore(user));
     } 
   }, []);
-
-  //1 étape obtenir le token
-  // const tokencoded = localStorage.getItem('token');
- //2 etape décrypter le token (installer le module + code)
-
- //var token = "eyJ0eXAiO.../// jwt token"
-//  const tokenDecoded = jwt_decode(tokencoded);
-//  console.log('ici log decoded',tokenDecoded)
-
- //3 etape créer la requete ds un use effect (requete -> obtenir les infos du user et les save ds le state )
-//  const dispatch = useDispatch();
-//  const idToken = tokenDecoded.id
-//  const id = idToken.toString()
-
-
-// useEffect(() => {
-//   //envoie de la requete avec id + type
-//   dispatch(actiongetinfos(id, tokenDecoded.type))
-// },[])
- 
 
   /* const test = true;
   console.log(test); */

@@ -149,5 +149,5 @@ export async function requestInfosUser(id, type) {
   const response = await axiosInstance.get(`/api/${type}/${id}`)
   //const response = await axiosInstance.get('/api/user/1')
  
-  return response
+  return response.data
 }

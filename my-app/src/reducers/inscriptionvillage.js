@@ -9,7 +9,7 @@ export const initialState = {
   zip_code: '67000',
   city: 'Miami',
   region: 'Elsass',
-  last_name_manager: 'duchmol',
+  last_name_manager: '',
   first_name_manager: 'alain',
   date_of_birth_manager: '01/06/2022',
   phone_number: '0707070707',

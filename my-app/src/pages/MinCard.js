@@ -1,28 +1,28 @@
 // == Imports
 import React from "react";
 import '../styles/minCard.scss'
-
+import { NavLink } from "react-router-dom";
 const MinCard = ({
     imageLink,
     pseudo,
     region,
-    description
+    id
+
 }) => {
     return (
         <div className="minCard" >
-     
-            <img src={imageLink} alt="user" />
-
-            <h1>{pseudo}
-             <i className="fas fa-heart"></i>
-             </h1>
-
-             <h2>{description}</h2>
+            {/* attention au image link  */}
+            <NavLink key={id} to={`/user-vue/${id}`} >
+                <img src={imageLink} alt="user" />
+            </NavLink>
+            <h1>{pseudo}  </h1>
 
             <h3>{region}</h3>
-        
+            <i className="fas fa-heart heart"></i>
 
         </div>
+
+
     );
 };
 

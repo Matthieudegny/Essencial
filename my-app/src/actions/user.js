@@ -5,6 +5,7 @@ export const GET_TOKEN = 'GET_TOKEN';
 export const LOGOUT = 'LOGOUT';
 export const GET_INFOS = 'GET_INFOS';
 export const GET_SAVE_INFOS = 'GET_SAVE_INFOS';
+export const SAVE_VILLAGE = 'SAVE_VILLAGE';
 /**
  * action pour demander à changer les valeur de mon formulaire login
  * @param {String} value la valeur de notre input
@@ -26,6 +27,7 @@ export const actionSubmitLogin = () => ({
  * Demande au reducer user de sauvegarder l'utilisateur actuel
  * @param {boolean} logged le boolean pour dire qu'il est connecté
  * @param {String} pseudo le pseudo du user
+ * @param {String} name le name de eco-village
  * @param {String} token le token de connection
  * @returns
  */
@@ -33,6 +35,13 @@ export const actionSaveUser = (pseudo, token) => ({
   type: SAVE_USER,
   payload: {
     pseudo, token,
+  },
+});
+
+export const actionSaveVillage = (name, token) => ({
+  type : SAVE_VILLAGE,
+  payload: {
+    name, token,
   },
 });
 

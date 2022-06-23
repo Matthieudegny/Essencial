@@ -1,4 +1,4 @@
-import { CHANGE_LOGIN_FIELD, LOGOUT, SAVE_USER, GET_SAVE_INFOS } from '../actions/user';
+import { CHANGE_LOGIN_FIELD, LOGOUT, SAVE_USER, SAVE_VILLAGE, GET_SAVE_INFOS } from '../actions/user';
 
 export const initialState = {
   email: '',
@@ -30,12 +30,25 @@ const reducer = (state = initialState, action = {}) => {
         password: '', // on vide le password on a plus besoin de le sauvegarder (SECURITE)
       };
 
+      case SAVE_VILLAGE:
+        return {
+          ...state,
+          isLogged: true,
+          email: action.payload.data.email,
+          name: action.payload.name,
+          token: action.payload.token,
+          password: '',
+        };
+
     case GET_SAVE_INFOS:
-      console.log(action.payload.data);
+      console.log('blalbla',action.payload.data);
       return {
         ...state,
+        isLogged: true,
         email: action.payload.data.email,
-
+        pseudo:action.payload.data.pseudo,
+        token: action.payload.data.token,
+        name: action.payload.data.name,
       }
 
     case LOGOUT:
