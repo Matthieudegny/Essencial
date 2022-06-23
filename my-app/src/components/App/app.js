@@ -4,13 +4,14 @@ import { useEffect,useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { actiongetinfos } from "../../actions/user";
+import { actiongetinfos, actionSaveInfoForGetInStore } from "../../actions/user";
 /*  */
 //===========================================================//
 //Composants
 import HomeLog from '../../pages/HomeLog';
 import Addpost from '../../pages/AddPost';
 import Friends from '../../pages/Friends';
+import Members from '../../pages/Members';
 import ViewTutos from '../../pages/ViewTutos';
 import About from '../../pages/About';
 import HomeConnexion from '../../pages/HomeConnexion';
@@ -53,6 +54,7 @@ function App() {
       console.log(user);
       //on envoie l'action getinfos au store avec dispatch 
       dispatch(actiongetinfos(user.id, user.type));
+      dispatch(actionSaveInfoForGetInStore(user));
     } 
   }, []);
 
@@ -109,6 +111,7 @@ function App() {
               <Route path="/home-log-village" element={HomeVillage()} />
               <Route path="/ajouter-un-post" element={Addpost()} />
               <Route path="/amis" element={Friends()} />
+              <Route path="/membres" element={Members()} />
               <Route path="/ecoVillages" element={EcoVillages()} />
               <Route path="/tutos" element={ViewTutos()} />
               <Route path="/a-propos" element={About()} />

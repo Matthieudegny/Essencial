@@ -33,7 +33,7 @@ function AppPostForm() {
           console.log('handleForm');
           dispatch(
             actionSubmitPost(),
-            // on envoie mon action submitForm au middleware, pour qu'il declenche la requete pour ajouter le post
+            // on envoie mon action submitPos au middleware, pour qu'il declenche la requete pour ajouter le post
           );
         }}
 

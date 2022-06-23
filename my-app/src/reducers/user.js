@@ -24,7 +24,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         // on est connecté donc on sauvegarde le pseudo, et on met isLogged=true
-        isLogged: true,
         pseudo: action.payload.pseudo,
         token: action.payload.token,
         password: '', // on vide le password on a plus besoin de le sauvegarder (SECURITE)
@@ -34,8 +33,11 @@ const reducer = (state = initialState, action = {}) => {
       console.log(action.payload.data);
       return {
         ...state,
+        isLogged: true,
         email: action.payload.data.email,
-
+        pseudo: action.payload.data.pseudo,
+        token: action.payload.data.token,
+        name: action.payload.data.name,
       }
 
     case LOGOUT:
