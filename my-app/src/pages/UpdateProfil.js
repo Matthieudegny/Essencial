@@ -1,53 +1,58 @@
 // == Imports
 import React, {  useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import Field from '../components/InscriptionForm/Field';
-import {  actionChangeFormField } from '../actions/inscription';
-import InscriptionForm from "../components/InscriptionForm";
+import {  actionChangeUpdateProfileUser } from '../actions/updateProfile';
+
 
 
 const UpdateProfil = () => {
     const dispatch = useDispatch();
 
-    const email = useSelector((state) => state.user.email);
-    const isLogged = useSelector((state) => state.user.isLogged);
-    const villageArray = useSelector((state) => state.allUsers.allVillages);
-    const userArray = useSelector((state) => state.allUsers.allUsers);
-  
+    // const email = useSelector((state) => state.user.email);
+    // const isLogged = useSelector((state) => state.user.isLogged);
+    // const villageArray = useSelector((state) => state.allUsers.allVillages);
+    // const userArray = useSelector((state) => state.allUsers.allUsers);
 
-    //je cérifies si cest un utilisateur classique ou eco village
-    //je fais une comparaison avec la BDD ecoVillage car moins grande
-    // const villageToUpdate = villageArray.find((testedVillage) => {
-    //           return testedVillage.email === email
-    // })
 
-    //si villageToUpdate est faux je lance une recherche pour obtenir l'objet entier du user avec toutes ces infos
-    //je prends donc l'email et je compare avec la BDD user pour trouver le bon.
-    // const userToUpdate = userArray.find((testeduser) => {
-    //             return testeduser.email === email
-    // })
-    //console.log(userToUpdate)
+    //je récupère les infos de l'utilisateur ds le reducer updtaeProfile + son type
+    const userData = useSelector((state) => state.updateReducer);
+    console.log(userData)
+    //j'enregistre d'un coté les infos de l'autre type
+    const typeUser = userData.type;
+    const userDatas = userData.dataProfile
+   
+    // const [nameInput, setNameInput] = useState('')
+    //console.log(typeUser,userDatas)
 
-    // const handleSubmit = (evt) => {
-    //     evt.preventDefault()
-    //     console.log("submit")
-    // }
+    const handleSubmit = () => {
+        console.log("wait")
+    }
 
-    // const handleChange = (evt) => {
-    //     //console.log(evt.target.name)
-    //     dispatch(
-    //          //actionChangeFormField(evt.target.value, name),
-    //     );
-    // };  
+    const handleChangeUser = (evt) => {
+        dispatch(
+            actionChangeUpdateProfileUser(evt.target.name, evt.target.value)
+        )
+        
+    }
+
+    const handleChange = (evt) => {
+        // dispatch(
+        //     actionChangeUpdateProfileUser(evt.target.name, evt.target.value)
+        // )
+        console.log("ok")
+        
+    }
+
+
 
     return (
         <div className="home" >
 
-            {/* {isLogged ? (
+             {userData ? (
 
                 <>
                 
-                {!userToUpdate ? (
+                {typeUser==='user' ? (
                     
                     <>
 
@@ -56,66 +61,66 @@ const UpdateProfil = () => {
                         <div className="login-form-particular">
 
                             <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-                                <Field
+                                <input
                                 name="last_name"
                                 placeholder="Nom"
-                                onChange={handleChange}
-                                value={userToUpdate.last_name}
+                                onChange={handleChangeUser}
+                                value={userDatas.last_name}
                                 />
-                                <Field
+                                <input
                                 name="first_name"
                                 placeholder="Prenom"
-                                onChange={handleChange}
-                                value={userToUpdate.first_name}
+                                onChange={handleChangeUser}
+                                value={userDatas.first_name}
                                 />
-                                <Field
+                                <input
                                 name="email"
                                 placeholder="Email"
-                                onChange={handleChange}
-                                value={userToUpdate.email}
+                                onChange={handleChangeUser}
+                                value={userDatas.email}
                                 />
-                                <Field
+                                <input
                                 name="pseudo"
                                 placeholder="Pseudo"
-                                onChange={handleChange}
-                                value={userToUpdate.pseudo}
+                                onChange={handleChangeUser}
+                                value={userDatas.pseudo}
                                 />
-                                <Field
+                                <input
                                 name="password"
                                 type="password"
-                                placeholder="Mot de passe"
-                                onChange={handleChange}
-                                value={userToUpdate.password}
+                                placeholder="Nouveau mot de passe"
+                                onChange={handleChangeUser}
+                                value={userDatas.password}
                                 />
-                                <Field
+                                <input
                                 name="address"
                                 placeholder="Adresse"
-                                onChange={handleChange}
-                                value={userToUpdate.adress}
+                                onChange={handleChangeUser}
+                                value={userDatas.address}
                                 />
-                                <Field
+                                <input
                                 name="zip_code"
                                 placeholder="Zip_code"
-                                onChange={handleChange}
-                                value={userToUpdate.zip_code}
+                                onChange={handleChangeUser}
+                                value={userDatas.zip_code}
                                 />
-                                <Field
+                                <input
                                 name="city"
                                 placeholder="Ville"
-                                onChange={handleChange}
-                                value={userToUpdate.city}
+                                onChange={handleChangeUser}
+                                value={userDatas.city}
                                 />
-                                <Field
+                                <input
                                 name="region"
                                 placeholder="Region"
-                                onChange={handleChange}
-                                value={userToUpdate.region}
+                                onChange={handleChangeUser}
+                                value={userDatas.region}
                                 />
-                                <Field
+                                <input
                                 name="path"
                                 placeholder="Url_image"
-                                onChange={handleChange}
-                                value={userToUpdate.path}
+                                onChange={handleChangeUser}
+                                value={userDatas.path}
                                 />
                                 <button
                                 type="submit"
@@ -138,66 +143,66 @@ const UpdateProfil = () => {
                         <div className="login-form-particular">
 
                             <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-                                <Field
+                                <input
                                 name="last_name"
                                 placeholder="Nom"
                                 onChange={handleChange}
-                                value={userToUpdate.last_name}
+                                value={userDatas.last_name}
                                 />
-                                <Field
+                                <input
                                 name="first_name"
                                 placeholder="Prenom"
                                 onChange={handleChange}
-                                value={userToUpdate.first_name}
+                                value={userDatas.first_name}
                                 />
-                                <Field
+                                <input
                                 name="email"
                                 placeholder="Email"
                                 onChange={handleChange}
-                                value={userToUpdate.email}
+                                value={userDatas.email}
                                 />
-                                <Field
+                                <input
                                 name="pseudo"
                                 placeholder="Pseudo"
                                 onChange={handleChange}
-                                value={userToUpdate.pseudo}
+                                value={userDatas.pseudo}
                                 />
-                                <Field
+                                <input
                                 name="password"
                                 type="password"
                                 placeholder="Mot de passe"
                                 onChange={handleChange}
-                                value={userToUpdate.password}
+                                value={userDatas.password}
                                 />
-                                <Field
+                                <input
                                 name="address"
                                 placeholder="Adresse"
                                 onChange={handleChange}
-                                value={userToUpdate.adress}
+                                value={userDatas.adress}
                                 />
-                                <Field
+                                <input
                                 name="zip_code"
                                 placeholder="Zip_code"
                                 onChange={handleChange}
-                                value={userToUpdate.zip_code}
+                                value={userDatas.zip_code}
                                 />
-                                <Field
+                                <input
                                 name="city"
                                 placeholder="Ville"
                                 onChange={handleChange}
-                                value={userToUpdate.city}
+                                value={userDatas.city}
                                 />
-                                <Field
+                                <input
                                 name="region"
                                 placeholder="Region"
                                 onChange={handleChange}
-                                value={userToUpdate.region}
+                                value={userDatas.region}
                                 />
-                                <Field
+                                <input
                                 name="path"
                                 placeholder="Url_image"
                                 onChange={handleChange}
-                                value={userToUpdate.path}
+                                value={userDatas.path}
                                 />
                                 <button
                                 type="submit"
@@ -220,7 +225,7 @@ const UpdateProfil = () => {
                 Veuillez vous connecter avant d'accéder à ce service
                 </>
 
-            )} */}
+            )} 
                   
 
         </div>
@@ -228,4 +233,3 @@ const UpdateProfil = () => {
 };
 
 export default UpdateProfil;
-

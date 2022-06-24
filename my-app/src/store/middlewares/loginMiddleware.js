@@ -1,5 +1,6 @@
 
 import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER,GET_INFOS, actionSaveInfoForGetInStore} from '../../actions/user';
+import { actionSaveInfoUpdateProfile } from '../../actions/updateProfile';
  import {removeAuthorization, requestLogin, requestInfosUser,  saveAuthorization } from '../../requests';
  import jwt_decode from "jwt-decode";
 const loginMiddleware = (store) => (next) => async (action) => {
@@ -71,6 +72,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
         console.log("actionSaveInfoForGetInStore",infosUser.data)
         const token = localStorage.getItem('token');
         store.dispatch(actionSaveInfoForGetInStore(infosUser.data, token));
+        store.dispatch(actionSaveInfoUpdateProfile(infosUser.data, action.payload.type))
       }
       
       catch(err){
