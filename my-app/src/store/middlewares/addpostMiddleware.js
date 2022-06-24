@@ -1,6 +1,7 @@
 
 import {SUBMIT_POST, actionSavePost, SAVE_USER, } from '../../actions/addpost';
 import {requestAddPost, saveAuthorization,  } from '../../requests/';
+import { useNavigate} from 'react-router-dom';
 
 const addpostMiddleware = (store) => (next) => async (action) => {
  switch (action.type) {
@@ -40,6 +41,7 @@ const addpostMiddleware = (store) => (next) => async (action) => {
          const { post, photo } = await requestAddPost(title, content, path ,category_1 , category_2  );
          console.log("la requete est terminé et j'ai récupéré:", { post,photo });
          alert("Votre post a bien été ajouté Merci!");
+       
 
 
         
