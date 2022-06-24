@@ -1,10 +1,10 @@
 // == Import
 import React from 'react';
-import { useEffect,useState } from 'react';
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { actiongetinfos, actionSaveInfoForGetInStore } from "../../actions/user";
+import { actiongetinfos, actionSaveInfoForGetInStore, actionSaveUser } from "../../actions/user";
 /*  */
 //===========================================================//
 //Composants
@@ -44,7 +44,7 @@ import '../../styles/app.scss'
 function App() {
   const dispatch = useDispatch();
   const token = localStorage.getItem('token');
-  
+  const pseudo = useSelector((state) => state.user.pseudo);
   //useEffect On utilise ce Hook pour indiquer à React que notre composant doit exécuter quelque chose après chaque affichage
   useEffect(() => {
     if (token !== null) {
@@ -52,8 +52,13 @@ function App() {
       const user = jwt_decode(token);
       //* si j'ai besoin d'afficher un loading (spinner) ou de ne pas afficher un composant le temps de savoir si un user est co, je lance ce dispatch
       console.log(user);
+      //const userId = 
+       const idToken = user.id
+       const userId = idToken.toString()
       //on envoie l'action getinfos au store avec dispatch 
-      dispatch(actiongetinfos(user.id, user.type));
+      dispatch(actiongetinfos(userId, user.type));
+     
+      dispatch(actionSaveUser(pseudo, token));
       dispatch(actionSaveInfoForGetInStore(user, token));
     } 
   }, []);
