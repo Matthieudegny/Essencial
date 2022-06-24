@@ -1,6 +1,6 @@
 
 import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER,GET_INFOS, actionSaveInfoForGetInStore} from '../../actions/user';
-import { actionSaveInfoUpdateProfile } from '../../actions/updateProfile';
+import { actionSaveInfoUpdateProfileUser, actionSaveInfoUpdateProfileVillage } from '../../actions/updateProfile';
  import {removeAuthorization, requestLogin, requestInfosUser,  saveAuthorization } from '../../requests';
  import jwt_decode from "jwt-decode";
 const loginMiddleware = (store) => (next) => async (action) => {
@@ -17,8 +17,9 @@ const loginMiddleware = (store) => (next) => async (action) => {
       try {
         // on execute la requete POST /login
           //console.log('je lance ma requete login');
-          const { logged, pseudo, token } = await requestLogin(email, password);
-          console.log("la requete est terminé et j'ai récupéré:", { logged, pseudo, token });
+          const { logged, pseudo, token, id } = await requestLogin(email, password);
+         
+          //console.log("la requete est terminé et j'ai récupéré:", {logged, pseudo,token, id});
 
           //console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
           store.dispatch(
@@ -26,9 +27,17 @@ const loginMiddleware = (store) => (next) => async (action) => {
           );
           localStorage.setItem('token', JSON.stringify(token));
           const tokenDecoded = jwt_decode(token);
-          console.log(tokenDecoded);
+          //console.log(tokenDecoded);
           const data = await requestInfosUser(tokenDecoded.id, tokenDecoded.type);
           store.dispatch(actionSaveInfoForGetInStore(data.data, token));
+          delete data.data.id
+          console.log(data.data, tokenDecoded.type)
+          //pour update profile je mets à jour le state à chaque refresh (->useeffect app)
+          if(tokenDecoded.type==='user'){
+            store.dispatch(actionSaveInfoUpdateProfileUser(data.data, tokenDecoded.type))
+          }else{
+            store.dispatch(actionSaveInfoUpdateProfileVillage(data.data, tokenDecoded.type))
+          }
           
         }
 
@@ -69,10 +78,16 @@ const loginMiddleware = (store) => (next) => async (action) => {
 
       try{
         const infosUser = await requestInfosUser(action.payload.id, action.payload.type);
-        console.log("actionSaveInfoForGetInStore",infosUser.data)
+        //console.log("actionSaveInfoForGetInStore",infosUser.data, action.payload.type)
         const token = localStorage.getItem('token');
         store.dispatch(actionSaveInfoForGetInStore(infosUser.data, token));
-        store.dispatch(actionSaveInfoUpdateProfile(infosUser.data, action.payload.type))
+
+        //pour update profile je mets à jour le state à chaque refresh (->useeffect app)
+        if(action.payload.type==='user'){
+          store.dispatch(actionSaveInfoUpdateProfileUser(infosUser.data, action.payload.type))
+        }else{
+          store.dispatch(actionSaveInfoUpdateProfileVillage(infosUser.data, action.payload.type))
+        }
       }
       
       catch(err){

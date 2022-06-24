@@ -51,7 +51,7 @@ function App() {
       //1 étape decoder le token avec jwt_decode
       const user = jwt_decode(token);
       //* si j'ai besoin d'afficher un loading (spinner) ou de ne pas afficher un composant le temps de savoir si un user est co, je lance ce dispatch
-      console.log(user);
+      //console.log(user);
       //const userId = 
        const idToken = user.id
        const userId = idToken.toString()

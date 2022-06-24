@@ -143,9 +143,23 @@ export async function requestGetAllVillages() {
 }
 
 export async function requestInfosUser(id, type) {
-  console.log(type, id);
+  //console.log(type, id);
   const response = await axiosInstance.get(`/api/${type}/${id}`)
   //const response = await axiosInstance.get('/api/user/1')
  
+  return response
+}
+
+export async function requestUpdateUser(newDatas) {
+  const response = await axiosInstance.patch(`/api/user`, {
+    ...newDatas
+  }) 
+  return response
+}
+
+export async function requestUpdateVillage(newDatas) {
+  const response = await axiosInstance.patch(`/api/ecovillage`, {
+    ...newDatas
+  }) 
   return response
 }

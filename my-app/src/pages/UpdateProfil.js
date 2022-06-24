@@ -1,8 +1,8 @@
 // == Imports
 import React, {  useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import {  actionChangeUpdateProfileUser } from '../actions/updateProfile';
-
+import {  actionChangeUpdateProfileUser, actionChangeUpdateProfileVillage, actionRequestChangeProfileUser, actionRequestChangeProfileVillage } from '../actions/updateProfile';
+import * as dayjs from 'dayjs'
 
 
 const UpdateProfil = () => {
@@ -15,40 +15,59 @@ const UpdateProfil = () => {
 
 
     //je récupère les infos de l'utilisateur ds le reducer updtaeProfile + son type
-    const userData = useSelector((state) => state.updateReducer);
-    console.log(userData)
+    const dataUser = useSelector((state) => state.updateReducer.user);
+    const dataVillage = useSelector((state) => state.updateReducer.ecoVillage);
+    const typeUser = useSelector((state) => state.updateReducer.type);
+    
+
+    // console.log(dataUser)
+    // console.log(dataVillage)
+    // console.log(typeUser)
+
     //j'enregistre d'un coté les infos de l'autre type
-    const typeUser = userData.type;
-    const userDatas = userData.dataProfile
+    // const typeUser = userData.type;
+    // const userDatas = userData.dataProfile
    
     // const [nameInput, setNameInput] = useState('')
     //console.log(typeUser,userDatas)
 
-    const handleSubmit = () => {
-        console.log("wait")
+    const handleSubmitUser = (evt) => {
+        evt.preventDefault()
+        console.log("je lance ma requête requestUpdateProfileUser")
+        dispatch(
+            actionRequestChangeProfileUser(dataUser)
+        )
+    }
+
+    const handleSubmitVillage = (evt) => {
+        evt.preventDefault()
+        console.log("je lance ma requête requestUpdateProfileVillage")
+        dispatch(
+            actionRequestChangeProfileVillage(dataVillage)
+        )
+
     }
 
     const handleChangeUser = (evt) => {
+        
         dispatch(
             actionChangeUpdateProfileUser(evt.target.name, evt.target.value)
         )
-        
     }
 
-    const handleChange = (evt) => {
-        // dispatch(
-        //     actionChangeUpdateProfileUser(evt.target.name, evt.target.value)
-        // )
-        console.log("ok")
-        
+    const handleChangeVillage = (evt) => {
+        console.log(evt.target.name, evt.target.value)
+        dispatch(
+            actionChangeUpdateProfileVillage(evt.target.name, evt.target.value)
+        )        
     }
 
-
+    console.log(typeUser)
 
     return (
         <div className="home" >
 
-             {userData ? (
+             {dataUser||dataVillage ? (
 
                 <>
                 
@@ -60,67 +79,73 @@ const UpdateProfil = () => {
 
                         <div className="login-form-particular">
 
-                            <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+                            <form autoComplete="off" className="login-form-element" onSubmit={handleSubmitUser}>
                                 <input
                                 name="last_name"
                                 placeholder="Nom"
                                 onChange={handleChangeUser}
-                                value={userDatas.last_name}
+                                value={dataUser.last_name}
                                 />
                                 <input
                                 name="first_name"
                                 placeholder="Prenom"
                                 onChange={handleChangeUser}
-                                value={userDatas.first_name}
+                                value={dataUser.first_name}
                                 />
                                 <input
                                 name="email"
                                 placeholder="Email"
                                 onChange={handleChangeUser}
-                                value={userDatas.email}
+                                value={dataUser.email}
                                 />
                                 <input
                                 name="pseudo"
                                 placeholder="Pseudo"
                                 onChange={handleChangeUser}
-                                value={userDatas.pseudo}
+                                value={dataUser.pseudo}
                                 />
                                 <input
                                 name="password"
                                 type="password"
                                 placeholder="Nouveau mot de passe"
                                 onChange={handleChangeUser}
-                                value={userDatas.password}
+                                value={dataUser.password}
                                 />
                                 <input
                                 name="address"
                                 placeholder="Adresse"
                                 onChange={handleChangeUser}
-                                value={userDatas.address}
+                                value={dataUser.address}
                                 />
                                 <input
                                 name="zip_code"
                                 placeholder="Zip_code"
                                 onChange={handleChangeUser}
-                                value={userDatas.zip_code}
+                                value={dataUser.zip_code}
                                 />
                                 <input
                                 name="city"
                                 placeholder="Ville"
                                 onChange={handleChangeUser}
-                                value={userDatas.city}
+                                value={dataUser.city}
                                 />
                                 <input
                                 name="region"
                                 placeholder="Region"
                                 onChange={handleChangeUser}
-                                value={userDatas.region}
+                                value={dataUser.region}
                                 />
                                 <input
                                 name="path"
                                 placeholder="Url_image"
                                 onChange={handleChangeUser}
-                                value={userDatas.path}
+                                value={dataUser.path}
+                                />
+                                <input
+                                name="description"
+                                placeholder="description"
+                                onChange={handleChangeUser}
+                                value={dataUser.description}
                                 />
                                 <button
                                 type="submit"
@@ -142,73 +167,100 @@ const UpdateProfil = () => {
 
                         <div className="login-form-particular">
 
-                            <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+                            <form autoComplete="off" className="login-form-element" onSubmit={handleSubmitVillage}>
                                 <input
-                                name="last_name"
-                                placeholder="Nom"
-                                onChange={handleChange}
-                                value={userDatas.last_name}
+                                    name="name"
+                                    placeholder="Nom de l'Écovillage"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.name}
                                 />
                                 <input
-                                name="first_name"
-                                placeholder="Prenom"
-                                onChange={handleChange}
-                                value={userDatas.first_name}
+                                    name="path"
+                                    placeholder="Url_image"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.path}
                                 />
                                 <input
-                                name="email"
-                                placeholder="Email"
-                                onChange={handleChange}
-                                value={userDatas.email}
+                                    name="description"
+                                    placeholder="Description de l'Écovillage"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.description}
                                 />
                                 <input
-                                name="pseudo"
-                                placeholder="Pseudo"
-                                onChange={handleChange}
-                                value={userDatas.pseudo}
+                                    name="website"
+                                    placeholder="adresse internet du site"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.website}
                                 />
                                 <input
-                                name="password"
-                                type="password"
-                                placeholder="Mot de passe"
-                                onChange={handleChange}
-                                value={userDatas.password}
+                                    name="address"
+                                    placeholder="Adresse"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.address}
                                 />
                                 <input
-                                name="address"
-                                placeholder="Adresse"
-                                onChange={handleChange}
-                                value={userDatas.adress}
+                                    name="zip_code"
+                                    placeholder="Zip_code"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.zip_code}
                                 />
                                 <input
-                                name="zip_code"
-                                placeholder="Zip_code"
-                                onChange={handleChange}
-                                value={userDatas.zip_code}
+                                    name="city"
+                                    placeholder="Ville"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.city}
                                 />
                                 <input
-                                name="city"
-                                placeholder="Ville"
-                                onChange={handleChange}
-                                value={userDatas.city}
+                                    name="region"
+                                    placeholder="Region"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.region}
+                                />
+
+                                <input
+                                    name="last_name_manager"
+                                    placeholder="Nom du manager"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.last_name_manager}
                                 />
                                 <input
-                                name="region"
-                                placeholder="Region"
-                                onChange={handleChange}
-                                value={userDatas.region}
+                                    name="first_name_manager"
+                                    placeholder="Prenom du manager"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.first_name_manager}
                                 />
                                 <input
-                                name="path"
-                                placeholder="Url_image"
-                                onChange={handleChange}
-                                value={userDatas.path}
+                                    type="date"
+                                    name="date_of_birth_manager"
+                                    placeholder="date de naissance du manager"
+                                    onChange={handleChangeVillage}
+                                    value={dayjs(dataVillage.date_of_birth_manager).format("YYYY-MM-DD")}
                                 />
+                                <input
+                                    name="phone_number"
+                                    placeholder="numéro de téléphone"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.phone_number}
+                                />
+                                <input
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.email}
+                                />
+                                <input
+                                    name="password"
+                                    type="password"
+                                    placeholder="Mot de passe"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.password}
+                                />
+
                                 <button
-                                type="submit"
-                                className="login-form-button"
+                                    type="submit"
+                                    className="login-form-button"
                                 >
-                                Modifier
+                                    Modifier
                                 </button>
                             </form>
 

@@ -1,24 +1,9 @@
-import { SAVE_DATA_USER, CHANGE_DATA_USER  } from '../actions/updateProfile';
+import { SAVE_DATA_USER, CHANGE_DATA_USER, SAVE_DATA_VILLAGE, CHANGE_DATA_VILLAGE  } from '../actions/updateProfile';
 
 export const initialState = {
   dataProfile: [],
-  user:{
-      address:'',
-      city:'',
-      date_of_birth:'',
-      description:'',
-      email:'',
-      first_name:'',
-      last_name:'',
-      path:'',
-      phone_number:'',
-      pseudo:'',
-      region:'',
-      zip_code:''
-  },
-  ecoVillage:{
-
-  },
+  user:'',
+  ecoVillage:'',
   type : ""
 };
 
@@ -29,18 +14,40 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
        
-        dataProfile: action.payload.dataUser,
+        user : action.payload.dataUser,
         type: action.payload.type
        
       };
+
+    case SAVE_DATA_VILLAGE:
+      //console.log(action.payload)
+    return {
+      ...state,
+      
+      ecoVillage: action.payload.dataUser,
+      type: action.payload.type
+      
+    };
 
     case CHANGE_DATA_USER:
     //console.log(action.payload)
     return {
     ...state,
+      user:{
+        ...state.user,
+        [action.payload.nameInput]: action.payload.valueInput,
+      }       
     
-        dataProfile: action.payload.dataUser,
-        type: action.payload.type
+    };
+
+    case CHANGE_DATA_VILLAGE:
+    //console.log(action.payload)
+    return {
+    ...state,
+      ecoVillage:{
+        ...state.ecoVillage,
+        [action.payload.nameInput]: action.payload.valueInput,
+      }       
     
     };
 
@@ -50,3 +57,18 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 export default reducer;
+
+// {
+//   address:'',
+//   city:'',
+//   date_of_birth:'',
+//   description:'',
+//   email:'',
+//   first_name:'',
+//   last_name:'',
+//   path:'',
+//   phone_number:'',
+//   pseudo:'',
+//   region:'',
+//   zip_code:''
+// }
