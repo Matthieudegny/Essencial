@@ -10,9 +10,9 @@ const MinCard = ({
 
 }) => {
     return (
-        <div className="minCard" >
+        <div className="minCard"  >
             {/* attention au image link  */}
-            <NavLink key={id} to={`/user-vue/${id}`} >
+            <NavLink  to={`/user-vue/${id}`} >
                 <img src={imageLink} alt="user" />
             </NavLink>
             <h1>{pseudo}  </h1>

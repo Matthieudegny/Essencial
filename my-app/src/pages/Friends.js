@@ -1,7 +1,7 @@
 // == Imports
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect  } from 'react';
+import { useEffect } from 'react';
 import MinCard from "./MinCard";
 import { actionGetAllUsers } from '../actions/getAll';
 import '../styles/friends.scss'
@@ -16,35 +16,39 @@ const Friends = () => {
     dispatch(actionGetAllUsers());
   }, [])
 
-    return (
-        <div className="friends" >
-          
-          {usersArray ? (
-            <>
-              {usersArray.map(({
-                id, path, pseudo, region
-              }) => (
+  return (
+    <div className="friends"  >
 
-                  <MinCard                
-                    imageLink={path}
-                    pseudo={pseudo}
-                    region={region}
-                    id={id}
-                  />
+      {usersArray ? (
+        <>
+          {usersArray.map(({
+            id, path, pseudo, region
+          }) => (
+            <div className="container-mincard" key={id}>
 
-                ))}
-            </>
-          ) : (
-            
-            <>
-            </> 
+              <MinCard
+                imageLink={path}
+                pseudo={pseudo}
+                region={region}
+                id={id}
 
-          )}
-         
-    
-    
-        </div>
-    );
+              />
+            </div>
+
+
+          ))}
+        </>
+      ) : (
+
+        <>
+        </>
+
+      )}
+
+
+
+    </div>
+  );
 };
 
 export default Friends;
