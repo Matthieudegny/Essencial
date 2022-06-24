@@ -38,9 +38,6 @@ export const actionSaveUser = (pseudo, token) => ({
 
 export const actionLogout = () => ({ 
   type: LOGOUT
-
-
-
 });
 
 export const actiongetinfos = (id,type) => ({
@@ -50,9 +47,10 @@ export const actiongetinfos = (id,type) => ({
   }
 })
 
-export const actionSaveInfoForGetInStore = (data) => ({
+export const actionSaveInfoForGetInStore = (data,token) => ({
   type: GET_SAVE_INFOS,
   payload:{
     data,
+    token
   }
 })
