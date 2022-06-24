@@ -1,10 +1,9 @@
 // == Imports
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect  } from 'react';
+import { useEffect } from 'react';
 import MinCard from "./MinCard";
 import { actionGetAllUsers } from '../actions/getAll';
-import { NavLink } from "react-router-dom";
 import '../styles/friends.scss'
 
 const Friends = () => {
@@ -17,39 +16,39 @@ const Friends = () => {
     dispatch(actionGetAllUsers());
   }, [])
 
-    return (
-        <div className="friends" >
-          
-          {usersArray ? (
-            <>
-              {usersArray.map(({
-                id, path, pseudo, region
-              }) => (
-                <NavLink  key={id} to={`/user-vue/${id}`} > 
- 
+  return (
+    <div className="friends"  >
 
-                 
+      {usersArray ? (
+        <>
+          {usersArray.map(({
+            id, path, pseudo, region
+          }) => (
+            <div className="container-mincard" key={id}>
 
-               {   <MinCard                
-                    imageLink={path}
-                    pseudo={pseudo}
-                    region={region}
-                  />}
+              <MinCard
+                imageLink={path}
+                pseudo={pseudo}
+                region={region}
+                id={id}
 
-                </NavLink>
-                ))}
-            </>
-          ) : (
-            
-            <>
-            </> 
+              />
+            </div>
 
-          )}
-         
-    
-    
-        </div>
-    );
+
+          ))}
+        </>
+      ) : (
+
+        <>
+        </>
+
+      )}
+
+
+
+    </div>
+  );
 };
 
 export default Friends;

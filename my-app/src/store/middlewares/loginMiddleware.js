@@ -28,7 +28,6 @@ const loginMiddleware = (store) => (next) => async (action) => {
           console.log(tokenDecoded);
           const data = await requestInfosUser(tokenDecoded.id, tokenDecoded.type);
           store.dispatch(actionSaveInfoForGetInStore(data.data));
-          
           localStorage.setItem('token', JSON.stringify(token));
         }
 
