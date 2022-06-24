@@ -100,7 +100,7 @@ const Navigation = () => {
             // onClick={handleClickBurger}
             onMouseEnter={() => setIsActiveBurger(true)}
             onMouseLeave={() => setIsActiveBurger(false)}
-            className="menu-burger-button">
+            className={`menu-burger-button ${isLogged ? 'menu-burger-activated' : ''}`}>
             <i className="fa fa-solid fa-bars mt-1 menu-burger-button-item"></i>
             {/* <i className={`menu-burger-button-item ${isActiveBurger ? 'fa fa-times' : 'fa fa-solid fa-bars mt-1'}`}></i>  */}
           </button>

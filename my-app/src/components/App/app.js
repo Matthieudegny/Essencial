@@ -58,7 +58,7 @@ function App() {
       //on envoie l'action getinfos au store avec dispatch 
       dispatch(actiongetinfos(userId, user.type));
      
-      dispatch(actionSaveUser(pseudo, token));
+      //dispatch(actionSaveUser(pseudo, token));
       dispatch(actionSaveInfoForGetInStore(user, token));
     } 
   }, []);
