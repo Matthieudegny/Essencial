@@ -16,10 +16,10 @@ export const actionSubmitFriend = () => ({
  * @returns
  */
 //sauvergarde l'ajout de l'ami 
- export const actionSaveUser = (pseudo, token) => ({
+ export const actionSaveFriend = (id, token) => ({
   type: SAVE_FRIEND,
   payload: {
-    pseudo, token,
+    id, token,
   },
 });
 
