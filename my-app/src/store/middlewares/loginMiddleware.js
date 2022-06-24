@@ -23,12 +23,12 @@ const loginMiddleware = (store) => (next) => async (action) => {
           store.dispatch(
             actionSaveUser(pseudo, token),
           );
-
+          localStorage.setItem('token', JSON.stringify(token));
           const tokenDecoded = jwt_decode(token);
           console.log(tokenDecoded);
           const data = await requestInfosUser(tokenDecoded.id, tokenDecoded.type);
           store.dispatch(actionSaveInfoForGetInStore(data.data, token));
-          localStorage.setItem('token', JSON.stringify(token));
+          
         }
 
         catch (err) {
@@ -69,7 +69,8 @@ const loginMiddleware = (store) => (next) => async (action) => {
       try{
         const infosUser = await requestInfosUser(action.payload.id, action.payload.type);
         console.log("actionSaveInfoForGetInStore",infosUser.data)
-        store.dispatch(actionSaveInfoForGetInStore(infosUser.data));
+        const token = localStorage.getItem('token');
+        store.dispatch(actionSaveInfoForGetInStore(infosUser.data, token));
       }
       
       catch(err){

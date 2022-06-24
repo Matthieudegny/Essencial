@@ -4,8 +4,8 @@ export const initialState = {
   email: '',
   password: '', // '',
   isLogged: false,
-  //pseudo: '',
-  token: null,
+  pseudo: '',
+  token: '',
 };
 
 const reducer = (state = initialState, action = {}) => {

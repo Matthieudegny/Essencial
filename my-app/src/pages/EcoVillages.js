@@ -14,7 +14,7 @@ const ViewVillage = () => {
   const dispatch = useDispatch();
   //useSelector va nous permettre de récupérer une valeur du store Redux.
   const villageArray = useSelector((state) => state.allUsers.allVillages);
-  console.log(villageArray);
+  //console.log(villageArray);
 
 
   //On utilise ce Hook pour indiquer à React que notre composant doit exécuter quelque chose après chaque affichage. 
