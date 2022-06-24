@@ -37,6 +37,7 @@ const ViewVillage = () => {
 
               region={region}
               id={id}
+              key={id}
             />
 
           ))}

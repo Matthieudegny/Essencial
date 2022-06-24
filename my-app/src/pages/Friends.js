@@ -15,7 +15,7 @@ const Friends = () => {
   useEffect(() => {
     dispatch(actionGetAllUsers());
   }, [])
-
+console.log(usersArray);
   return (
     <div className="friends"  >
 

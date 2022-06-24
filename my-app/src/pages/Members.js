@@ -30,6 +30,7 @@ const Members = () => {
                     pseudo={pseudo}
                     region={region}
                     id={id}
+                    key={id}
                   />
 
                 ))}
