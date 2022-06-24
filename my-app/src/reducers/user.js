@@ -4,7 +4,7 @@ export const initialState = {
   email: '',
   password: '', // '',
   isLogged: false,
-  pseudo: '',
+  //pseudo: '',
   token: null,
 };
 
@@ -30,13 +30,13 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case GET_SAVE_INFOS:
-      console.log(action.payload.data);
+      console.log(action.payload);
       return {
         ...state,
         isLogged: true,
         email: action.payload.data.email,
         pseudo: action.payload.data.pseudo,
-        token: action.payload.data.token,
+        token: action.payload.token,
         name: action.payload.data.name,
       }
 

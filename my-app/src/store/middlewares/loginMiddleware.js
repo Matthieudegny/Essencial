@@ -27,7 +27,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
           const tokenDecoded = jwt_decode(token);
           console.log(tokenDecoded);
           const data = await requestInfosUser(tokenDecoded.id, tokenDecoded.type);
-          store.dispatch(actionSaveInfoForGetInStore(data.data));
+          store.dispatch(actionSaveInfoForGetInStore(data.data, token));
           localStorage.setItem('token', JSON.stringify(token));
         }
 
@@ -68,7 +68,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
 
       try{
         const infosUser = await requestInfosUser(action.payload.id, action.payload.type);
-        console.log("afsfss?",infosUser)
+        console.log("actionSaveInfoForGetInStore",infosUser.data)
         store.dispatch(actionSaveInfoForGetInStore(infosUser.data));
       }
       
