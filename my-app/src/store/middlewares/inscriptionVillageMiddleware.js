@@ -1,6 +1,7 @@
 
 import {actionSaveVillage, SUBMIT_FORM_VILLAGE, /* SAVE_USER, */} from '../../actions/inscriptionvillage';
-import {requestInscriptionFormVillage /* saveAuthorization, */ } from '../../requests';
+import { REQUEST_CHANGE_PROFIL_VILLAGE } from '../../actions/updateProfile'
+import {requestInscriptionFormVillage, requestUpdateVillage /* saveAuthorization, */ } from '../../requests';
 
 const inscriptionVillageMiddleware = (store) => (next) => async (action) => {
  switch (action.type) {
@@ -66,6 +67,25 @@ const inscriptionVillageMiddleware = (store) => (next) => async (action) => {
      }
      break;
    } */
+   case REQUEST_CHANGE_PROFIL_VILLAGE : {
+
+    try {
+      console.log("je soumets ma requête avec ", action.payload.dataUser)
+
+        const response = await requestUpdateVillage( action.payload.dataUser );
+        console.log("réponse de ma requee updateUser",response)
+        
+        // store.dispatch(
+        //   actionSaveUser( last_name, first_name, email, pseudo, password, address, region, zip_code, city, path),
+        // );
+      }
+      catch (err) {
+      // on capture les eventuelles erreur de la requete
+        console.error(err);
+      }
+
+    return
+   }
 
    default:
      next(action); // pour dire à redux qu'il peut passer aux middlewares suivant, puis aux reducers

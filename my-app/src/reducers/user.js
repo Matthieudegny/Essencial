@@ -30,7 +30,7 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case GET_SAVE_INFOS:
-      console.log(action.payload);
+      //console.log(action.payload);
       return {
         ...state,
         isLogged: true,

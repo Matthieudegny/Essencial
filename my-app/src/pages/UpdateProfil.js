@@ -1,53 +1,77 @@
 // == Imports
 import React, {  useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import Field from '../components/InscriptionForm/Field';
-import {  actionChangeFormField } from '../actions/inscription';
-import InscriptionForm from "../components/InscriptionForm";
+import {  actionChangeUpdateProfileUser, actionChangeUpdateProfileVillage, actionRequestChangeProfileUser, actionRequestChangeProfileVillage } from '../actions/updateProfile';
+import * as dayjs from 'dayjs'
 
 
 const UpdateProfil = () => {
     const dispatch = useDispatch();
 
-    const email = useSelector((state) => state.user.email);
-    const isLogged = useSelector((state) => state.user.isLogged);
-    const villageArray = useSelector((state) => state.allUsers.allVillages);
-    const userArray = useSelector((state) => state.allUsers.allUsers);
-  
+    // const email = useSelector((state) => state.user.email);
+    // const isLogged = useSelector((state) => state.user.isLogged);
+    // const villageArray = useSelector((state) => state.allUsers.allVillages);
+    // const userArray = useSelector((state) => state.allUsers.allUsers);
 
-    //je cérifies si cest un utilisateur classique ou eco village
-    //je fais une comparaison avec la BDD ecoVillage car moins grande
-    // const villageToUpdate = villageArray.find((testedVillage) => {
-    //           return testedVillage.email === email
-    // })
 
-    //si villageToUpdate est faux je lance une recherche pour obtenir l'objet entier du user avec toutes ces infos
-    //je prends donc l'email et je compare avec la BDD user pour trouver le bon.
-    // const userToUpdate = userArray.find((testeduser) => {
-    //             return testeduser.email === email
-    // })
-    //console.log(userToUpdate)
+    //je récupère les infos de l'utilisateur ds le reducer updtaeProfile + son type
+    const dataUser = useSelector((state) => state.updateReducer.user);
+    const dataVillage = useSelector((state) => state.updateReducer.ecoVillage);
+    const typeUser = useSelector((state) => state.updateReducer.type);
+    
 
-    // const handleSubmit = (evt) => {
-    //     evt.preventDefault()
-    //     console.log("submit")
-    // }
+    // console.log(dataUser)
+    // console.log(dataVillage)
+    // console.log(typeUser)
 
-    // const handleChange = (evt) => {
-    //     //console.log(evt.target.name)
-    //     dispatch(
-    //          //actionChangeFormField(evt.target.value, name),
-    //     );
-    // };  
+    //j'enregistre d'un coté les infos de l'autre type
+    // const typeUser = userData.type;
+    // const userDatas = userData.dataProfile
+   
+    // const [nameInput, setNameInput] = useState('')
+    //console.log(typeUser,userDatas)
+
+    const handleSubmitUser = (evt) => {
+        evt.preventDefault()
+        console.log("je lance ma requête requestUpdateProfileUser")
+        dispatch(
+            actionRequestChangeProfileUser(dataUser)
+        )
+    }
+
+    const handleSubmitVillage = (evt) => {
+        evt.preventDefault()
+        console.log("je lance ma requête requestUpdateProfileVillage")
+        dispatch(
+            actionRequestChangeProfileVillage(dataVillage)
+        )
+
+    }
+
+    const handleChangeUser = (evt) => {
+        
+        dispatch(
+            actionChangeUpdateProfileUser(evt.target.name, evt.target.value)
+        )
+    }
+
+    const handleChangeVillage = (evt) => {
+        console.log(evt.target.name, evt.target.value)
+        dispatch(
+            actionChangeUpdateProfileVillage(evt.target.name, evt.target.value)
+        )        
+    }
+
+    console.log(typeUser)
 
     return (
         <div className="home" >
 
-            {/* {isLogged ? (
+             {dataUser||dataVillage ? (
 
                 <>
                 
-                {!userToUpdate ? (
+                {typeUser==='user' ? (
                     
                     <>
 
@@ -55,67 +79,73 @@ const UpdateProfil = () => {
 
                         <div className="login-form-particular">
 
-                            <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-                                <Field
+                            <form autoComplete="off" className="login-form-element" onSubmit={handleSubmitUser}>
+                                <input
                                 name="last_name"
                                 placeholder="Nom"
-                                onChange={handleChange}
-                                value={userToUpdate.last_name}
+                                onChange={handleChangeUser}
+                                value={dataUser.last_name}
                                 />
-                                <Field
+                                <input
                                 name="first_name"
                                 placeholder="Prenom"
-                                onChange={handleChange}
-                                value={userToUpdate.first_name}
+                                onChange={handleChangeUser}
+                                value={dataUser.first_name}
                                 />
-                                <Field
+                                <input
                                 name="email"
                                 placeholder="Email"
-                                onChange={handleChange}
-                                value={userToUpdate.email}
+                                onChange={handleChangeUser}
+                                value={dataUser.email}
                                 />
-                                <Field
+                                <input
                                 name="pseudo"
                                 placeholder="Pseudo"
-                                onChange={handleChange}
-                                value={userToUpdate.pseudo}
+                                onChange={handleChangeUser}
+                                value={dataUser.pseudo}
                                 />
-                                <Field
+                                <input
                                 name="password"
                                 type="password"
-                                placeholder="Mot de passe"
-                                onChange={handleChange}
-                                value={userToUpdate.password}
+                                placeholder="Nouveau mot de passe"
+                                onChange={handleChangeUser}
+                                value={dataUser.password}
                                 />
-                                <Field
+                                <input
                                 name="address"
                                 placeholder="Adresse"
-                                onChange={handleChange}
-                                value={userToUpdate.adress}
+                                onChange={handleChangeUser}
+                                value={dataUser.address}
                                 />
-                                <Field
+                                <input
                                 name="zip_code"
                                 placeholder="Zip_code"
-                                onChange={handleChange}
-                                value={userToUpdate.zip_code}
+                                onChange={handleChangeUser}
+                                value={dataUser.zip_code}
                                 />
-                                <Field
+                                <input
                                 name="city"
                                 placeholder="Ville"
-                                onChange={handleChange}
-                                value={userToUpdate.city}
+                                onChange={handleChangeUser}
+                                value={dataUser.city}
                                 />
-                                <Field
+                                <input
                                 name="region"
                                 placeholder="Region"
-                                onChange={handleChange}
-                                value={userToUpdate.region}
+                                onChange={handleChangeUser}
+                                value={dataUser.region}
                                 />
-                                <Field
+                                <input
                                 name="path"
                                 placeholder="Url_image"
-                                onChange={handleChange}
-                                value={userToUpdate.path}
+                                onChange={handleChangeUser}
+                                value={dataUser.path}
+                                />
+                                <input
+                                name="description"
+                                placeholder="description"
+                                onChange={handleChangeUser}
+                                value={dataUser.description}
                                 />
                                 <button
                                 type="submit"
@@ -137,73 +167,100 @@ const UpdateProfil = () => {
 
                         <div className="login-form-particular">
 
-                            <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-                                <Field
-                                name="last_name"
-                                placeholder="Nom"
-                                onChange={handleChange}
-                                value={userToUpdate.last_name}
+                            <form autoComplete="off" className="login-form-element" onSubmit={handleSubmitVillage}>
+                                <input
+                                    name="name"
+                                    placeholder="Nom de l'Écovillage"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.name}
                                 />
-                                <Field
-                                name="first_name"
-                                placeholder="Prenom"
-                                onChange={handleChange}
-                                value={userToUpdate.first_name}
+                                <input
+                                    name="path"
+                                    placeholder="Url_image"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.path}
                                 />
-                                <Field
-                                name="email"
-                                placeholder="Email"
-                                onChange={handleChange}
-                                value={userToUpdate.email}
+                                <input
+                                    name="description"
+                                    placeholder="Description de l'Écovillage"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.description}
                                 />
-                                <Field
-                                name="pseudo"
-                                placeholder="Pseudo"
-                                onChange={handleChange}
-                                value={userToUpdate.pseudo}
+                                <input
+                                    name="website"
+                                    placeholder="adresse internet du site"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.website}
                                 />
-                                <Field
-                                name="password"
-                                type="password"
-                                placeholder="Mot de passe"
-                                onChange={handleChange}
-                                value={userToUpdate.password}
+                                <input
+                                    name="address"
+                                    placeholder="Adresse"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.address}
                                 />
-                                <Field
-                                name="address"
-                                placeholder="Adresse"
-                                onChange={handleChange}
-                                value={userToUpdate.adress}
+                                <input
+                                    name="zip_code"
+                                    placeholder="Zip_code"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.zip_code}
                                 />
-                                <Field
-                                name="zip_code"
-                                placeholder="Zip_code"
-                                onChange={handleChange}
-                                value={userToUpdate.zip_code}
+                                <input
+                                    name="city"
+                                    placeholder="Ville"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.city}
                                 />
-                                <Field
-                                name="city"
-                                placeholder="Ville"
-                                onChange={handleChange}
-                                value={userToUpdate.city}
+                                <input
+                                    name="region"
+                                    placeholder="Region"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.region}
                                 />
-                                <Field
-                                name="region"
-                                placeholder="Region"
-                                onChange={handleChange}
-                                value={userToUpdate.region}
+
+                                <input
+                                    name="last_name_manager"
+                                    placeholder="Nom du manager"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.last_name_manager}
                                 />
-                                <Field
-                                name="path"
-                                placeholder="Url_image"
-                                onChange={handleChange}
-                                value={userToUpdate.path}
+                                <input
+                                    name="first_name_manager"
+                                    placeholder="Prenom du manager"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.first_name_manager}
                                 />
+                                <input
+                                    type="date"
+                                    name="date_of_birth_manager"
+                                    placeholder="date de naissance du manager"
+                                    onChange={handleChangeVillage}
+                                    value={dayjs(dataVillage.date_of_birth_manager).format("YYYY-MM-DD")}
+                                />
+                                <input
+                                    name="phone_number"
+                                    placeholder="numéro de téléphone"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.phone_number}
+                                />
+                                <input
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.email}
+                                />
+                                <input
+                                    name="password"
+                                    type="password"
+                                    placeholder="Mot de passe"
+                                    onChange={handleChangeVillage}
+                                    value={dataVillage.password}
+                                />
+
                                 <button
-                                type="submit"
-                                className="login-form-button"
+                                    type="submit"
+                                    className="login-form-button"
                                 >
-                                Modifier
+                                    Modifier
                                 </button>
                             </form>
 
@@ -220,7 +277,7 @@ const UpdateProfil = () => {
                 Veuillez vous connecter avant d'accéder à ce service
                 </>
 
-            )} */}
+            )} 
                   
 
         </div>
@@ -228,4 +285,3 @@ const UpdateProfil = () => {
 };
 
 export default UpdateProfil;
-

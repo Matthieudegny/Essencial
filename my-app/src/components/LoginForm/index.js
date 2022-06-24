@@ -59,7 +59,7 @@ function LoginForm({
 }
 
 LoginForm.propTypes = {
-  email: PropTypes.string.isRequired,
+  //email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
