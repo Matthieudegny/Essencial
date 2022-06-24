@@ -4,7 +4,7 @@ export const initialState = {
   email: '',
   password: '', // '',
   isLogged: false,
-  pseudo: '',
+  //pseudo: '',
   token: null,
 };
 

@@ -69,7 +69,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
 
       try{
         const infosUser = await requestInfosUser(action.payload.id, action.payload.type);
-        console.log("afsfss?",infosUser)
+        console.log("actionSaveInfoForGetInStore",infosUser.data)
         store.dispatch(actionSaveInfoForGetInStore(infosUser.data));
       }
       
