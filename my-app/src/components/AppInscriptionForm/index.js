@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import InscriptionForm from '../InscriptionForm';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import { actionChangeFormField, actionSubmitForm } from '../../actions/inscription';
 import './style.scss';
@@ -19,11 +21,19 @@ function AppInscriptionForm() {
   const city = useSelector((state) => state.inscription.city);
   const region = useSelector((state) => state.inscription.region);
   const path = useSelector((state) => state.inscription.path);
-  
+
+  const [redirect, setredirect] = useState(false);
+
+  //hook de react router pour rediriger
+  const navigate = useNavigate();
+ 
+  //useEffect qui se déclenche uniquement qd la veleur isLogged change et redirect est true
+  useEffect(() => {
+    if(redirect)navigate('/')
+  });
+
   return (
     <header className="header">
-
-      
 
       <InscriptionForm
         last_name={last_name}
@@ -48,7 +58,10 @@ function AppInscriptionForm() {
             actionSubmitForm(),
             // on envoie mon action submitForm au middleware, pour qu'il declenche la requete d'inscription
           );
+          setredirect(true)
         }}
+
+        
 
       />
     </header>

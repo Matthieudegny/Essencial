@@ -27,8 +27,8 @@ const inscriptionVillageMiddleware = (store) => (next) => async (action) => {
  
  
  
-          const { ecovillage, photo} = await requestInscriptionFormVillage(name, path, description, website, address, zip_code, city, region, last_name_manager, first_name_manager, date_of_birth_manager, phone_number, email, password);
-          console.log("la requete est terminé et j'ai récupéré:", {ecovillage ,photo});
+          const { ecovil, photo} = await requestInscriptionFormVillage(name, path, description, website, address, zip_code, city, region, last_name_manager, first_name_manager, date_of_birth_manager, phone_number, email, password);
+          console.log("la requete est terminé et j'ai récupéré:", {ecovil ,photo});
  
  
  

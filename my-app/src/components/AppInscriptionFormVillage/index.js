@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import InscriptionFormVillage from '../InscriptionFormVillage';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import './style.scss';
 import { actionSubmitFormVillage, actionChangeFormFieldVillage } from '../../actions/inscriptionvillage';
@@ -23,6 +25,18 @@ function AppInscriptionFormVillage() {
   const email = useSelector((state) => state.inscriptionvillage.email);
   const password = useSelector((state) => state.inscriptionvillage.password);
   
+  const [redirect, setredirect] = useState(false);
+
+  //hook de react router pour rediriger
+  const navigate = useNavigate();
+ 
+  //useEffect qui se déclenche uniquement qd la veleur isLogged change et redirect est true
+  useEffect(() => {
+    if(redirect)navigate('/')
+  });
+
+
+
   return (
     <header className="header">
 
@@ -53,6 +67,8 @@ function AppInscriptionFormVillage() {
             actionSubmitFormVillage(),
             // on envoie mon action submitForm au middleware, pour qu'il declenche la requete d'inscription
           );
+          //je modifie l'état de redirect qui permet au cas ou le isLogged est modifié de permettre le navigate (useEffect)
+          setredirect(true)
         }}
 
       />
