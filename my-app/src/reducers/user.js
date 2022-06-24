@@ -24,8 +24,8 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         // on est connecté donc on sauvegarde le pseudo
-        pseudo: action.payload.pseudo,
-        token: action.payload.token,
+        pseudo: action.payload.data.pseudo,
+        token: action.payload.data.token,
         password: '', // on vide le password on a plus besoin de le sauvegarder (SECURITE)
       };
 

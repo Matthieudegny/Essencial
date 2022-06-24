@@ -4,7 +4,7 @@ import { useEffect,useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { actiongetinfos, actionSaveInfoForGetInStore } from "../../actions/user";
+import { actiongetinfos, actionSaveInfoForGetInStore, actionSaveUser } from "../../actions/user";
 /*  */
 //===========================================================//
 //Composants
@@ -54,7 +54,8 @@ function App() {
       console.log(user);
       //on envoie l'action getinfos au store avec dispatch 
       dispatch(actiongetinfos(user.id, user.type));
-      dispatch(actionSaveInfoForGetInStore(user));
+      dispatch(actionSaveInfoForGetInStore(user, token));
+     
     } 
   }, []);
 
