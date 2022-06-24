@@ -1,59 +1,57 @@
 // == Imports
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect  } from 'react';
+import { useEffect } from 'react';
 import MinCard from "./MinCard";
 import { actionGetAllVillages } from '../actions/getAll';
-import { NavLink } from "react-router-dom";
-//import '../styles/friends.scss'
+import '../styles/viewVillage.scss'
 
-const EcoVillage = () => {
 
-  const villageArray = useSelector((state) => state.allUsers.allVillages);
-  
 
+const ViewVillage = () => {
+
+  //Ce Hook permet simplement de récupérer la fonction dispatch au sein de notre composant afin de pouvoir dispatch des actions Redux.
   const dispatch = useDispatch();
+  //useSelector va nous permettre de récupérer une valeur du store Redux.
+  const villageArray = useSelector((state) => state.allUsers.allVillages);
+  console.log(villageArray);
 
+
+  //On utilise ce Hook pour indiquer à React que notre composant doit exécuter quelque chose après chaque affichage. 
+  //React enregistre la fonction passée en argument (que nous appellerons « effet »), et l'appellera plus tard, après avoir mis à jour le DOM.
   useEffect(() => {
-    //console.log("je lance mon action getallvillages")
     dispatch(actionGetAllVillages());
   }, [])
 
-  //console.log(villageArray)
+  return (
+    <div className="viewVillage" >
 
-    return (
-        <div className="friends" >
+      {villageArray ? (
+        <>
+          {villageArray.map(({
+            id, path, pseudo, region
+          }) => (
 
-          Ceci est un test 
-          {/*           
-          {usersArray ? (
-            <>
-              {usersArray.map(({
-                id, path, pseudo, region
-              }) => (
-                <NavLink to={`/user-vue/${id}`} > 
-                  {console.log(id)}
-                  <MinCard
-                    key={id}
-                    imageLink={path}
-                    pseudo={pseudo}
-                    region={region}
-                 />
+            <MinCard
+              imageLink={path}
 
-                </NavLink>
-                ))}
-            </>
-          ) : (
-            
-            <>
-            </> 
+              region={region}
+              id={id}
+            />
 
-          )} */}
-         
-    
-    
-        </div>
-    );
+          ))}
+        </>
+      ) : (
+
+        <>
+        </>
+
+      )}
+
+
+
+    </div>
+  );
 };
 
-export default EcoVillage;
+export default ViewVillage;
