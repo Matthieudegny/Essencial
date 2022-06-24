@@ -1,22 +1,10 @@
 
-import { actionSaveFriend } from '../../actions/addfriend';
-import {SUBMIT_FRIEND, SAVE_FRIEND, } from '../../actions/addheart';
+import {SUBMIT_FRIEND, SAVE_FRIEND, actionSaveFriend} from '../../actions/addfriend';
 import {requestAddFriend, saveAuthorization,  } from '../../requests/';
 
 
 const addHeartMiddleware = (store) => (next) => async (action) => {
  switch (action.type) {
-
-  case SAVE_FRIEND: {
-    // 1. je sauvegarder le token dans mon instance perso axios
-    saveAuthorization(action.payload.token);
-
-    // j'envoie l'action SAVE_USER aux reducers
-    // avant de faire ma requete, pour ne pas bloquer mon action SAVE_USER
-    next(action);
-    break;
-  } 
-
    case SUBMIT_FRIEND: {
      // on intercepte mon action SUBMIT_POST
      console.log("addHeartMiddleware j'ai intercepté SUBMIT_FRIEND");
@@ -58,7 +46,15 @@ const addHeartMiddleware = (store) => (next) => async (action) => {
  
      return; // on bloque mon action SUBMIT_LOGIN pour ne pas l'envoyer aux reducers
    }
+   case SAVE_FRIEND: {
+    // 1. je sauvegarder le token dans mon instance perso axios
+    saveAuthorization(action.payload.token);
 
+    // j'envoie l'action SAVE_USER aux reducers
+    // avant de faire ma requete, pour ne pas bloquer mon action SAVE_USER
+    next(action);
+    break;
+  } 
    
 
    default:

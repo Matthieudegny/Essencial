@@ -1,7 +1,8 @@
-
 import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER,GET_INFOS, actionSaveInfoForGetInStore} from '../../actions/user';
  import {removeAuthorization, requestLogin, requestInfosUser,  saveAuthorization } from '../../requests';
  import jwt_decode from "jwt-decode";
+
+ 
 const loginMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
     case SUBMIT_LOGIN: {

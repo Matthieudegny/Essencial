@@ -22,7 +22,7 @@ const isLogged = useSelector((state) => state.user.isLogged);
                   isLogged ? (
 
                     <button type = "submit"
-                        onSubmit = {handleSubmit}
+                        onClick = {handleSubmit}
                         className = "login-form-button" >
                           <i className="fas fa-heart heart"></i>
                     </button>
