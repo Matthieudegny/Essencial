@@ -62,7 +62,7 @@ function AppInscriptionFormVillage() {
           );
         }}
         handleForm={() => {
-          console.log('handleForm');
+          //console.log('handleForm');
           dispatch(
             actionSubmitFormVillage(),
             // on envoie mon action submitForm au middleware, pour qu'il declenche la requete d'inscription

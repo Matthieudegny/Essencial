@@ -4,14 +4,14 @@ import { useSelector } from 'react-redux';
 
 function HeartForm({
   handleHeart,
-  heartMessage,
-}) 
 
-{
+}) {
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleHeart();
-  }
+ 
+  };
 
 const isLogged = useSelector((state) => state.user.isLogged);
 
@@ -20,7 +20,7 @@ const isLogged = useSelector((state) => state.user.isLogged);
 
                 {
                   isLogged ? (
-
+                    
                     <button type = "submit"
                         onClick = {handleSubmit}
                         className = "login-form-button" >
@@ -34,15 +34,7 @@ const isLogged = useSelector((state) => state.user.isLogged);
 }
 
 HeartForm.propTypes = {
-
-  handleLogin: PropTypes.func.isRequired,
-  isLogged: PropTypes.bool,
-  loggedMessage: PropTypes.string,
-};
-
-HeartForm.defaultProps = {
-  isLogged: false,
-  heartMessage: 'Vous êtes maintenant amis',
+  handleHeart: PropTypes.func.isRequired,
 };
 
 export default HeartForm;

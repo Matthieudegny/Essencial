@@ -26,7 +26,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
           );
           localStorage.setItem('token', JSON.stringify(token));
           const tokenDecoded = jwt_decode(token);
-          console.log(tokenDecoded);
+         // console.log(tokenDecoded);
           const data = await requestInfosUser(tokenDecoded.id, tokenDecoded.type);
           store.dispatch(actionSaveInfoForGetInStore(data.data, token));
           
@@ -69,17 +69,15 @@ const loginMiddleware = (store) => (next) => async (action) => {
 
       try{
         const infosUser = await requestInfosUser(action.payload.id, action.payload.type);
-        console.log("actionSaveInfoForGetInStore",infosUser.data)
+       // console.log("actionSaveInfoForGetInStore",infosUser.data)
         const token = localStorage.getItem('token');
         store.dispatch(actionSaveInfoForGetInStore(infosUser.data, token));
       }
       
       catch(err){
-
-        console.log("alors?")
-        console.log(err)
-
-      }
+        //console.log("alors?")
+        console.log("j'ai une erreur loginMiddleware",err);
+            }
 
      
       next(action);

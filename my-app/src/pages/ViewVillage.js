@@ -14,8 +14,8 @@ const ViewVillage = () => {
   const dispatch = useDispatch();
   //useSelector va nous permettre de récupérer une valeur du store Redux.
   const villageArray = useSelector((state) => state.allUsers.allVillages);
-  console.log(villageArray);
-  console.log(villageArray[0]);
+  //console.log(villageArray);
+  //console.log(villageArray[0]);
 
  
 

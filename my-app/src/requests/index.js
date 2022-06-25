@@ -128,17 +128,35 @@ export async function requestAddPost(title, content, path, category_1, category_
 
 }
 
+
 export async function requestAddFriend(friend_id) {
 
   const response = await axiosInstance.get(`/api/user/friends/add/${friend_id}`, {
     friend_id,
   });
   
-
   console.log(response)
   return response.data;
 
 }
+
+
+export async function requestGetAllPosts() {
+
+  const response = await axiosInstance.get('/api/post')
+  console.log("request post",response)
+  return response.data;
+}
+
+export async function requestGetAllTutos() {
+
+  const response = await axiosInstance.get('/api/post/tuto')
+
+  console.log("request post/tuto",response)
+  return response.data;
+}
+
+
 
 export async function requestGetAllUSers() {
 
@@ -155,7 +173,7 @@ export async function requestGetAllVillages() {
 }
 
 export async function requestInfosUser(id, type) {
-  console.log(type, id);
+  //console.log("requestInfosUser:type, id",type, id);
   const response = await axiosInstance.get(`/api/${type}/${id}`)
   //const response = await axiosInstance.get('/api/user/1')
 

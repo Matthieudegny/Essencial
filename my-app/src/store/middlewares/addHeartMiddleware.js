@@ -6,7 +6,10 @@ import {requestAddFriend, saveAuthorization,  } from '../../requests/';
 const addHeartMiddleware = (store) => (next) => async (action) => {
  switch (action.type) {
    case SUBMIT_FRIEND: {
-     // on intercepte mon action SUBMIT_POST
+
+    console.log("friend_id de la card",action.id);
+    window.alert("vous etes maintenant amis");
+     /* // on intercepte mon action SUBMIT_POST
      console.log("addHeartMiddleware j'ai intercepté SUBMIT_FRIEND");
      
 
@@ -42,9 +45,10 @@ const addHeartMiddleware = (store) => (next) => async (action) => {
        catch (err) {
        // on capture les eventuelles erreur de la requete
          console.error(err);
-       }
+       } */
  
-     return; // on bloque mon action SUBMIT_LOGIN pour ne pas l'envoyer aux reducers
+     next(action);
+     break; // on bloque mon action SUBMIT_LOGIN pour ne pas l'envoyer aux reducers
    }
    case SAVE_FRIEND: {
     // 1. je sauvegarder le token dans mon instance perso axios

@@ -39,7 +39,7 @@ function AppPostForm() {
           );
         }}
         handleForm={() => {
-          console.log('handleForm');
+          //console.log('handleForm');
           dispatch(
             actionSubmitPost(),
             // on envoie mon action submitPos au middleware, pour qu'il declenche la requete pour ajouter le post

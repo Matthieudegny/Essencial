@@ -2,12 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { findUser } from '../selectors/user';
 import '../styles/viewUser.scss'
 // import '../styles/viewUser.scss'
 
-
-function ViewTutos()  {
+function ViewUser()  {
 
   const usersArray = useSelector((state) => state.allUsers.allUsers);
   const [user, setUser] = useState('')
@@ -15,7 +13,7 @@ function ViewTutos()  {
 
   let { userId } = useParams();
   let test = +userId
-  console.log(typeof(test))
+  //console.log(typeof(test))
 
   useEffect(() => {
     const user = usersArray.find((testedUser) => {
@@ -25,7 +23,7 @@ function ViewTutos()  {
    //remplacer find par une requête user/id
   },[userId])
 
-  console.log("ici",user)
+  //console.log("viewuser userId =",userId)
 
     return (
         <div className="viewUser" >
@@ -43,10 +41,8 @@ function ViewTutos()  {
             </>
           )}
 
-         
-
         </div>
     );
 };
 
-export default ViewTutos;
+export default ViewUser;

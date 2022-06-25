@@ -18,13 +18,13 @@ const addpostMiddleware = (store) => (next) => async (action) => {
 
    case SUBMIT_POST: {
      // on intercepte mon action SUBMIT_POST
-     console.log("loginMiddleware j'ai intercepté SUBMIT_POST");
+     //console.log("loginMiddleware j'ai intercepté SUBMIT_POST");
      
 
      const state = store.getState();
-     console.log(store.getState(),'stateaddpost')
+    // console.log(store.getState(),'stateaddpost')
      //je recupere mon state dans le reducer .addpost 
-    console.log('logstate.addpost',state.addpost);
+    //console.log('logstate.addpost',state.addpost);
      const { title, content, path, category_1, category_2 } = state.addpost;
      
      
