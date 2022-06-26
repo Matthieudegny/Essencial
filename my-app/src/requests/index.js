@@ -128,11 +128,11 @@ export async function requestAddPost(title, content, path, category_1, category_
 
 }
 
+// ici id =  friendid
+export async function requestAddFriend(id) {
 
-export async function requestAddFriend(friend_id) {
-
-  const response = await axiosInstance.get(`/api/user/friends/add/${friend_id}`, {
-    friend_id,
+  const response = await axiosInstance.get(`/api/user/friends/add/${id}`, {
+  
   });
   
   console.log(response)

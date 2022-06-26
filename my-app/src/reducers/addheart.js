@@ -1,7 +1,7 @@
 import { SUBMIT_FRIEND, SAVE_FRIEND } from '../actions/addfriend';
 
 export const initialState = {
-  
+  id:'',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -15,7 +15,7 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_FRIEND:
       return {
         ...state,
-        // on est inscrit donc on sauvegarde les infos du formulaire     
+        // on est amis donc on sauvegarde les infos 
         id: action.payload.id,
         
       };
