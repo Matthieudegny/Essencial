@@ -2,7 +2,7 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import MinCard from "./MinCard";
+import MinCardVillage from "./MinCardVillage";
 import { actionGetAllVillages } from '../actions/getAll';
 import '../styles/viewVillage.scss'
 
@@ -14,7 +14,7 @@ const ViewVillage = () => {
   const dispatch = useDispatch();
   //useSelector va nous permettre de récupérer une valeur du store Redux.
   const villageArray = useSelector((state) => state.allUsers.allVillages);
-  //console.log(villageArray);
+  //console.log("villagearray",villageArray);
   //console.log(villageArray[0]);
 
  
@@ -28,14 +28,14 @@ const ViewVillage = () => {
 
   return (
     <div className="viewVillage" >
-
+<h1>ViewVillage</h1>
       {villageArray ? (
         <>
           {villageArray.map(({
             id, path, name, region, 
           }) => (
 
-            <MinCard
+            <MinCardVillage
               imageLink={path}
               name={name}
               region={region}

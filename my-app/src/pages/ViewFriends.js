@@ -18,7 +18,7 @@ const Friends = () => {
 //console.log(usersArray);
   return (
     <div className="friends"  >
-
+<h1>ViewFriends</h1>
       {usersArray ? (
         <>
           {usersArray.map(({

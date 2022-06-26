@@ -2,12 +2,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import '../styles/viewUser.scss'
-// import '../styles/viewUser.scss'
+import '../styles/InCardUser.scss'
 
-function ViewUser()  {
+
+function InCardUser()  {
 
   const usersArray = useSelector((state) => state.allUsers.allUsers);
+
   const [user, setUser] = useState('')
   // console.log(usersArray)
 
@@ -18,6 +19,7 @@ function ViewUser()  {
   useEffect(() => {
     const user = usersArray.find((testedUser) => {
       return testedUser.id === test
+      
     })
     setUser(user)
    //remplacer find par une requête user/id
@@ -26,8 +28,8 @@ function ViewUser()  {
   //console.log("viewuser userId =",userId)
 
     return (
-        <div className="viewUser" >
-
+        <div className="in-card-user" >
+<h1>InCardUser</h1>
           {user && (
             <>
               <img src={user.path} alt="user" />
@@ -45,4 +47,4 @@ function ViewUser()  {
     );
 };
 
-export default ViewUser;
+export default InCardUser;

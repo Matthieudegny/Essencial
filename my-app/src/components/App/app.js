@@ -4,18 +4,18 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { actiongetinfos, actionSaveInfoForGetInStore, actionSaveUser } from "../../actions/user";
-/*  */
+import { actiongetinfos, actionSaveInfoForGetInStore } from "../../actions/user";
+
 //===========================================================//
-//Composants
+
+//Pages
 import HomeLog from '../../pages/HomeLog';
 import Addpost from '../../pages/AddPost';
-import Friends from '../../pages/Friends';
-import Members from '../../pages/Members';
+import ViewFriends from '../../pages/ViewFriends';
+import ViewMember from '../../pages/ViewMember';
 import ViewTutos from '../../pages/ViewTutos';
 import About from '../../pages/About';
 import HomeConnexion from '../../pages/HomeConnexion';
-import ViewVillage from '../../pages/ViewVillage';
 import UpdateProfil from '../../pages/UpdateProfil';
 import Confidentiality from '../../pages/Confidentiality';
 import Research from '../../pages/Research';
@@ -23,17 +23,22 @@ import Admin from '../../pages/Admin';
 import HomeVillage from '../../pages/HomeVillage';
 import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
-import ViewUser from '../../pages/ViewUser'
+import InCardUser from '../../pages/InCardUser'
+import InCardVillage from '../../pages/InCardVillage';
+import InCardTutos from '../../pages/InCardTutos'
 import EcoVillages from '../../pages/ViewVillage';
 import error404 from '../../pages/error404';
 
-//===========================================================//
+//Composants
 import Navigation from '../Navigation';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
+//===========================================================//
 //sTYLES 
+
 import '../../styles/index.scss';
 import '../../styles/app.scss'
+
 
 
 
@@ -57,32 +62,12 @@ function App() {
        const userId = idToken.toString()
       //on envoie l'action getinfos au store avec dispatch 
       dispatch(actiongetinfos(userId, user.type));
-     
       //dispatch(actionSaveUser(pseudo, token));
       dispatch(actionSaveInfoForGetInStore(user, token));
     } 
   }, []);
 
-  //1 étape obtenir le token
-  // const tokencoded = localStorage.getItem('token');
- //2 etape décrypter le token (installer le module + code)
-
- //var token = "eyJ0eXAiO.../// jwt token"
-//  const tokenDecoded = jwt_decode(tokencoded);
-//  console.log('ici log decoded',tokenDecoded)
-
- //3 etape créer la requete ds un use effect (requete -> obtenir les infos du user et les save ds le state )
-//  const dispatch = useDispatch();
-//  const idToken = tokenDecoded.id
-//  const id = idToken.toString()
-
-
-// useEffect(() => {
-//   //envoie de la requete avec id + type
-//   dispatch(actiongetinfos(id, tokenDecoded.type))
-// },[])
- 
-
+  
   /* const test = true;
   console.log(test); */
   return (
@@ -115,15 +100,16 @@ function App() {
               <Route path="/accueil" element={HomeLog()} />
               <Route path="/home-log-village" element={HomeVillage()} />
               <Route path="/ajouter-un-post" element={Addpost()} />
-              <Route path="/amis" element={Friends()} />
-              <Route path="/membres" element={Members()} />
+              <Route path="/amis" element={ViewFriends()} />
+              <Route path="/membres" element={ViewMember()} />
               <Route path="/ecoVillages" element={EcoVillages()} />
               <Route path="/tutos" element={ViewTutos()} />
               <Route path="/a-propos" element={About()} />
               <Route path="/admin" element={Admin()} />
               <Route path="/contact" element={Contact()} />
-              <Route path="/eco-village-vue" element={ViewVillage()} />
-              <Route path="/user-vue/:userId" element={<ViewUser />} />
+              <Route path="/eco-village-vue/:villageId" element={<InCardVillage />} />
+              <Route path="/tutos/:tutosId" element={<InCardTutos />} />
+              <Route path="/user-vue/:userId" element={<InCardUser />} />
               <Route path="/gestion-de-profil" element={UpdateProfil()} />
               <Route path="/confidentialite" element={Confidentiality()} />
               <Route path="/recherche" element={Research()} />

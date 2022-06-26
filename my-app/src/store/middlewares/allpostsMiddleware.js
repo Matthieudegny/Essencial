@@ -1,5 +1,5 @@
 
-import { GET_ALL_POSTS, GET_ALL_TUTOS, actionSaveAllPosts, actionSaveAllTutos } from '../../actions/getallpost';
+import { GET_ALL_POSTS, GET_ALL_TUTOS, actionSaveAllPosts, actionSaveAllTutos } from '../../actions/getallposts';
 import { requestGetAllPosts,requestGetAllTutos } from '../../requests';
 
 
@@ -20,7 +20,7 @@ const allpostsMiddleware = (store) => (next) => async (action) => {
          /* console.log("je dispatch SAVE_ALL_USERS dans mon reducer allposts"); */
  
           store.dispatch(
-            actionSaveAllPosts(response.data),
+            actionSaveAllPosts(response),
           );
         }
         catch (err) {
@@ -46,7 +46,7 @@ const allpostsMiddleware = (store) => (next) => async (action) => {
        //console.log(response.data)
         //console.log("je dispatch SAVE_ALL_VILLAGES dans mon reducer allUsers");
          store.dispatch(
-           actionSaveAllTutos(response.data),
+           actionSaveAllTutos(response),
          );
        }
        catch (err) {

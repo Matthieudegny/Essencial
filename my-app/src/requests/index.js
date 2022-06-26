@@ -144,7 +144,7 @@ export async function requestAddFriend(friend_id) {
 export async function requestGetAllPosts() {
 
   const response = await axiosInstance.get('/api/post')
-  console.log("request post",response)
+  console.log("request post",response.data)
   return response.data;
 }
 
@@ -152,7 +152,7 @@ export async function requestGetAllTutos() {
 
   const response = await axiosInstance.get('/api/post/tuto')
 
-  console.log("request post/tuto",response)
+  console.log("request post/tuto",response.data)
   return response.data;
 }
 
