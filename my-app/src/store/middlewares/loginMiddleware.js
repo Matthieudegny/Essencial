@@ -1,8 +1,9 @@
-
 import {SUBMIT_LOGIN, actionSaveUser, LOGOUT, SAVE_USER,GET_INFOS, actionSaveInfoForGetInStore} from '../../actions/user';
 import { actionSaveInfoUpdateProfileUser, actionSaveInfoUpdateProfileVillage } from '../../actions/updateProfile';
  import {removeAuthorization, requestLogin, requestInfosUser,  saveAuthorization } from '../../requests';
  import jwt_decode from "jwt-decode";
+
+ 
 const loginMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
     case SUBMIT_LOGIN: {
@@ -28,6 +29,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
           localStorage.setItem('token', JSON.stringify(token));
           const tokenDecoded = jwt_decode(token);
           //console.log(tokenDecoded);
+         // console.log(tokenDecoded);
           const data = await requestInfosUser(tokenDecoded.id, tokenDecoded.type);
           store.dispatch(actionSaveInfoForGetInStore(data.data, token));
           delete data.data.id
@@ -79,6 +81,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
       try{
         const infosUser = await requestInfosUser(action.payload.id, action.payload.type);
         //console.log("actionSaveInfoForGetInStore",infosUser.data, action.payload.type)
+       // console.log("actionSaveInfoForGetInStore",infosUser.data)
         const token = localStorage.getItem('token');
         store.dispatch(actionSaveInfoForGetInStore(infosUser.data, token));
 
@@ -91,11 +94,9 @@ const loginMiddleware = (store) => (next) => async (action) => {
       }
       
       catch(err){
-
-        console.log("alors?")
-        console.log(err)
-
-      }
+        //console.log("alors?")
+        console.log("j'ai une erreur loginMiddleware",err);
+            }
 
      
       next(action);

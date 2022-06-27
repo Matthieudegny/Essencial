@@ -6,7 +6,7 @@ import MinCard from "./MinCard";
 import { actionGetAllUsers } from '../actions/getAll';
 import '../styles/friends.scss'
 
-const Members = () => {
+const ViewMember = () => {
 
   const usersArray = useSelector((state) => state.allUsers.allUsers);
 
@@ -18,7 +18,7 @@ const Members = () => {
 
     return (
         <div className="friends" >
-          
+          <h1>ViewMember</h1>
           {usersArray ? (
             <>
               {usersArray.map(({
@@ -48,4 +48,4 @@ const Members = () => {
     );
 };
 
-export default Members;
+export default ViewMember;

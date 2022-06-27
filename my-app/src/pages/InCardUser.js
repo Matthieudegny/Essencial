@@ -2,34 +2,34 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { findUser } from '../selectors/user';
-import '../styles/viewUser.scss'
-// import '../styles/viewUser.scss'
+import '../styles/InCardUser.scss'
 
 
-function ViewTutos()  {
+function InCardUser()  {
 
   const usersArray = useSelector((state) => state.allUsers.allUsers);
+
   const [user, setUser] = useState('')
   // console.log(usersArray)
 
   let { userId } = useParams();
   let test = +userId
-  console.log(typeof(test))
+  //console.log(typeof(test))
 
   useEffect(() => {
     const user = usersArray.find((testedUser) => {
       return testedUser.id === test
+      
     })
     setUser(user)
    //remplacer find par une requête user/id
   },[userId])
 
-  console.log("ici",user)
+  //console.log("viewuser userId =",userId)
 
     return (
-        <div className="viewUser" >
-
+        <div className="in-card-user" >
+<h1>InCardUser</h1>
           {user && (
             <>
               <img src={user.path} alt="user" />
@@ -43,10 +43,8 @@ function ViewTutos()  {
             </>
           )}
 
-         
-
         </div>
     );
 };
 
-export default ViewTutos;
+export default InCardUser;

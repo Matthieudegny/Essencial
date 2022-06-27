@@ -40,7 +40,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    console.log('handleLogout');
+    //console.log('"handlelogout log",handleLogout');
     dispatch(
       actionLogout(),
       navigate('/')

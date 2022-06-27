@@ -11,7 +11,7 @@ const axiosInstance = axios.create({
 export function saveAuthorization(token) {
   // on va modifier les valeurs par defaut de notre instance axios pour sauvegarder le token
   axiosInstance.defaults.headers.common.Authorization = `jwt ${token}`;
-  
+
 }
 
 
@@ -128,6 +128,36 @@ export async function requestAddPost(title, content, path, category_1, category_
 
 }
 
+// ici id =  friendid
+export async function requestAddFriend(id) {
+
+  const response = await axiosInstance.get(`/api/user/friends/add/${id}`, {
+  
+  });
+  
+  console.log(response)
+  return response.data;
+
+}
+
+
+export async function requestGetAllPosts() {
+
+  const response = await axiosInstance.get('/api/post')
+  console.log("request post",response.data)
+  return response.data;
+}
+
+export async function requestGetAllTutos() {
+
+  const response = await axiosInstance.get('/api/post/tuto')
+
+  console.log("request post/tuto",response.data)
+  return response.data;
+}
+
+
+
 export async function requestGetAllUSers() {
 
   const response = await axiosInstance.get('/api/user')
@@ -144,9 +174,10 @@ export async function requestGetAllVillages() {
 
 export async function requestInfosUser(id, type) {
   //console.log(type, id);
+  //console.log("requestInfosUser:type, id",type, id);
   const response = await axiosInstance.get(`/api/${type}/${id}`)
   //const response = await axiosInstance.get('/api/user/1')
- 
+
   return response
 }
 

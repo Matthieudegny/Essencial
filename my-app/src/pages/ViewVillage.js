@@ -1,23 +1,61 @@
 // == Imports
 import React from "react";
-import MinCard from "./MinCard";
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import MinCardVillage from "./MinCardVillage";
+import { actionGetAllVillages } from '../actions/getAll';
 import '../styles/viewVillage.scss'
+
+
 
 const ViewVillage = () => {
 
-    const items = []
+  //Ce Hook permet simplement de récupérer la fonction dispatch au sein de notre composant afin de pouvoir dispatch des actions Redux.
+  const dispatch = useDispatch();
+  //useSelector va nous permettre de récupérer une valeur du store Redux.
+  const villageArray = useSelector((state) => state.allUsers.allVillages);
+  //console.log("villagearray",villageArray);
+  //console.log(villageArray[0]);
 
-    for (let i =0 ; i<9 ; i++) {
-        items.push(< MinCard key={i} />)
-      }
+ 
 
-    return (
-        <div className="viewVillage" >
 
-          {items}
+  //On utilise ce Hook pour indiquer à React que notre composant doit exécuter quelque chose après chaque affichage. 
+  //React enregistre la fonction passée en argument (que nous appellerons « effet »), et l'appellera plus tard, après avoir mis à jour le DOM.
+  useEffect(() => {
+    dispatch(actionGetAllVillages());
+  }, [])
 
-        </div>
-    );
+  return (
+    <div className="viewVillage" >
+<h1>ViewVillage</h1>
+      {villageArray ? (
+        <>
+          {villageArray.map(({
+            id, path, name, region, 
+          }) => (
+
+            <MinCardVillage
+              imageLink={path}
+              name={name}
+              region={region}
+              id={id}
+              key={id}
+            />
+
+          ))}
+        </>
+      ) : (
+
+        <>
+        </>
+
+      )}
+
+
+
+    </div>
+  );
 };
 
 export default ViewVillage;
