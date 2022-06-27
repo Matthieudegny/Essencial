@@ -1,4 +1,4 @@
-import { SAVE_DATA_USER, CHANGE_DATA_USER, SAVE_DATA_VILLAGE, CHANGE_DATA_VILLAGE  } from '../actions/updateProfile';
+import { SAVE_DATA_USER, CHANGE_DATA_USER, SAVE_DATA_VILLAGE, CHANGE_DATA_VILLAGE, DELETE_USER  } from '../actions/updateProfile';
 
 export const initialState = {
   dataProfile: [],
@@ -50,7 +50,6 @@ const reducer = (state = initialState, action = {}) => {
       }       
     
     };
-
     default:
       return state;
   }

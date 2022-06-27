@@ -1,9 +1,13 @@
 
 import {SUBMIT_FORM, actionSaveUser /* SAVE_USER, */} from '../../actions/inscription';
-import { REQUEST_CHANGE_PROFIL_USER } from '../../actions/updateProfile';
-import {requestInscriptionForm, requestUpdateUser /* saveAuthorization, */ } from '../../requests/';
+import { REQUEST_CHANGE_PROFIL_USER, DELETE_USER } from '../../actions/updateProfile';
+import { actionLogout } from '../../actions/user';
+import {requestInscriptionForm, requestUpdateUser, requestDeleteUser /* saveAuthorization, */ } from '../../requests/';
+
+
 
 const inscriptionMiddleware = (store) => (next) => async (action) => {
+  
  switch (action.type) {
    case SUBMIT_FORM: {
      // on intercepte mon action SUBMIT_FORM
@@ -18,7 +22,7 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
      
      //test
     
-     console.log('je fait mon getState pour recuperer', { last_name, first_name, email, pseudo, password, address, region, zip_code, city, path});
+     //console.log('je fait mon getState pour recuperer', { last_name, first_name, email, pseudo, password, address, region, zip_code, city, path});
 
      try {
        // on execute la requete POST /createUser
@@ -28,13 +32,13 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
 
 
          const { user, photo} = await requestInscriptionForm( last_name, first_name, email, pseudo, password, address, region, zip_code, city, path );
-         console.log("la requete est terminé et j'ai récupéré:", { user,photo});
+         //console.log("la requete est terminé et j'ai récupéré:", { user,photo});
 
 
 
 
         
-         console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
+         //console.log("je dispatch SAVE_USER avec les infos de l'utilisateur connecté");
          store.dispatch(
            actionSaveUser( last_name, first_name, email, pseudo, password, address, region, zip_code, city, path),
          );
@@ -71,18 +75,42 @@ const inscriptionMiddleware = (store) => (next) => async (action) => {
    case REQUEST_CHANGE_PROFIL_USER : {
 
     try {
-      console.log("je soumets ma requête avec ", action.payload.dataUser)
+      //console.log("je soumets ma requête avec ", action.payload.dataUser)
 
         const response = await requestUpdateUser( action.payload.dataUser );
-        console.log("réponse de ma requee updateUser",response)
+        //console.log("réponse de ma requee updateUser",response)
         
-        // store.dispatch(
-        //   actionSaveUser( last_name, first_name, email, pseudo, password, address, region, zip_code, city, path),
-        // );
       }
       catch (err) {
       // on capture les eventuelles erreur de la requete
         console.error(err);
+      }
+
+    return
+   }
+   
+
+   case DELETE_USER : {
+
+    
+    try {
+      //console.log("je soumets ma requête delete user avec ", action.payload.userId)
+
+        const response = await requestDeleteUser( action.payload.userId );
+        //console.log("réponse de ma requee deleteUser",response)
+        
+        if(response.status===200) {
+          window.alert("Votre compte a bien été supprimé")
+          //console.log("user bien supprimé, logout lancé")
+          store.dispatch(
+            actionLogout(),
+          );
+        }
+      }
+      catch (err) {
+      // on capture les eventuelles erreur de la requete
+        console.error(err);
+        
       }
 
     return

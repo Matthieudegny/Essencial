@@ -47,6 +47,7 @@ const reducer = (state = initialState, action = {}) => {
         pseudo: '',
         token: null,
         email: '',
+        name:''
       };
     default:
       return state;
