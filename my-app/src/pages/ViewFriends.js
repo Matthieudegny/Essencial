@@ -25,8 +25,7 @@ const Friends = () => {
         console.log(idUser)
         dispatch(actionGetAllFriends(idUser));
       }
-
-  },[])
+  })
 
   useEffect(() => {
     setFriends(listFriends)
