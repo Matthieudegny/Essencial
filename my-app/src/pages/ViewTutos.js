@@ -11,7 +11,7 @@ import '../styles/viewTutos.scss'
 const ViewTutos = () => {
 
   const allTutosArray = useSelector((state) => state.allposts.allTutos);
-  console.log("tutosArray viewtutos",allTutosArray);
+  //console.log("tutosArray viewtutos",allTutosArray);
   //Ce Hook permet simplement de récupérer la fonction dispatch au sein de notre composant afin de pouvoir dispatch des actions Redux.
   const dispatch = useDispatch();
   //useSelector va nous permettre de récupérer une valeur du store Redux.
