@@ -9,7 +9,7 @@ function HeartForm({
   const dispatch = useDispatch();
 
   const handleSubmit = (evt) => {
-    console.log("je passe par handleHeart !");
+    console.log("je passe par handleHeart !!");
     evt.preventDefault();
     handleHeart();
     dispatch(
