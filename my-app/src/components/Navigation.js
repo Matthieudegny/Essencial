@@ -144,7 +144,7 @@ const Navigation = () => {
 
       <div className="nav-logoConnexion">
         <i className="fas fa-user"></i>
-        Bienvenue_
+        Bienvenue
         {namenav}
         {pseudonav}
       </div>

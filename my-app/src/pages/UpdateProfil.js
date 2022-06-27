@@ -1,39 +1,24 @@
 // == Imports
-import React, {  useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import {  actionChangeUpdateProfileUser, actionChangeUpdateProfileVillage, actionRequestChangeProfileUser, actionRequestChangeProfileVillage } from '../actions/updateProfile';
+import {  actionChangeUpdateProfileUser, actionChangeUpdateProfileVillage, actionRequestChangeProfileUser, 
+    actionRequestChangeProfileVillage, actionDeleteProfileUser, actionDeleteProfileVillage } from '../actions/updateProfile';
 import * as dayjs from 'dayjs'
-
+import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfil = () => {
     const dispatch = useDispatch();
-
-    // const email = useSelector((state) => state.user.email);
-    // const isLogged = useSelector((state) => state.user.isLogged);
-    // const villageArray = useSelector((state) => state.allUsers.allVillages);
-    // const userArray = useSelector((state) => state.allUsers.allUsers);
-
 
     //je récupère les infos de l'utilisateur ds le reducer updtaeProfile + son type
     const dataUser = useSelector((state) => state.updateReducer.user);
     const dataVillage = useSelector((state) => state.updateReducer.ecoVillage);
     const typeUser = useSelector((state) => state.updateReducer.type);
     
-
-    // console.log(dataUser)
-    // console.log(dataVillage)
-    // console.log(typeUser)
-
-    //j'enregistre d'un coté les infos de l'autre type
-    // const typeUser = userData.type;
-    // const userDatas = userData.dataProfile
-   
-    // const [nameInput, setNameInput] = useState('')
-    //console.log(typeUser,userDatas)
-
+    //je submit au click sur Modifier avec deux requêtes différentes car je vise deux objets différents ds le reducer
     const handleSubmitUser = (evt) => {
         evt.preventDefault()
-        console.log("je lance ma requête requestUpdateProfileUser")
+        //console.log("je lance ma requête requestUpdateProfileUser")
         dispatch(
             actionRequestChangeProfileUser(dataUser)
         )
@@ -41,13 +26,13 @@ const UpdateProfil = () => {
 
     const handleSubmitVillage = (evt) => {
         evt.preventDefault()
-        console.log("je lance ma requête requestUpdateProfileVillage")
+        //console.log("je lance ma requête requestUpdateProfileVillage")
         dispatch(
             actionRequestChangeProfileVillage(dataVillage)
         )
 
     }
-
+    //je change les valeurs du reducer correspondant au nom de l'input, deux objets ds le reducer donc deux actions différentes
     const handleChangeUser = (evt) => {
         
         dispatch(
@@ -62,7 +47,61 @@ const UpdateProfil = () => {
         )        
     }
 
-    console.log(typeUser)
+    //Echec -> tentative de réunir le code sur principe DRY getId pour deleteUser et deleteVillage
+    // const [userId, setUserId] = useState('');
+
+    // const getId = ()  => {
+    //     const token = localStorage.getItem('token');
+    //     const user = jwt_decode(token);
+    //     const idToken = user.id
+    //     const idUser = idToken.toString()
+    //     setUserId(idUser)
+    //     console.log("dans la fonction getId",idUser)
+    // }
+
+    const [redirect, setRedirect] = useState(false)
+   
+    const navigate = useNavigate();
+
+    const deleteUser = () => {
+        const token = localStorage.getItem('token');
+        const user = jwt_decode(token);
+        const idToken = user.id
+        const idUser = idToken.toString()
+        //getId()
+        //console.log("deleteUser",idUser)
+        dispatch(
+            actionDeleteProfileUser(idUser),  
+            navigate('/')          
+        )      
+        setRedirect(true)
+    }
+
+    const deleteVillage = () => {
+        const token = localStorage.getItem('token');
+        const user = jwt_decode(token);
+        const idToken = user.id
+        const idUser = idToken.toString()
+        //getId()
+        //console.log("deleet village",idUser)
+        dispatch(
+            actionDeleteProfileVillage(idUser),
+            navigate('/')
+        )     
+        setRedirect(true)
+    }
+
+    
+
+    // useEffect(()=> {
+    //     if(redirect===true) {
+    //         navigate('/')
+    //         setRedirect(false)
+    //     }
+    // })
+    
+    
+
 
     return (
         <div className="home" >
@@ -153,7 +192,16 @@ const UpdateProfil = () => {
                                 >
                                 Modifier
                                 </button>
+
+                               
                             </form>
+
+                            <button
+                                    onClick={deleteUser}
+                                    className="login-form-button"
+                                >
+                                   Supprimer mon compte
+                            </button>
 
                         </div>
 
@@ -262,7 +310,15 @@ const UpdateProfil = () => {
                                 >
                                     Modifier
                                 </button>
+                               
                             </form>
+
+                            <button
+                                onClick={deleteVillage}
+                                className="login-form-button"
+                            >
+                                Supprimer mon compte
+                            </button>
 
                         </div>
 

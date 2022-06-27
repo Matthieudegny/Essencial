@@ -163,3 +163,17 @@ export async function requestUpdateVillage(newDatas) {
   }) 
   return response
 }
+
+export async function requestDeleteUser(userId) {
+  console.log(`.delete /api/user/${userId}`)
+  const response = await axiosInstance.delete(`/api/user/${userId}`)
+ 
+  return response
+}
+
+export async function requestDeleteVillage(userId) {
+  console.log(`/api/ecovillage/${userId}`)
+  const response = await axiosInstance.delete(`/api/ecovillage/${userId}`)
+ 
+  return response
+}

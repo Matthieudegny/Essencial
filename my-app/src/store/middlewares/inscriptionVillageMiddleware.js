@@ -1,7 +1,8 @@
 
-import {actionSaveVillage, SUBMIT_FORM_VILLAGE, /* SAVE_USER, */} from '../../actions/inscriptionvillage';
-import { REQUEST_CHANGE_PROFIL_VILLAGE } from '../../actions/updateProfile'
-import {requestInscriptionFormVillage, requestUpdateVillage /* saveAuthorization, */ } from '../../requests';
+import {actionSaveVillage, SUBMIT_FORM_VILLAGE,  /* SAVE_USER, */} from '../../actions/inscriptionvillage';
+import { DELETE_VILLAGE, REQUEST_CHANGE_PROFIL_VILLAGE } from '../../actions/updateProfile'
+import {requestInscriptionFormVillage, requestUpdateVillage, requestDeleteVillage /* saveAuthorization, */ } from '../../requests';
+import { actionLogout } from '../../actions/user';
 
 const inscriptionVillageMiddleware = (store) => (next) => async (action) => {
  switch (action.type) {
@@ -18,24 +19,24 @@ const inscriptionVillageMiddleware = (store) => (next) => async (action) => {
      
      
     
-     console.log('je fait mon getState pour recuperer mon village', {name, path, description, website, address, zip_code, city, region, last_name_manager, first_name_manager, date_of_birth_manager, phone_number, email, password});
+     //console.log('je fait mon getState pour recuperer mon village', {name, path, description, website, address, zip_code, city, region, last_name_manager, first_name_manager, date_of_birth_manager, phone_number, email, password});
 
 
        try {
         // on execute la requete POST /createVillage
-          console.log('je lance ma requete create village');
+          //console.log('je lance ma requete create village');
  
  
  
  
           const { ecovillage, photo} = await requestInscriptionFormVillage(name, path, description, website, address, zip_code, city, region, last_name_manager, first_name_manager, date_of_birth_manager, phone_number, email, password);
-          console.log("la requete est terminé et j'ai récupéré:", {ecovillage ,photo});
+          //console.log("la requete est terminé et j'ai récupéré:", {ecovillage ,photo});
  
  
  
  
          
-          console.log("je dispatch SAVE_VILLAGE avec les infos du village");
+          //console.log("je dispatch SAVE_VILLAGE avec les infos du village");
           store.dispatch(
             actionSaveVillage(name, path, description, website, address, zip_code, city, region, last_name_manager, first_name_manager, date_of_birth_manager, phone_number, email, password),
           );
@@ -70,14 +71,39 @@ const inscriptionVillageMiddleware = (store) => (next) => async (action) => {
    case REQUEST_CHANGE_PROFIL_VILLAGE : {
 
     try {
-      console.log("je soumets ma requête avec ", action.payload.dataUser)
+      //console.log("je soumets ma requête avec ", action.payload.dataUser)
 
         const response = await requestUpdateVillage( action.payload.dataUser );
-        console.log("réponse de ma requee updateUser",response)
+        //console.log("réponse de ma requee updateUser",response)
         
         // store.dispatch(
         //   actionSaveUser( last_name, first_name, email, pseudo, password, address, region, zip_code, city, path),
         // );
+      }
+      catch (err) {
+      // on capture les eventuelles erreur de la requete
+        console.error(err);
+      }
+
+    return
+   }
+
+   case DELETE_VILLAGE : {
+
+    try {
+      //console.log("je soumets ma requête deleteVillage avec ", action.payload.userId)
+
+        const response = await requestDeleteVillage( action.payload.userId );
+        console.log("réponse de ma requee deleteVillage",response)
+
+        if(response.status===200) {
+          window.alert("Votre compte a bien été supprimé")
+          //console.log("user bien supprimé, logout lancé")
+          store.dispatch(
+            actionLogout(),
+          );
+        }
+        
       }
       catch (err) {
       // on capture les eventuelles erreur de la requete

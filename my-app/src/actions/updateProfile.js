@@ -4,6 +4,8 @@ export const CHANGE_DATA_USER = 'CHANGE_DATA_USER';
 export const CHANGE_DATA_VILLAGE = 'CHANGE_DATA_VILLAGE';
 export const REQUEST_CHANGE_PROFIL_USER = 'REQUEST_CHANGE_PROFIL_USER'
 export const REQUEST_CHANGE_PROFIL_VILLAGE = 'REQUEST_CHANGE_PROFIL_VILLAGE'
+export const DELETE_VILLAGE = 'DELETE_VILLAGE'
+export const DELETE_USER = 'DELETE_USER'
 
 export const actionSaveInfoUpdateProfileUser = (dataUser, type) => ({
   type: SAVE_DATA_USER,
@@ -50,3 +52,17 @@ export const actionRequestChangeProfileVillage = (dataUser) => ({
     dataUser
   },
 });
+
+export const actionDeleteProfileUser = (userId) => ({
+  type: DELETE_USER,
+  payload: {
+    userId
+  },
+})
+
+export const actionDeleteProfileVillage = (userId) => ({
+  type: DELETE_VILLAGE,
+  payload: {
+    userId
+  },
+})
