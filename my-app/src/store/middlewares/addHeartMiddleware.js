@@ -12,28 +12,29 @@ const addHeartMiddleware = (store) => (next) => async (action) => {
       // on intercepte mon action SUBMIT_FRIEND
      console.log("addHeartMiddleware j'ai intercepté SUBMIT_FRIEND");
      
-
+/* 
      const state = store.getState();
      console.log(store.getState(),'stateaddheart GETSTATE')
      //je recupere mon state dans le reducer .addheart 
     console.log('logstate.addheart',state.addheart);
-     const { friend_id } = state.addheart;
+    //ici je renome en destructurant avec les : (id devient friend id)
+     const {id:friend_id } = state.addheart;
      
      console.log('je fait mon getState pour recuperer', {friend_id});
-
+ */
      try {
        // on execute la requete POST /AddFriend
          console.log('je lance ma requete addFriend');
          
          
-         const { user } = await requestAddFriend( friend_id   );
-         console.log("la requete est terminé et j'ai récupéré:", { user});
+         const data  = await requestAddFriend( action.id  );
+         console.log("la requete est terminé et j'ai récupéré:", data.message);
          window.alert("Vous êtes maintenant Amis !");
   
          console.log("je dispatch SAVE_FRIEND avec les infos de l'ajout d'amis");
-         store.dispatch(
+        /*  store.dispatch(
            actionSaveFriend(friend_id ),
-         );
+         ); */
        }
        catch (err) {
        // on capture les eventuelles erreur de la requete

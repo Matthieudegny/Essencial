@@ -22,15 +22,7 @@ const MinCard = ({ imageLink, pseudo, name, region, id }) => {
 
       <h3>{region}</h3>
 
-        <HeartForm
-          handleHeart={() => {
-            console.log("handleHeart");
-            dispatch(
-              // on envoie mon action submitLogin au middleware, pour qu'il declenche la requete de login
-              actionSubmitFriend(id)
-            );
-          }}
-        />
+        <HeartForm id={id}/>
       
     </div>
   );

@@ -4,17 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { actionSubmitFriend } from "../../actions/addfriend";
 
 function HeartForm({
-  handleHeart,
+ id,
 }) {
   const dispatch = useDispatch();
 
   const handleSubmit = (evt) => {
-    console.log("je passe par handleHeart");
-    evt.preventDefault();
-    handleHeart();
+    console.log("je passe par handleHeart","mon id ->",id);
     dispatch(
       // on envoie mon action submitFriend au middleware, pour qu'il declenche la requete d'ajout
-      actionSubmitFriend()
+      actionSubmitFriend(id)
     );
   };
 

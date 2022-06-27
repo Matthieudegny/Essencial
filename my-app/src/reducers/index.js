@@ -6,6 +6,7 @@ import addPostReducer from './addpost';
 import allUserReducer from './allUsers';
 import updateReducer from './updateReducer'
 import allPostsReducer from './allposts';
+import addheart from './addheart'
 
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   allUsers : allUserReducer,
   updateReducer: updateReducer,
   allposts : allPostsReducer,
+  addheart : addheart,
 });
 
 export default rootReducer;
