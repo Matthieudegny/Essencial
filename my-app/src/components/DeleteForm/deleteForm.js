@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import "./style.scss";
+//import "./style.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { actionSubmitFriend } from "../../actions/addfriend";
+import { actionDeleteFriend } from "../../actions/deleteFriend";
 import jwt_decode from "jwt-decode";
 
 function HeartForm({
@@ -15,10 +15,10 @@ function HeartForm({
     const user = jwt_decode(token);
     const idToken = user.id
     const idUser = idToken.toString()
-    console.log(idUser)
+    //console.log(idUser)
     dispatch(
       // on envoie mon action submitFriend au middleware, pour qu'il declenche la requete d'ajout
-      actionSubmitFriend(id,idUser)
+      actionDeleteFriend(id,idUser)
     );
   };
 
@@ -32,7 +32,7 @@ function HeartForm({
           onClick={handleSubmit}
           className="login-form-button"
         >
-          <i className="fas fa-heart heart"></i>
+         X
         </button>
       ) : (
         ""

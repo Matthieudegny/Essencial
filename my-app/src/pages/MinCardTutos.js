@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 
 const MinCardTutos = ({ photo_path, post_title, post_id }) => {
-console.log(post_id);
+//console.log(post_id);
   return (
     <div className="minCardTutos">
 

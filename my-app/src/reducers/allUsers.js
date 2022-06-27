@@ -1,8 +1,9 @@
-import { SAVE_ALL_USERS, SAVE_ALL_VILLAGES } from '../actions/getAll';
+import { SAVE_ALL_USERS, SAVE_ALL_VILLAGES, SAVE_ALL_FRIENDS } from '../actions/getAll';
 
 export const initialState = {
   allUsers : [],
-  allVillages : []
+  allVillages : [],
+  allFriends : []
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -20,6 +21,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         allVillages : action.payload,
+      };
+
+    case SAVE_ALL_FRIENDS:
+  
+      return {
+        ...state,
+        allFriends : action.payload,
       };
 
     default:
