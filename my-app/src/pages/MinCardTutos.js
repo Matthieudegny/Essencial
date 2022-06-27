@@ -4,16 +4,16 @@ import "../styles/minCardTutos.scss";
 import { NavLink } from "react-router-dom";
 
 
-const MinCardTutos = ({ imageLink, title, id }) => {
-
+const MinCardTutos = ({ photo_path, post_title, post_id }) => {
+console.log(post_id);
   return (
     <div className="minCardTutos">
 
-      <NavLink to={`/tutos/${id}`}>
-        <img src={imageLink} alt="J'ai pas d'image ici Arthur ? c'est dommage je trouve :)  " />
+      <NavLink to={`/tutos/${post_id}`}>
+        <img src={photo_path} alt="J'ai pas d'image ici Arthur ? c'est dommage je trouve :)  " />
       </NavLink>
 
-      <h1>{title}</h1>
+      <h1>{post_title}</h1>
      
 
     </div>

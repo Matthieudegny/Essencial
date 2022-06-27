@@ -26,7 +26,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
           store.dispatch(
             actionSaveUser(pseudo, token),
           );
-          localStorage.setItem('token', JSON.stringify(token));
+          localStorage.setItem('token', token);
           const tokenDecoded = jwt_decode(token);
           //console.log(tokenDecoded);
          // console.log(tokenDecoded);

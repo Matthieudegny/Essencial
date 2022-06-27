@@ -16,7 +16,7 @@ function InCardTutos() {
 
   useEffect(() => {
     const tutos = tutosArray.find((testedTutos) => {
-      return testedTutos.id === test;
+      return testedTutos.post_id === test;
     });
     setTutos(tutos);
     //remplacer find par une requête tuto/id
@@ -29,14 +29,14 @@ function InCardTutos() {
       {tutos && (
         <>
           <div className="img1">
-            <img src={tutos.path} alt="tutos" />
+            <img src={tutos.photo_path} alt="tutos" />
           </div>
 
           {/* <h1>First Name = {user.first_name}</h1>
               <h1>Last Name = {user.last_name}</h1> */}
           <div className="infos">
-            <h1>Title = {tutos.title}</h1>
-            <h2>Content = {tutos.content} </h2>
+            <h1>Title = {tutos.post_title}</h1>
+            <h2>Content = {tutos.post_content} </h2>
             
           </div>
         </>
