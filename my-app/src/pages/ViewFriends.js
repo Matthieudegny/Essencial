@@ -17,16 +17,14 @@ const Friends = () => {
  
 
   useEffect(() => {
-
-    const token = localStorage.getItem('token');
-    const user = jwt_decode(token);
-    const idToken = user.id
-    const idUser = idToken.toString()
-    //console.log(idUser)
-   
-    if(idUser){
-      dispatch(actionGetAllFriends(idUser));
-    }
+      const token = localStorage.getItem('token');
+      if(token){
+        const user = jwt_decode(token);
+        const idToken = user.id
+        const idUser = idToken.toString()
+        console.log(idUser)
+        dispatch(actionGetAllFriends(idUser));
+      }
 
   },[])
 
