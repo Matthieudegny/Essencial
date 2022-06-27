@@ -9,14 +9,14 @@ const reducer = (state = initialState, action = {}) => {
     //console.log(state,'log du reducer posts & tutos');//ici le state est ok 
     switch (action.type) {
       case SAVE_ALL_POSTS:
-        console.log("payload posts",action.payload);
+        //console.log("payload posts",action.payload);
         return {
           ...state,
           allPosts : action.payload,
         };
 
         case SAVE_ALL_TUTOS:
-          console.log("payload tutos",action.payload);
+          //console.log("payload tutos",action.payload);
       return {
         ...state,
         allTutos : action.payload,

@@ -144,7 +144,7 @@ export async function requestAddFriend(id) {
 export async function requestGetAllPosts() {
 
   const response = await axiosInstance.get('/api/post')
-  console.log("request post",response.data)
+  //console.log("request post",response.data)
   return response.data;
 }
 
@@ -152,7 +152,7 @@ export async function requestGetAllTutos() {
 
   const response = await axiosInstance.get('/api/post/tuto')
 
-  console.log("request post/tuto",response.data)
+  //console.log("request post/tuto",response.data)
   return response.data;
 }
 
@@ -207,4 +207,18 @@ export async function requestDeleteVillage(userId) {
   const response = await axiosInstance.delete(`/api/ecovillage/${userId}`)
  
   return response
+}
+
+export async function requestGetAllFriends(userId) {
+  //console.log(`/api/user/friends/${userId}`)
+  const response = await axiosInstance.get(`/api/user/friends/${userId}`)
+ 
+  return response
+}
+
+export async function requestDeleteFriend(userId) {
+   //console.log(`/api/user/friends/${userId}`)
+   const response = await axiosInstance.delete(`/api/user/friends/delete/${userId}`)
+  
+   return response
 }

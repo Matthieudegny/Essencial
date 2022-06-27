@@ -1,32 +1,51 @@
 // == Imports
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import MinCard from "./MinCard";
-import { actionGetAllUsers } from '../actions/getAll';
+import MinCardDelete from "./MinCardFriendDelete";
+import { actionGetAllUsers, actionGetAllFriends } from '../actions/getAll';
 import '../styles/friends.scss'
+import jwt_decode from "jwt-decode";
 
 const Friends = () => {
 
-  const usersArray = useSelector((state) => state.allUsers.allUsers);
-
   const dispatch = useDispatch();
 
+  const [friends,setFriends] = useState('')
+
+  const listFriends = useSelector((state) => state.allUsers.allFriends);
+ 
+
   useEffect(() => {
-    dispatch(actionGetAllUsers());
-  }, [])
-//console.log(usersArray);
+
+    const token = localStorage.getItem('token');
+    const user = jwt_decode(token);
+    const idToken = user.id
+    const idUser = idToken.toString()
+    //console.log(idUser)
+   
+    if(idUser){
+      dispatch(actionGetAllFriends(idUser));
+    }
+
+  },[])
+
+  useEffect(() => {
+    setFriends(listFriends)
+  })
+
+
   return (
     <div className="friends"  >
 <h1>ViewFriends</h1>
-      {usersArray ? (
+      {listFriends ? (
         <>
-          {usersArray.map(({
+          {listFriends.map(({
             id, path, pseudo, region
           }) => (
             <div className="container-mincard" key={id}>
 
-              <MinCard
+              <MinCardDelete
                 imageLink={path}
                 pseudo={pseudo}
                 region={region}

@@ -12,7 +12,7 @@ export const actionGetAllPosts = () => ({
   });
 
   export const actionSaveAllPosts = (allPostsArray) => {
-      console.log("actionsaveallPosts interceptée")
+      //console.log("actionsaveallPosts interceptée")
   
       return  {
           type: SAVE_ALL_POSTS,
@@ -27,7 +27,7 @@ export const actionGetAllTutos = () => ({
   });
   
   export const actionSaveAllTutos = (allTutosArray) => {
-      console.log("actionsaveallTutos interceptée")
+      //console.log("actionsaveallTutos interceptée")
   
       return  {
           type: SAVE_ALL_TUTOS,

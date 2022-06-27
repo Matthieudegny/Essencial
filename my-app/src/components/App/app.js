@@ -58,7 +58,7 @@ function App() {
       saveAuthorization(token);
       //* si j'ai besoin d'afficher un loading (spinner) ou de ne pas afficher un composant le temps de savoir si un user est co, je lance ce dispatch
 
-      console.log(user);
+      //console.log(user);
 
      // console.log("app.js:log de user",user);
 
