@@ -1,8 +1,9 @@
 
 import {SUBMIT_FRIEND, SAVE_FRIEND, actionSaveFriend} from '../../actions/addfriend';
 import { DELETE_FRIEND } from '../../actions/deleteFriend';
+import { DELETE_MEMBER } from '../../actions/deletemembers';
 import { actionSaveAllFriends } from '../../actions/getAll';
-import {requestAddFriend, saveAuthorization, requestGetAllFriends, requestDeleteFriend  } from '../../requests/';
+import {requestAddFriend, saveAuthorization, requestGetAllFriends, requestDeleteFriend, requestDeleteMember, requestGetAllMember   } from '../../requests/';
 
 
 const addHeartMiddleware = (store) => (next) => async (action) => {
@@ -74,6 +75,36 @@ const addHeartMiddleware = (store) => (next) => async (action) => {
  
         //console.log("je dispatch DELETE_FRIEND avec les infos de la suppression d'amis");
         const response = await requestGetAllFriends(action.payload.idUser);
+       //console.log("la requete est terminé et j'ai récupéré mon tableau de user",response);
+
+       //console.log(response.data)
+       //console.log("je dispatch SAVE_ALL_FRIENDS dans mon reducer allUsers");
+        store.dispatch(
+            actionSaveAllFriends(response.data),
+          );
+      }
+      catch (err) {
+      // on capture les eventuelles erreur de la requete
+        console.error(err);
+      } 
+
+   
+    // avant de faire ma requete, pour ne pas bloquer mon action SAVE_USER
+    next(action);
+    break;
+  } 
+
+  case DELETE_MEMBER: {
+    
+    try {
+      // on execute la requete DELETE /deleteFriend
+        //console.log('je lance ma requete addFriend');
+       
+        const data  = await requestDeleteMember( action.payload.id  );
+        //console.log("la requete est terminé et j'ai récupéré:", data);
+ 
+        //console.log("je dispatch DELETE_FRIEND avec les infos de la suppression d'amis");
+       // const response = await requestGetAllMember(action.payload.idUser);
        //console.log("la requete est terminé et j'ai récupéré mon tableau de user",response);
 
        //console.log(response.data)

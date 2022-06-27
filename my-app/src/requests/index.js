@@ -215,10 +215,23 @@ export async function requestGetAllFriends(userId) {
  
   return response
 }
-
+// ici userId correspond à l'user qu'on veut supprimer en ami
 export async function requestDeleteFriend(userId) {
    //console.log(`/api/user/friends/${userId}`)
    const response = await axiosInstance.delete(`/api/user/friends/delete/${userId}`)
   
    return response
+}
+// ici userId correspond à l'user qu'on veut ajouter en ami
+export async function requestDeleteMember(userId) {
+  const response = await axiosInstance.get(`/api/user/friends/add/${userId}`)
+
+  return response
+}
+// ici userId correspond à l'user qui est connecté
+export async function requestGetAllMember(userId) {
+
+  const response = await axiosInstance.get(`api/user/members/${userId}`)
+
+  return response
 }
