@@ -8,7 +8,7 @@ function InCardTutos() {
   const tutosArray = useSelector((state) => state.allposts.allTutos);
 
   const [tutos, setTutos] = useState("");
-  // console.log(tutosArray)
+   console.log(tutosArray)
 
   let { tutosId } = useParams();
   let test = +tutosId;
@@ -32,11 +32,11 @@ function InCardTutos() {
             <img src={tutos.photo_path} alt="tutos" />
           </div>
 
-          {/* <h1>First Name = {user.first_name}</h1>
-              <h1>Last Name = {user.last_name}</h1> */}
+         
           <div className="infos">
-            <h1>Title = {tutos.post_title}</h1>
-            <h2>Content = {tutos.post_content} </h2>
+            <h1>{tutos.post_title}</h1>
+            <h2>{tutos.author_pseudo}</h2>
+            <h2>{tutos.post_content} </h2>
             
           </div>
         </>
