@@ -3,7 +3,7 @@ import InscriptionFormVillage from '../InscriptionFormVillage';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import './style.scss';
+import '../../styles/AppInscriptionFormVillage';
 import { actionSubmitFormVillage, actionChangeFormFieldVillage } from '../../actions/inscriptionvillage';
 
 

@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 
 // == Import : local
-import './style.scss';
+import '../../../styles/Field';
 
 // == Composant
 function Select({

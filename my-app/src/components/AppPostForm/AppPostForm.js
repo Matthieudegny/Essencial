@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import PostForm from '../PostForm';
 import { actionChangeFormField, actionSubmitPost } from '../../actions/addpost';
-import './style.scss';
+import '../../styles/AppPostForm';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

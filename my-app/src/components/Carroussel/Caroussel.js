@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 // data, styles et utilitaires
-import '../styles/caroussel.scss';
+import '../../styles/caroussel';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import MinCard from "../pages/MinCard";
+import MinCard from "../../pages/MinCard";
 
 
 const Caroussel = () => {

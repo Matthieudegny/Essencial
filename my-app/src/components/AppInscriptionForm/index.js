@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { actionChangeFormField, actionSubmitForm } from '../../actions/inscription';
-import './style.scss';
+import '../../styles/AppInscriptionForm';
 
 
 

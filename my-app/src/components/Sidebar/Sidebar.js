@@ -2,7 +2,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import '../styles/sidebar.scss'
+import '../../styles/sidebar.scss'
 
 const Sidebar = () => {
   //je récupére isLogged dans mon state

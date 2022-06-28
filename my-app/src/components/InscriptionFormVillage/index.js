@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import * as dayjs from 'dayjs'
 import Field from './Field';
 
-import './style.scss';
+import '../../styles/';
 
 
 function InscriptionFormVillage({
