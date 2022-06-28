@@ -22,6 +22,7 @@ const UpdateProfil = () => {
         dispatch(
             actionRequestChangeProfileUser(dataUser)
         )
+        window.alert("Votre profil a été mis à jour")
     }
 
     const handleSubmitVillage = (evt) => {
@@ -30,6 +31,7 @@ const UpdateProfil = () => {
         dispatch(
             actionRequestChangeProfileVillage(dataVillage)
         )
+        window.alert("Votre profil a été mis à jour")
 
     }
     //je change les valeurs du reducer correspondant au nom de l'input, deux objets ds le reducer donc deux actions différentes

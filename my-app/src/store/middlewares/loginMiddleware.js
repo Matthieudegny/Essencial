@@ -32,11 +32,11 @@ const loginMiddleware = (store) => (next) => async (action) => {
          // console.log(tokenDecoded);
           const data = await requestInfosUser(tokenDecoded.id, tokenDecoded.type);
           store.dispatch(actionSaveInfoForGetInStore(data.data, token));
-          delete data.data.id
-          console.log(data.data, tokenDecoded.type)
+          //delete data.data.id
+          //console.log(data.data, tokenDecoded.type)
           //pour update profile je mets à jour le state à chaque refresh (->useeffect app)
           if(tokenDecoded.type==='user'){
-            store.dispatch(actionSaveInfoUpdateProfileUser(data.data, tokenDecoded.type))
+            store.dispatch(actionSaveInfoUpdateProfileUser(data.data, tokenDecoded.type, tokenDecoded.id))
           }else{
             store.dispatch(actionSaveInfoUpdateProfileVillage(data.data, tokenDecoded.type))
           }
@@ -87,7 +87,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
 
         //pour update profile je mets à jour le state à chaque refresh (->useeffect app)
         if(action.payload.type==='user'){
-          store.dispatch(actionSaveInfoUpdateProfileUser(infosUser.data, action.payload.type))
+          store.dispatch(actionSaveInfoUpdateProfileUser(infosUser.data, action.payload.type, action.payload.id))
         }else{
           store.dispatch(actionSaveInfoUpdateProfileVillage(infosUser.data, action.payload.type))
         }

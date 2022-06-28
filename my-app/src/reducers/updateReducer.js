@@ -4,7 +4,8 @@ export const initialState = {
   dataProfile: [],
   user:'',
   ecoVillage:'',
-  type : ""
+  type : "",
+  id:""
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -15,7 +16,8 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
        
         user : action.payload.dataUser,
-        type: action.payload.type
+        type: action.payload.type,
+        id: action.payload.id
        
       };
 
