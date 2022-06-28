@@ -14,18 +14,7 @@ const Friends = () => {
   const [friends,setFriends] = useState('')
 
   const listFriends = useSelector((state) => state.allUsers.allFriends);
-  const token = localStorage.getItem('token');
 
-  useEffect(() => {
-      
-      if(token){
-        const user = jwt_decode(token);
-        const idToken = user.id
-        const idUser = idToken.toString()
-        console.log(idUser)
-        dispatch(actionGetAllFriends(idUser));
-      }
-  },[token])
 
   useEffect(() => {
     setFriends(listFriends)
