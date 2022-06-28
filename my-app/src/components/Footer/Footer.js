@@ -1,7 +1,7 @@
 // == Imports
 import React from "react";
 import { NavLink } from "react-router-dom";
-import '../styles/footer.scss'
+import '../../styles/footer.scss'
 
 const Footer = () => {
 

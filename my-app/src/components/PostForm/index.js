@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Field from './Field';
 import Select from './Select';
 
-import './style.scss';
+import '../../styles/PostForm.scss';
 
 function InscriptionForm({
   title,

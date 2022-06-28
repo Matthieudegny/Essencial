@@ -8,7 +8,7 @@ function InCardTutos() {
   const tutosArray = useSelector((state) => state.allposts.allTutos);
 
   const [tutos, setTutos] = useState("");
-   console.log(tutosArray)
+   //console.log(tutosArray)
 
   let { tutosId } = useParams();
   let test = +tutosId;

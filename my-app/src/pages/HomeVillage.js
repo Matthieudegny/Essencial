@@ -1,7 +1,7 @@
 // == Imports
 import React from "react";
 import '../styles/homeVillage.scss'
-import Caroussel from "../components/Caroussel";
+import Caroussel from "../components/Carroussel/Caroussel";
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { actionGetAllPosts} from '../actions/getallposts';
