@@ -10,7 +10,7 @@ import './style.scss';
 function AppHeader() {
   const dispatch = useDispatch();
   const email = useSelector((state) => state.user.email);
-  // const { email } = useSelector((state) => state.user);
+  // //const { email } = useSelector((state) => state.user);
   const password = useSelector((state) => state.user.password);
   const isLogged = useSelector((state) => state.user.isLogged);
 
