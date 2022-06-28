@@ -1,5 +1,5 @@
 .minCard{
-    background-color: #86B19A;
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -12,27 +12,34 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 
     img{
-        padding: 2%;
-        width : 230px;
-        height : 180px;
+       
+        width : 290px;
+        height : 220px;
+        border-radius: 10px;
+        padding-top: 1%;
             
     }
 
     h1{
-        font-size: 2vw;
-        color: white;
+        font-size: 1.5vw;
+        color: black;
         text-shadow: 2px 2px 19px white;
         
     }
 
     h3{
         font-size: 1.25vw;
-        color: white;
+        padding-bottom: 5%;
+        color: black;
     }
     h4{
         background-color: #86B19A;
     }
+}
+
+.minCard:hover{
+    background-color: #cae0d4;
 }

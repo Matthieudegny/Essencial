@@ -1,5 +1,5 @@
 // == Imports
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import {  actionChangeUpdateProfileUser, actionChangeUpdateProfileVillage,
      actionRequestChangeProfileUser, actionRequestChangeProfileVillage, actionDeleteProfileUser, 
@@ -15,7 +15,17 @@ const UpdateProfil = () => {
     const dataUser = useSelector((state) => state.updateReducer.user);
     const dataVillage = useSelector((state) => state.updateReducer.ecoVillage);
     const typeUser = useSelector((state) => state.updateReducer.type);
+
     
+   
+    if(dataUser.description===null){
+        dataUser.description=''
+    }
+    
+    console.log(dataUser)
+       
+  
+
     //je submit au click sur Modifier avec deux requêtes différentes car je vise deux objets différents ds le reducer
     const handleSubmitUser = (evt) => {
         evt.preventDefault()

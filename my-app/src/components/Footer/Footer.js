@@ -7,17 +7,17 @@ const Footer = () => {
 
     return (
     <div className="Footer">
-        <div>
+        <div className="Footer-items">
             <NavLink to="/a-propos" > 
                 <span>A propos</span>
             </NavLink>
         </div>
-        <div>
+        <div className="Footer-items">
             <NavLink to="/contact" > 
                 <span>Contact</span>
             </NavLink>
         </div>
-        <div> 
+        <div className="Footer-items"> 
             <NavLink to="/confidentialite" > 
                 <span>Confidentialité</span>
             </NavLink></div>
