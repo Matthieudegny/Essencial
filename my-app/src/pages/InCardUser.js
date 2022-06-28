@@ -29,16 +29,18 @@ function InCardUser()  {
 
     return (
         <div className="in-card-user" >
-<h1>InCardUser</h1>
-          {user && (
+{/*         <h1>InCardUser</h1>
+ */}          {user && (
             <>
-              <img src={user.path} alt="user" />
+              <div className="user-avatar-parent">
+                <img src={user.path} className="user-avatar-parent" alt="user" />
+              </div>
+              <h1 className="user-pseudo">{user.pseudo}</h1>
+              <h2 className="user-region">{user.region} </h2>
               {/* <h1>First Name = {user.first_name}</h1>
               <h1>Last Name = {user.last_name}</h1> */}
 
-              <h1>Pseudo = {user.pseudo}</h1>
-              <h2>Region = {user.pseudo} </h2>
-              <h3>Description = {user.description} </h3>
+              <h3>{user.description} </h3>
 
             </>
           )}
