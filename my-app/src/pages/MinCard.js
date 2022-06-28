@@ -1,13 +1,16 @@
 // == Imports
 import React from "react";
 import "../styles/minCard.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import HeartForm from "../components/HeartForm";
 import { actionSubmitFriend } from "../actions/addfriend";
 
 const MinCard = ({ imageLink, pseudo, name, region, id }) => {
   const dispatch = useDispatch();
+
+  const type = useSelector((state) => state.updateReducer.type);
+
   return (
     <div className="minCard">
 
@@ -22,7 +25,11 @@ const MinCard = ({ imageLink, pseudo, name, region, id }) => {
 
       <h3>{region}</h3>
 
+      {type==='user' && (
+
         <HeartForm id={id}/>
+      
+      )}
       
     </div>
   );

@@ -14,18 +14,30 @@ const Friends = () => {
   const [friends,setFriends] = useState('')
 
   const listFriends = useSelector((state) => state.allUsers.allFriends);
-
-
+ 
+  const idUser = useSelector((state) => state.updateReducer.id);
+ 
+  useEffect(()=> {
+    //console.log(idUser)
+    if(idUser){
+      dispatch(actionGetAllFriends(idUser))
+    }
+  },[idUser])
+  
+ 
   useEffect(() => {
     setFriends(listFriends)
-  })
+  },[listFriends])
 
 
   return (
     <div className="friends"  >
-      {listFriends ? (
+
+<h1>ViewFriends</h1>
+      {friends ? (
+
         <>
-          {listFriends.map(({
+          {friends.map(({
             id, path, pseudo, region
           }) => (
             <div className="container-mincard" key={id}>

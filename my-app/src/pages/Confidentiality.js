@@ -1,17 +1,27 @@
 // == Imports
 import React from "react";
+import '../styles/confidentiality.scss' ;
+import essenciallogo from '../media/typoEssencial.svg'
 
 const Confidentiality = () => {
     return (
         <div className="home" >
      
             <div className="homeContent">
-            Politique de confidentialité
-Cette page est utilisée pour informer les visiteurs du site Web de nos politiques en matière de collecte, d'utilisation et de divulgation des informations personnelles si quelqu'un décide d'utiliser notre service, le site Web Essencial. <br/>
+                <img src={ essenciallogo  } className="logoConfid" alt="logo" />
+                <h1 className="title">Politique de confidentialité</h1>
 
-Si vous choisissez d'utiliser notre service, vous acceptez la collecte et l'utilisation d'informations en relation avec cette politique. <br /> Les informations personnelles que nous recueillons sont utilisées pour fournir et améliorer le service. Nous n'utiliserons ni ne partagerons vos informations avec quiconque, sauf dans les cas décrits dans la présente politique de confidentialité. <br />
-
-Les termes utilisés dans la présente politique de confidentialité ont la même signification que dans nos conditions générales, qui sont accessibles à l'adresse https://essencial.com, sauf définition contraire dans la présente politique de confidentialité.
+                <p>
+                    Cette page est utilisée pour informer les visiteurs du site Web de nos politiques en matière de collecte,
+                    d'utilisation et de divulgation des informations personnelles si quelqu'un décide d'utiliser notre service,
+                    le site Web Essencial. <br/>
+                    Si vous choisissez d'utiliser notre service, vous acceptez la collecte et l'utilisation d'informations en relation
+                    avec cette politique. Les informations personnelles que nous recueillons sont utilisées pour fournir et améliorer 
+                    le service. Nous n'utiliserons ni ne partagerons vos informations avec quiconque, sauf dans les cas décrits dans la
+                     présente politique de confidentialité.
+                    Les termes utilisés dans la présente politique de confidentialité ont la même signification que dans nos conditions générales,
+                     qui sont accessibles à l'adresse <strong>https://www.essencial.com</strong>, sauf définition contraire dans la présente politique de confidentialité.
+                </p>
             </div>
 
         </div>

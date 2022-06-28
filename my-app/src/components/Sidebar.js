@@ -8,6 +8,7 @@ const Sidebar = () => {
   //je récupére isLogged dans mon state
   const isLogged = useSelector((state) => state.user.isLogged);
 
+  const type = useSelector((state) => state.updateReducer.type);
 
   return (
     <div className="sidebar">
@@ -18,7 +19,7 @@ const Sidebar = () => {
         </div>
       </NavLink>
 
-      {isLogged ? (
+      {isLogged&&type==='user' ? (
         <NavLink className="sidebar-link" to="/amis" >
           <div >
             <span className="sidebar-span">Amis</span>
