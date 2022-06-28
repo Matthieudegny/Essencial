@@ -35,9 +35,9 @@ function InCardVillage() {
           {/* <h1>First Name = {user.first_name}</h1>
               <h1>Last Name = {user.last_name}</h1> */}
           <div className="infos">
-            <h1>Name = {village.name}</h1>
-            <h2>Region = {village.region} </h2>
-            <h3>Description = {village.description} </h3>
+            <h1>{village.name}</h1>
+            <h2>{village.region} </h2>
+            <h3>{village.description} </h3>
           </div>
         </>
       )}
