@@ -28,7 +28,6 @@ const ViewVillage = () => {
 
   return (
     <div className="viewVillage" >
-<h1>ViewVillage</h1>
       {villageArray ? (
         <>
           {villageArray.map(({

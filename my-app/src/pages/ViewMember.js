@@ -18,7 +18,6 @@ const ViewMember = () => {
 
     return (
         <div className="friends" >
-          <h1>ViewMember</h1>
           {usersArray ? (
             <>
               {usersArray.map(({

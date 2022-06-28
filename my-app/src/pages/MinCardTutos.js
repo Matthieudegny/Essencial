@@ -10,7 +10,9 @@ const MinCardTutos = ({ photo_path, post_title, post_id }) => {
     <div className="minCardTutos">
 
       <NavLink to={`/tutos/${post_id}`}>
+
         <img src={photo_path} alt="photo " />
+
       </NavLink>
 
       <h1>{post_title}</h1>

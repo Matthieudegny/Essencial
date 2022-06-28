@@ -25,7 +25,8 @@ import HomeInscription from '../../pages/HomeInscription';
 import Contact from '../../pages/Contact';
 import InCardUser from '../../pages/InCardUser'
 import InCardVillage from '../../pages/InCardVillage';
-import InCardTutos from '../../pages/InCardTutos'
+import InCardPosts from '../../pages/InCardPosts';
+import InCardTutos from '../../pages/InCardTutos';
 import EcoVillages from '../../pages/ViewVillage';
 import error404 from '../../pages/error404';
 
@@ -110,6 +111,7 @@ function App() {
               <Route path="/a-propos" element={About()} />
               <Route path="/admin" element={Admin()} />
               <Route path="/contact" element={Contact()} />
+              <Route path="/posts/:postsId" element={<InCardPosts/>} />
               <Route path="/eco-village-vue/:villageId" element={<InCardVillage />} />
               <Route path="/tutos/:tutosId" element={<InCardTutos />} />
               <Route path="/user-vue/:userId" element={<InCardUser />} />
