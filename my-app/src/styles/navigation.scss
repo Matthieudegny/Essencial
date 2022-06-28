@@ -1,7 +1,8 @@
 
 .nav{
     display: flex;
-    justify-content: space-evenly;
+    padding: 0 0.5em;
+    justify-content: space-between;
     align-items: center;
     height: 10vh;
     width: 100vw;
@@ -51,7 +52,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-size: 2vw;
+        font-size: 1vw;
+    }
+
+    &-welcome-container{
+        display: flex;
+        justify-content: space-between;
+
     }
 }
 

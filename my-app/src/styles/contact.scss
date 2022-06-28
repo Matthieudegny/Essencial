@@ -1,0 +1,32 @@
+.home-contact{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.contact-title{
+    font-size: 1.7em;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+input[type="text"], textarea, input[type=email] {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.7em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+button[type="submit"]{
+    width: 150px;
+    height: 40px;
+    background-color: #6558F5;
+    color: white;
+    font-weight: bold;
+}

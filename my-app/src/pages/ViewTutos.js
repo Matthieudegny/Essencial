@@ -31,6 +31,7 @@ const ViewTutos = () => {
 
   return (
     <div className="viewTutos" >
+
     {allTutosArray ? (
         <>
           {allTutosArray.map(({
