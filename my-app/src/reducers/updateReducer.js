@@ -59,17 +59,3 @@ const reducer = (state = initialState, action = {}) => {
 
 export default reducer;
 
-// {
-//   address:'',
-//   city:'',
-//   date_of_birth:'',
-//   description:'',
-//   email:'',
-//   first_name:'',
-//   last_name:'',
-//   path:'',
-//   phone_number:'',
-//   pseudo:'',
-//   region:'',
-//   zip_code:''
-// }

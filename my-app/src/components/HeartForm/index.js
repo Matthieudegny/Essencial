@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import "../../styles/heartForm";
+import "../../styles/heartForm.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { actionSubmitFriend } from "../../actions/addfriend";
 import jwt_decode from "jwt-decode";

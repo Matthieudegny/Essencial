@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 
 // == Import : local
-import '../../..styles/Field';
+import '../../../styles/Field.scss';
 
 // == Composant
 function Field({

@@ -1,6 +1,6 @@
 // == Imports
 import React from "react";
-import AppPostForm from "../components/AppPostForm";
+import AppPostForm from "../components/AppPostForm/AppPostForm";
 
 
 const Addpost = () => {

@@ -1,5 +1,5 @@
 import Field from './Field';
-import '../../styles/InscriptionForm';
+import '../../styles/InscriptionForm.scss';
 
 
 function InscriptionForm({

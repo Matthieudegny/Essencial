@@ -31,9 +31,9 @@ import error404 from '../../pages/error404';
 
 
 // == Composants
-import Navigation from '../../styles/navigation';
-import Sidebar from '../../styles/sidebar';
-import Footer from '../../styles/footer';
+import Navigation from '../Navigation/Navigation';
+import Sidebar from '../Sidebar/Sidebar';
+import Footer from '../Footer/Footer';
 
 
 // ==  data, styles et utilitaires

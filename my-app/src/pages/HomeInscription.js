@@ -1,7 +1,7 @@
 // == Imports
 import React from "react";
 import { useState } from 'react';
-import '../styles/formInscription.scss';
+import '../styles/homeInscription.scss';
 import AppInscriptionForm from '../components/AppInscriptionForm';
 import AppInscriptionFormVillage from '../components/AppInscriptionFormVillage/index';
 import Switch from "../components/SwitchButton/switch";

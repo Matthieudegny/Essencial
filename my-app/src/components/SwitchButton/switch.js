@@ -1,5 +1,5 @@
 /* import { useSelector, useState, } from "react-redux"; */
-import '../../styles/switchButton';
+import '../../styles/switchButton.scss';
 
 
 
