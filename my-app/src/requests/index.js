@@ -217,7 +217,7 @@ export async function requestGetAllFriends(userId) {
 }
 
 export async function requestDeleteFriend(userId) {
-   //console.log(`/api/user/friends/${userId}`)
+   console.log(`/api/user/friends/${userId}`)
    const response = await axiosInstance.delete(`/api/user/friends/delete/${userId}`)
   
    return response

@@ -56,11 +56,9 @@ function App() {
       //1 étape decoder le token avec jwt_decode
       const user = jwt_decode(token);
       saveAuthorization(token);
-      //* si j'ai besoin d'afficher un loading (spinner) ou de ne pas afficher un composant le temps de savoir si un user est co, je lance ce dispatch
+      //* si j'ai besoin d'afficher un loading (spinner) ou de ne pas afficher un composant le temps de savoir si un user est co, je lance ce dispatch    
 
-      //console.log(user);
-
-     // console.log("app.js:log de user",user);
+     //console.log("app.js:log de user",user);
 
       //const userId = 
        const idToken = user.id
@@ -70,7 +68,7 @@ function App() {
       //dispatch(actionSaveUser(pseudo, token));
       dispatch(actionSaveInfoForGetInStore(user, token));
     } 
-  }, []);
+  },[]);
 
   
   /* const test = true;

@@ -7,11 +7,12 @@ export const REQUEST_CHANGE_PROFIL_VILLAGE = 'REQUEST_CHANGE_PROFIL_VILLAGE'
 export const DELETE_VILLAGE = 'DELETE_VILLAGE'
 export const DELETE_USER = 'DELETE_USER'
 
-export const actionSaveInfoUpdateProfileUser = (dataUser, type) => ({
+export const actionSaveInfoUpdateProfileUser = (dataUser, type, id) => ({
   type: SAVE_DATA_USER,
   payload: {
     dataUser,
-    type
+    type,
+    id
   },
 });
 
