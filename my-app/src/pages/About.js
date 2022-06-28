@@ -1,43 +1,35 @@
 // == Imports
 import React from "react";
+import "../styles/about.scss";
+import essenciallogo from '../media/typoEssencial.svg'
 
 
-const error404 = () => {
+const About = () => {
     return (
         <div className="home" >
 
-            Essencial a été créé en mai 2022 par Stephanie , Matthieu , Arthur et Emmanuel avec le désir d'offrir  <br /> une plateforme d'échange
-            au personnes souhaitant se reconnecter avec la nature et l'humain .
+        <img src={ essenciallogo  } className="logoAbout" alt="logo" />
 
-            <br />
-            <br />
-            Aujourd’hui notre planète s’essouffle un peu plus chaque jour et la remise en question de notre mode de vie est devenue une évidence.
-            <br />
-            Redonnez du sens à notre life style et reconnectez- vous vraiment avec les autres et avec la nature.
-            <br />
-            <br />
-            Ensemble partageons et grandissons pour construire dès maintenant un monde meilleur Bref revenons vers l’essentiel !  
-            <br />
-            <br/>
-
-            <br/>
-            <br/>
-            <br/>
-           
-            <br />
-            <br/>
-            le premier réseau social d'entraide visant à un retour vers une plus grande autonomie et le respect de notre planète.
-            <br />
-            <br/>
-
-            <br/>
-            <br/>
-            <br/>
-
-            Les 4 fantastiques ont mis leurs compétences et tout leur amour pour vous présenter aujourd'hui Essencial
+            <p>
+                Essencial a été créé en mai 2022 par Stephanie , Matthieu , Arthur et Emmanuel avec le désir d'offrir une plateforme d'échange
+                au personnes souhaitant se reconnecter avec la nature et l'humain .
+            </p>
+            <p>
+                Aujourd’hui notre planète s’essouffle un peu plus chaque jour et la remise en question de notre mode de vie est devenue une évidence.
+            </p>
+            <p>
+                Redonnez du sens à notre life style et reconnectez- vous vraiment avec les autres et avec la nature.
+            </p>
+            <p>
+                Ensemble partageons et grandissons pour construire dès maintenant un monde meilleur Bref revenons vers l’essentiel !  
+                le premier réseau social d'entraide visant à un retour vers une plus grande autonomie et le respect de notre planète.
+            </p>
+            <p>
+                Les 4 fantastiques ont mis leurs compétences et tout leur amour pour vous présenter aujourd'hui Essencial
+            </p> 
         </div>
     );
 };
 
-export default error404;
+export default About;
 
