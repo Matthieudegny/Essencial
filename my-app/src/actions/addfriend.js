@@ -3,7 +3,7 @@ export const SAVE_FRIEND = 'SAVE_FRIEND';
 
 
 export const actionSubmitFriend = (id,idUser) => {
-  console.log(id);
+  //console.log(id);
   return{
     type: SUBMIT_FRIEND,
     payload: {id, idUser}

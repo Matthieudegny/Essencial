@@ -5,10 +5,14 @@
     align-items: center;
     padding: 2%;
     width: 100%;
-    height: 100%;
+    height: 80vh;
     max-height: 80vh;
     background-color: white;
     color: white;
+
+    img{
+        height: 20vh;
+    }
 
     &-container-form{
         display: flex;
@@ -29,6 +33,7 @@
         justify-content: center;
         align-items: center;
         width: 50vw;
+        height: 20vh;
         margin: 3%;
         
     }

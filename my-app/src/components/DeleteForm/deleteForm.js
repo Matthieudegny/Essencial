@@ -41,9 +41,9 @@ function HeartForm({
   );
 }
 
-HeartForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-};
+// HeartForm.propTypes = {
+//   handleSubmit: PropTypes.func.isRequired,
+// };
 
 
 export default HeartForm;
