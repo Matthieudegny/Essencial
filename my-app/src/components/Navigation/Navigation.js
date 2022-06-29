@@ -60,96 +60,100 @@ const Navigation = () => {
         <img className="nav-logoTitle-image" src={essencialLogo} alt="" />
       </div>
 
-      <div className="nav-input-container">
-        <form action="" onSubmit={handleSubmit}>
-          <input
-            onChange={handleSearchChange}
-            onSubmit={handleSubmit}
-            className="nav-input"
-            type="text"
-            placeholder="Recherche" />
-        </form>
-      </div>
-
-      <div className="nav-logoLinks-container">
-
-        {isLogged ? (
-          <NavLink to="/accueil">
-            <i className="fa fa-home mt-1"></i>
-          </NavLink>
-        ) : (
-          <NavLink to="/">
-            <i className="fa fa-home mt-1"></i>
-          </NavLink>
-        )}
+      <div className="nav-main">
 
 
-        {isLogged ? (
-          <NavLink to="/ajouter-un-post">
-            <i className="fa fa-edit mt-1 nav-logoLinks-item"></i>
-          </NavLink>
-        ) : (
-          ''
-        )}
+        <div className="nav-main-input-container">
+          <form className="nav-main-input-container-form" action="" onSubmit={handleSubmit}>
+            <input
+              onChange={handleSearchChange}
+              onSubmit={handleSubmit}
+              className="nav-main-input--container-form-input"
+              type="text"
+              placeholder="Recherche" />
+          </form>
+        </div>
 
-        <div className="menu-burger">
+        <div className="nav-main-logoLinks-container">
 
-          {/*  A ESSAYER PLUS TARD  style={{display: !isLogged ? 'none' : ''}} */}
-
-          <button
-            // onClick={handleClickBurger}
-            onMouseEnter={() => setIsActiveBurger(true)}
-            onMouseLeave={() => setIsActiveBurger(false)}
-            className={`menu-burger-button ${isLogged ? 'menu-burger-activated' : ''}`}>
-            <i className="fa fa-solid fa-bars mt-1 menu-burger-button-item"></i>
-            {/* <i className={`menu-burger-button-item ${isActiveBurger ? 'fa fa-times' : 'fa fa-solid fa-bars mt-1'}`}></i>  */}
-          </button>
-          <ul
-            onMouseEnter={() => setIsActiveBurger(true)}
-            onMouseLeave={() => setIsActiveBurger(false)}
-            className={`menu-burger-ul ${isActiveBurger ? 'menu-burger-ul-active' : ''}`}>
+          {isLogged ? (
+            <NavLink to="/accueil">
+              <i className="fa fa-home mt-1"></i>
+            </NavLink>
+          ) : (
+            <NavLink to="/">
+              <i className="fa fa-home mt-1"></i>
+            </NavLink>
+          )}
 
 
-            {isLogged ? (
-              <NavLink to="/gestion-de-profil">
-                <li className="menu-burger-li">Gestion de profil</li>
+          {isLogged ? (
+            <NavLink to="/ajouter-un-post">
+              <i className="fa fa-edit mt-1 nav-logoLinks-item"></i>
+            </NavLink>
+          ) : (
+            ''
+            )}
+
+          <div className="menu-burger">
+
+            {/*  A ESSAYER PLUS TARD  style={{display: !isLogged ? 'none' : ''}} */}
+
+            <button
+              // onClick={handleClickBurger}
+              onMouseEnter={() => setIsActiveBurger(true)}
+              onMouseLeave={() => setIsActiveBurger(false)}
+              className={`menu-burger-button ${isLogged ? 'menu-burger-activated' : ''}`}>
+              <i className="fa fa-solid fa-bars mt-1 menu-burger-button-item"></i>
+              {/* <i className={`menu-burger-button-item ${isActiveBurger ? 'fa fa-times' : 'fa fa-solid fa-bars mt-1'}`}></i>  */}
+            </button>
+            <ul
+              onMouseEnter={() => setIsActiveBurger(true)}
+              onMouseLeave={() => setIsActiveBurger(false)}
+              className={`menu-burger-ul ${isActiveBurger ? 'menu-burger-ul-active' : ''}`}>
+
+
+              {isLogged ? (
+                <NavLink to="/gestion-de-profil">
+                  <li className="menu-burger-li">Gestion de profil</li>
+                </NavLink>
+              ) : (
+                ''
+                )}
+
+              <NavLink to="/tutos">
+                <li className="menu-burger-li sideBar">Tutoriel</li>
               </NavLink>
-            ) : (
-              ''
-            )}
+              <NavLink to="/amis">
+                <li className="menu-burger-li sideBar">Amis</li>
+              </NavLink>
+              <NavLink to="/ecoVillages">
+                <li className="menu-burger-li sideBar">Les éco-villages</li>
+              </NavLink>
 
-            <NavLink to="/tutos">
-              <li className="menu-burger-li sideBar">Tutoriel</li>
-            </NavLink>
-            <NavLink to="/amis">
-              <li className="menu-burger-li sideBar">Amis</li>
-            </NavLink>
-            <NavLink to="/ecoVillages">
-              <li className="menu-burger-li sideBar">Les éco-villages</li>
-            </NavLink>
+              {isLogged ? (
+                <li
+                  onClick={handleLogout}
+                  className="menu-burger-li">Se déconnecter</li>
+              ) : (
+                ''
+                )}
 
-            {isLogged ? (
-              <li
-                onClick={handleLogout}
-                className="menu-burger-li">Se déconnecter</li>
-            ) : (
-              ''
-            )}
+            </ul>
 
-          </ul>
+          </div>
 
         </div>
 
-      </div>
-
-      <div className="nav-logoConnexion">
-        <i className="fas fa-user"></i>
-        <div className="welcome-container">
-          <div className="welcome">Bienvenue</div>
-          <div className="name">{namenav}{pseudonav}</div>
+        <div className="nav-main-logoConnexion">
+          <i className="fas fa-user"></i>
+          <div className="nav-main-logoConnexion-welcome">
+            <div className="welcome">Bienvenue</div>
+            <div className="name">{namenav}{pseudonav}</div>
+          </div>
         </div>
-      </div>
 
+      </div>
 
 
 

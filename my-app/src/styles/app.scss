@@ -9,7 +9,7 @@
     }
 
     &-main{
-        height: 80vh;
+        height: 83vh;
         width: 100vw;
         display: flex;
 
@@ -20,7 +20,6 @@
 
         &-page{
             width: 100%;
-            background-color: gainsboro;
             display: flex;
             flex-direction: column;
             
@@ -29,14 +28,15 @@
             &-wall{
                 height: 100%;
                 overflow-y: scroll;
-                
             }
+        }
+
+
+        &-footer{
+            height: 7vh;          
         }
     }
 
-    &-footer{
-        height: 20vh;
-    }
 
 }
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import * as dayjs from 'dayjs'
-import Field from '../../styles/Field.scss';
+import Field from './Field/index';
 
 import '../../styles/InscriptionFormVillage.scss';
 
