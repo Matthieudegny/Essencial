@@ -40,7 +40,6 @@ const HomeLog = () => {
        </div>
 
        <div className="viewPosts" >
-      <h1>ViewPosts</h1>
     {allPostsArray ? (
         <>
           {allPostsArray.map(({

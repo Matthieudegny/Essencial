@@ -1,19 +1,29 @@
-.homeContent{
-    margin-top: 20px;
-    padding: 0 200px ;
-    line-height: 1.4em;
-    text-align: center;
+.confidentiality{
+   
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+
+    &-left{
+        width: 35%;
+    }
+
+    &-right{
+        width: 45%;
+        line-height: 110%;
+        text-align: center;
+        color: black;
+
+        &-title{
+        color: black;
+        }
+
+        p{
+            color: black;
+        }
+    }
 }
 
-.title{
-    font-size: 1.3em;
-}
-
-strong{
-    text-decoration: underline;
-    font-style: italic;
-}
-
-.logoConfid{
-    border: 2px solid black;
-}
