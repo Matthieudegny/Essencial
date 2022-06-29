@@ -4,22 +4,21 @@
     background-position: center;
     box-shadow: 0px 5px 29px 0px #86B19A;
     border-radius: 10px;
-   
 
-    width: 400px;
-    height: 450px;
+    width: 300px;
+    height: 350px;
     margin: 2%;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 
     img{
-        padding: 2%;
-        width : 60%;
-        height : 80%;
-        bottom: 0;
-        right: 0;         
+        width : 290px;
+        height : 220px;
+        border-radius: 10px;  
+        padding-top: 1.25%;
+      
     }
 
     h1{
@@ -27,6 +26,8 @@
         font-size: 1.5vw;
         color: black;
         text-shadow: 2px 2px 19px white;
+        margin-bottom: 5%;
+        height: 15%;
     }
 
     h3{
@@ -36,4 +37,9 @@
     h4{
         background-color: #86B19A;
     }
+}
+
+
+.minCardTutos:hover{
+    background-color: #cae0d4;
 }

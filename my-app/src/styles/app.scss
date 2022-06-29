@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     max-height: 100vh;
-  
+    
 
     &-header{
         height: 10vh;
@@ -10,24 +10,30 @@
 
     &-main{
         height: 83vh;
-        width: 100vw;
+        width: 100%;
         display: flex;
+        
 
         &-aside{
             width: 18vw;
             height: 80vh;
+            
         }
 
         &-page{
             width: 100%;
             display: flex;
             flex-direction: column;
+            background-image: url(../media/logo-seul.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
             
-
-          
+            
             &-wall{
                 height: 100%;
                 overflow-y: scroll;
+                
             }
         }
 

@@ -1,9 +1,19 @@
-.home{
-    padding: 0 80px;
+@use './_reset.css';
+@use './_vars';
+
+
+.home-about{
+  margin: 0px;  
+    background-color: grey;
+    height: 100%;
+  
 }
 
-.logoAbout{
-    margin-top: 2em;
-    margin-bottom: 100px;
-    border: 2px solid black;
+
+.test{
+  height: 80%;
+  width: 100%;
+}
+.text-container{
+  background-color: #729883;
 }

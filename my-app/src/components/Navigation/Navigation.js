@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
-import essencialLogo from '../../media/essencial.svg'
+import essencialLogo from '../../media/logo-titre.svg'
 import '../../styles/navigation.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { actionLogout } from '../../actions/user';
@@ -56,14 +56,19 @@ const Navigation = () => {
 
     <div className="nav">
 
+      <div className="nav-logoConnexion">
+          <i className="fas fa-user"></i>
+          <div className="nav-logoConnexion-welcome">
+            <div className="welcome">Bienvenue </div>
+            <div className="name">{namenav}{pseudonav}</div>
+          </div>
+      </div>
+
       <div className="nav-logoTitle">
         <img className="nav-logoTitle-image" src={essencialLogo} alt="" />
       </div>
 
-      <div className="nav-main">
-
-
-        <div className="nav-main-input-container">
+        {/* <div className="nav-main-input-container">
           <form className="nav-main-input-container-form" action="" onSubmit={handleSubmit}>
             <input
               onChange={handleSearchChange}
@@ -72,90 +77,78 @@ const Navigation = () => {
               type="text"
               placeholder="Recherche" />
           </form>
-        </div>
+        </div> */}
 
-        <div className="nav-main-logoLinks-container">
+      <div className="nav-logoLinks-container">
 
-          {isLogged ? (
-            <NavLink to="/accueil">
-              <i className="fa fa-home mt-1"></i>
-            </NavLink>
-          ) : (
-            <NavLink to="/">
-              <i className="fa fa-home mt-1"></i>
-            </NavLink>
+        {isLogged ? (
+          <NavLink to="/accueil">
+            <i className="fa fa-home mt-1"></i>
+          </NavLink>
+        ) : (
+          <NavLink to="/">
+            <i className="fa fa-home mt-1"></i>
+          </NavLink>
+        )}
+
+
+        {isLogged ? (
+          <NavLink to="/ajouter-un-post">
+            <i className="fa fa-edit mt-1 nav-logoLinks-item"></i>
+          </NavLink>
+        ) : (
+          ''
           )}
 
+        <div className="menu-burger">
 
-          {isLogged ? (
-            <NavLink to="/ajouter-un-post">
-              <i className="fa fa-edit mt-1 nav-logoLinks-item"></i>
+          {/*  A ESSAYER PLUS TARD  style={{display: !isLogged ? 'none' : ''}} */}
+
+          <button
+            // onClick={handleClickBurger}
+            onMouseEnter={() => setIsActiveBurger(true)}
+            onMouseLeave={() => setIsActiveBurger(false)}
+            className={`menu-burger-button ${isLogged ? 'menu-burger-activated' : ''}`}>
+            <i className="fa fa-solid fa-bars mt-1 menu-burger-button-item"></i>
+            {/* <i className={`menu-burger-button-item ${isActiveBurger ? 'fa fa-times' : 'fa fa-solid fa-bars mt-1'}`}></i>  */}
+          </button>
+          <ul
+            onMouseEnter={() => setIsActiveBurger(true)}
+            onMouseLeave={() => setIsActiveBurger(false)}
+            className={`menu-burger-ul ${isActiveBurger ? 'menu-burger-ul-active' : ''}`}>
+
+
+            {isLogged ? (
+              <NavLink to="/gestion-de-profil">
+                <li className="menu-burger-li">Gestion de profil</li>
+              </NavLink>
+            ) : (
+              ''
+              )}
+
+            <NavLink to="/tutos">
+              <li className="menu-burger-li sideBar">Tutoriel</li>
             </NavLink>
-          ) : (
-            ''
-            )}
+            <NavLink to="/amis">
+              <li className="menu-burger-li sideBar">Amis</li>
+            </NavLink>
+            <NavLink to="/ecoVillages">
+              <li className="menu-burger-li sideBar">Les éco-villages</li>
+            </NavLink>
 
-          <div className="menu-burger">
+            {isLogged ? (
+              <li
+                onClick={handleLogout}
+                className="menu-burger-li">Se déconnecter</li>
+            ) : (
+              ''
+              )}
 
-            {/*  A ESSAYER PLUS TARD  style={{display: !isLogged ? 'none' : ''}} */}
-
-            <button
-              // onClick={handleClickBurger}
-              onMouseEnter={() => setIsActiveBurger(true)}
-              onMouseLeave={() => setIsActiveBurger(false)}
-              className={`menu-burger-button ${isLogged ? 'menu-burger-activated' : ''}`}>
-              <i className="fa fa-solid fa-bars mt-1 menu-burger-button-item"></i>
-              {/* <i className={`menu-burger-button-item ${isActiveBurger ? 'fa fa-times' : 'fa fa-solid fa-bars mt-1'}`}></i>  */}
-            </button>
-            <ul
-              onMouseEnter={() => setIsActiveBurger(true)}
-              onMouseLeave={() => setIsActiveBurger(false)}
-              className={`menu-burger-ul ${isActiveBurger ? 'menu-burger-ul-active' : ''}`}>
-
-
-              {isLogged ? (
-                <NavLink to="/gestion-de-profil">
-                  <li className="menu-burger-li">Gestion de profil</li>
-                </NavLink>
-              ) : (
-                ''
-                )}
-
-              <NavLink to="/tutos">
-                <li className="menu-burger-li sideBar">Tutoriel</li>
-              </NavLink>
-              <NavLink to="/amis">
-                <li className="menu-burger-li sideBar">Amis</li>
-              </NavLink>
-              <NavLink to="/ecoVillages">
-                <li className="menu-burger-li sideBar">Les éco-villages</li>
-              </NavLink>
-
-              {isLogged ? (
-                <li
-                  onClick={handleLogout}
-                  className="menu-burger-li">Se déconnecter</li>
-              ) : (
-                ''
-                )}
-
-            </ul>
-
-          </div>
+          </ul>
 
         </div>
 
-        <div className="nav-main-logoConnexion">
-          <i className="fas fa-user"></i>
-          <div className="nav-main-logoConnexion-welcome">
-            <div className="welcome">Bienvenue</div>
-            <div className="name">{namenav}{pseudonav}</div>
-          </div>
         </div>
-
-      </div>
-
-
 
     </div>
 

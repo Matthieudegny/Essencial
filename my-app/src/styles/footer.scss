@@ -1,13 +1,68 @@
+// @mixin keyframes($animation-name) {
+// @-webkit-keyframes #{$animation-name} {
+//     @content;
+// }
+// @-moz-keyframes #{$animation-name} {
+//     @content;
+// }  
+// @-ms-keyframes #{$animation-name} {
+//     @content;
+// }
+// @-o-keyframes #{$animation-name} {
+//     @content;
+// }  
+// @keyframes #{$animation-name} {
+//     @content;
+// }
+// }
+
+// @include keyframes ('border') {
+//     from{width: 0%;}
+//     to{width: 120%;}
+// }
+
+// @mixin animation($str) {
+// -webkit-animation: #{$str};
+// -moz-animation: #{$str};
+// -ms-animation: #{$str};
+// -o-animation: #{$str};
+// animation: #{$str};      
+// }
+
 .Footer{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     margin-top: 1.25vh;
+     width: 65vw;
+    margin-left: 25vw;
+    margin-right: 10vw;
 
     &-items{
         height: 100%;
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
+        animation: border 1s;
     }
+
+    &-items:before{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        padding: 2px;
+        margin: 0 10px 0 0;
+        width: 0%;
+        margin-left: 10%;
+        // animation-name: border;
+        // animation-duration: 1s;
+        //@include animation('border');
+    }
+
+    &-items:hover{
+        border-bottom: solid 1px green;
+    }
+
+
 }
