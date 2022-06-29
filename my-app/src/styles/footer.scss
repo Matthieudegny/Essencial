@@ -1,8 +1,11 @@
 .Footer{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     margin-top: 1.25vh;
+     width: 65vw;
+    margin-left: 25vw;
+    margin-right: 10vw;
 
     &-items{
         height: 100%;
