@@ -1,16 +1,50 @@
-.user-pseudo{
-    font-size : 2em;
-    font-weight: bold;
-}
-
-.user-region{
-    font-size: 0.5em;
-    font-style: italic;
-    margin-top: 1em;
-}
-
-.user-avatar-parent{
-    border-radius: 50%;
-    width: 80%;
+.in-card-user{
+    display: flex;
+    margin: auto;
+    justify-content: center;
     height: 80%;
+    width: 70%;
+    padding-right: 5%;
+
+
+    &-containerPhoto{
+        width: 50%;
+        height: 90%;
+        border-radius: 50%;
+        margin-top: 12%;
+
+        &-image{
+            width: 80%;
+            height: 60%;
+            border-radius: 50%;
+        }
+    }
+
+    &-containerInfo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 90%;
+
+        &-pseudo{
+            font-size : 3vw;
+            font-weight: bold;
+            margin: 2%;
+        }
+
+        &-region{
+            font-size: 2vw;
+            font-style: italic;
+            margin-top: 1em;
+            margin: 2%;
+        }
+
+    }
+
+   
+
+   
+
 }

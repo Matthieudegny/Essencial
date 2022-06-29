@@ -33,18 +33,19 @@ function InCardUser()  {
           {user && (
 
             <>
-              <div className="user-avatar-parent">
-                <img src={user.path} className="user-avatar-parent" alt="user" />
+              <div className="in-card-user-containerPhoto">
+                <img src={user.path} className="in-card-user-containerPhoto-image" alt="user" />
               </div>
-              <h1 className="user-pseudo">{user.pseudo}</h1>
-              <h2 className="user-region">{user.region} </h2>
-              {/* <h1>First Name = {user.first_name}</h1>
-              <h1>Last Name = {user.last_name}</h1> */}
 
-
-              <h1> {user.pseudo}</h1>
-              <h2> {user.pseudo} </h2>
-              <h3> {user.description} </h3>
+              <div className="in-card-user-containerInfo">
+                <h1 className="in-card-user-containerInfo-pseudo">{user.pseudo}</h1>
+                <h2 className="in-card-user-containerInfo-region">{user.region} </h2>
+                {/* <h1>First Name = {user.first_name}</h1>
+                <h1>Last Name = {user.last_name}</h1> */}
+                
+                <h3 className="in-card-user-containerInfo-description"> {user.description} </h3>
+              </div>
+             
 
 
             </>

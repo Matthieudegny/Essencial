@@ -26,17 +26,20 @@ function InCardPosts() {
     <div className="in-card-posts">
       {posts && (
         <>
-          <div className="img1">
-            <img src={posts.photo_path} alt="posts" />
+        <div className="in-card-posts-main">
+
+          <div className="in-card-posts-main-container">
+            <img src={posts.photo_path} alt="posts" className="in-card-posts-main-container-image" />
           </div>
 
           
-          <div className="infos">
-            <h1>{posts.post_title}</h1>
-            <h2>{posts.author_pseudo}</h2>
-            <h2>{posts.post_content} </h2>
-            
+          <div className="in-card-posts-main-infos">
+            <h1 className="in-card-posts-main-infos-h1">{posts.post_title}</h1>
+            <h2 className="in-card-posts-main-infos-h2">{posts.author_pseudo}</h2>
+            <h2 className="in-card-posts-main-infos-h2">{posts.post_content} </h2>
           </div>
+
+        </div>
         </>
       )}
     </div>

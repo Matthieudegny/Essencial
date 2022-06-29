@@ -74,61 +74,13 @@ shuffleArray( tableaucaroussel);
             }
         ]
     };
-    // const items = []
-
-    // for (let i = 0; i < 1; i++) {
-    //     items.push(< MinCard key={i} />)
-    // }
-
-
-/* {usersArray ? (
-            <>
-              {usersArray.map(({
-                id, path, pseudo, region
-              }) => (
-
-                  <MinCard                
-                    imageLink={path}
-                    pseudo={pseudo}
-                    region={region}
-                    id={id}
-                    key={id}
-                  />
-
-                ))}
-            </>
-          ) : (
-            
-            <>
-            </> 
-
-          )}
-          */
-
 
 
     return (
         <div className="caroussel" >
            
             <Slider {...settings}>
-                {/* <div>
-                    <h3>{items}</h3>
-                </div>
-                <div>
-                    <h3>{items}</h3>
-                </div>
-                <div>
-                    <h3>{items}</h3>
-                </div>
-                <div>
-                    <h3>{items}</h3>
-                </div>
-                <div>
-                    <h3>{items}</h3>
-                </div>
-                <div>
-                    <h3>{items}</h3>
-                </div> */}
+               
                 {tableaucaroussel.map(({
                 id, path, pseudo, region,name
               }) => (

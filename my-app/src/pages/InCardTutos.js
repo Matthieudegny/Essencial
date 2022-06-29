@@ -28,12 +28,12 @@ function InCardTutos() {
     <div className="in-card-tutos">
       {tutos && (
         <>
-          <div className="img1">
-            <img src={tutos.photo_path} alt="tutos" />
+          <div className="in-card-tutos-img1">
+            <img src={tutos.photo_path} alt="tutos" className="in-card-tutos-img1-image" />
           </div>
 
          
-          <div className="infos">
+          <div className="in-card-tutos-infos">
             <h1>{tutos.post_title}</h1>
             <h2>{tutos.author_pseudo}</h2>
             <h2>{tutos.post_content} </h2>
