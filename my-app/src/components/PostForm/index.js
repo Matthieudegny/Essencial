@@ -32,6 +32,7 @@ function InscriptionForm({
         />
         <Field
           className="content"
+        
           name="content"
           placeholder="post"
           onChange={changeField}
