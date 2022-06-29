@@ -39,7 +39,7 @@ shuffleArray( tableaucaroussel);
     const settings = {
  
       centerMode: true,
-      centerPadding: '30px',
+      centerPadding: '8px',
       infinite: true,
       speed: 500,
       slidesToShow: 4,
