@@ -5,11 +5,16 @@ import essenciallogo from '../media/typoEssencial.svg'
 
 const Confidentiality = () => {
     return (
-        <div className="home" >
+
+        <div className="confidentiality">
      
-            <div className="homeContent">
-                <img src={ essenciallogo  } className="logoConfid" alt="logo" />
-                <h1 className="title">Politique de confidentialité</h1>
+            <div className="confidentiality-left">
+                <img src={ essenciallogo  } className="confidentiality-left-logo" alt="logo" />
+            </div>
+
+            <div className="confidentiality-right">
+
+                <h1 className="confidentiality-right-title">Politique de confidentialité</h1>
 
                 <p>
                     Cette page est utilisée pour informer les visiteurs du site Web de nos politiques en matière de collecte,
@@ -22,9 +27,11 @@ const Confidentiality = () => {
                     Les termes utilisés dans la présente politique de confidentialité ont la même signification que dans nos conditions générales,
                      qui sont accessibles à l'adresse <strong>https://www.essencial.com</strong>, sauf définition contraire dans la présente politique de confidentialité.
                 </p>
+           
             </div>
 
         </div>
+
     );
 };
 
