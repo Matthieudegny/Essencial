@@ -9,20 +9,13 @@ const MinCardTutos = ({ photo_path, post_title, post_id }) => {
   return (
     <div className="minCardTutos">
 
-      <div className="mincCardTutos-container-photo">
-        <NavLink to={`/tutos/${post_id}`}>
+          <NavLink to={`/tutos/${post_id}`}>
 
-          <img src={photo_path} alt="photo " />
+            <img src={photo_path} alt="photo " />
 
-        </NavLink>
-      </div>
+          </NavLink>
 
-      <div className="mincCardTutos-container-text">
-
-        <h1>{post_title}</h1>
-
-      </div>
-     
+          <h1>{post_title}</h1>
 
     </div>
   );
