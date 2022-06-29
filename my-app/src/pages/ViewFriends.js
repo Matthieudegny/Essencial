@@ -32,8 +32,6 @@ const Friends = () => {
 
   return (
     <div className="friends"  >
-
-<h1>ViewFriends</h1>
       {friends ? (
 
         <>

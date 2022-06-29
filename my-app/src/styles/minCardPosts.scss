@@ -1,38 +1,50 @@
 .minCardPosts{
-    background-color: #86B19A;
+    background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     box-shadow: 0px 5px 29px 0px #86B19A;
     border-radius: 10px;
-
-    width: 300px;
+    width: 70%;
     height: 350px;
-    margin: 2%;
+    margin: auto;
+    margin-bottom: 2%;
+
 
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 
     img{
         padding: 2%;
-        width : 230px;
-        height : 180px;
+        width : 300px;
+        height : 250px;
+        border-radius: 10px;
             
     }
 
     h1{
-        font-size: 2vw;
-        color: white;
+        width: 50%;
+        font-size: 1.5vw;
+        color: rgb(2, 2, 2);
         text-shadow: 2px 2px 19px white;
+        padding: 3%;
         
     }
 
-    h3{
+    h2{
+        display: flex;
         font-size: 1.25vw;
-        color: white;
+        padding: 2%;
+        color: rgb(0, 0, 0);
+
+        &-:first-child{
+            padding: 10px;
+        }
+       
     }
-    h4{
-        background-color: #86B19A;
-    }
+}
+
+.minCardPosts:hover{
+    background-color: #86B19A;
 }

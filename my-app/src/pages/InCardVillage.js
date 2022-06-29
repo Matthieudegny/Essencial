@@ -28,13 +28,13 @@ function InCardVillage() {
     <div className="in-card-village">
       {village && (
         <>
-          <div className="img1">
-            <img src={village.path} alt="village" />
+          <div className="in-card-village-imgVillage">
+            <img src={village.path} alt="village" className="in-card-village-imgVillage-image" />
           </div>
 
           {/* <h1>First Name = {user.first_name}</h1>
               <h1>Last Name = {user.last_name}</h1> */}
-          <div className="infos">
+          <div className="in-card-village-infos">
             <h1>{village.name}</h1>
             <h2>{village.region} </h2>
             <h3>{village.description} </h3>
