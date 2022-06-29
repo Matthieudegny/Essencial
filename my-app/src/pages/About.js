@@ -4,12 +4,14 @@ import "../styles/about.scss";
 import essenciallogo from '../media/typoEssencial.svg'
 
 
+
 const About = () => {
     return (
         <div className="home" >
 
         <img src={ essenciallogo  } className="logoAbout" alt="logo" />
 
+            
             <p>
                 Essencial a été créé en mai 2022 par Stéphanie , Matthieu , Arthur et Emmanuel avec le désir d'offrir une plateforme d'échange
                 au personnes souhaitant se reconnecter avec la nature et l'humain .
