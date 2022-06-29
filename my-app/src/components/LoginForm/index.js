@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Field from './Field';
-import './style.scss';
+import '../../styles/loginForm.scss';
 
 
 function LoginForm({

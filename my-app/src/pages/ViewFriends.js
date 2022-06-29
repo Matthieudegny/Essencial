@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import MinCardDelete from "./MinCardFriendDelete";
 import { actionGetAllUsers, actionGetAllFriends } from '../actions/getAll';
 import '../styles/friends.scss'
-import jwt_decode from "jwt-decode";
+
 
 const Friends = () => {
 

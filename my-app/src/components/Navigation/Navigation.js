@@ -2,10 +2,10 @@
 import React from "react";
 import { useState } from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
-import essencialLogo from '../media/essencial.svg'
-import '../styles/navigation.scss'
+import essencialLogo from '../../media/essencial.svg'
+import '../../styles/navigation.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { actionLogout } from '../actions/user';
+import { actionLogout } from '../../actions/user';
 
 
 const Navigation = () => {

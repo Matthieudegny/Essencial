@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 // data, styles et utilitaires
-import '../styles/caroussel.scss';
+import '../../styles/caroussel.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import MinCard from "../pages/MinCard";
+import MinCard from "../../pages/MinCard";
 
 
 const Caroussel = () => {
@@ -23,7 +23,7 @@ const Caroussel = () => {
 //on assemble les tableaux en un seul avec le .concat 
   const tableaucaroussel= villageArray.concat(usersArray);
   //console.table(tableaucaroussel);
-  console.log("tableaucarousselconcat",tableaucaroussel);
+  //console.log("tableaucarousselconcat",tableaucaroussel);
 
   function shuffleArray(tableaucaroussel) {
     for (let i = tableaucaroussel.length - 1; i > 0; i--) {

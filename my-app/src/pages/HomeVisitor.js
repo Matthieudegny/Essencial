@@ -1,6 +1,6 @@
 // == Imports
 import React from "react";
-import Caroussel from '../components/Caroussel';
+import Caroussel from '../components/Carroussel/Caroussel';
 
 const HomeVisitor = () => {
     return (

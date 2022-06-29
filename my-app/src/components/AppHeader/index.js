@@ -3,7 +3,7 @@ import { useNavigate, NavLink} from 'react-router-dom';
 import React, { useState, useEffect  } from 'react';
 import LoginForm from '../LoginForm';
 import { actionChangeLoginField, actionSubmitLogin } from '../../actions/user';
-import './style.scss';
+import '../../styles/AppHeader.scss';
 
 
 

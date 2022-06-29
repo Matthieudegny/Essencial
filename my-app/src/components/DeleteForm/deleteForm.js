@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 //import "./style.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { actionDeleteFriend } from "../../actions/deleteFriend";

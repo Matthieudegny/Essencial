@@ -6,9 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
 import { actiongetinfos, actionSaveInfoForGetInStore } from "../../actions/user";
 
-//===========================================================//
 
-//Pages
+// == Pages
 import HomeLog from '../../pages/HomeLog';
 import Addpost from '../../pages/AddPost';
 import ViewFriends from '../../pages/ViewFriends';
@@ -30,57 +29,48 @@ import InCardTutos from '../../pages/InCardTutos';
 import EcoVillages from '../../pages/ViewVillage';
 import error404 from '../../pages/error404';
 
-//Composants
-import Navigation from '../Navigation';
-import Sidebar from '../Sidebar';
-import Footer from '../Footer';
-//===========================================================//
-//sTYLES 
+
+// == Composants
+import Navigation from '../Navigation/Navigation';
+import Sidebar from '../Sidebar/Sidebar';
+import Footer from '../Footer/Footer';
+
+
+// ==  data, styles et utilitaires
 
 import '../../styles/index.scss';
 import '../../styles/app.scss'
 import { saveAuthorization } from '../../requests';
 
 
-
-//il faut ajouter le token dans app 
-//commentaire
-
-// == Composant
 function App() {
+
   const dispatch = useDispatch();
   const token = localStorage.getItem('token');
   const pseudo = useSelector((state) => state.user.pseudo);
+
   //useEffect On utilise ce Hook pour indiquer à React que notre composant doit exécuter quelque chose après chaque affichage
   useEffect(() => {
     if (token !== null) {
       //1 étape decoder le token avec jwt_decode
       const user = jwt_decode(token);
       saveAuthorization(token);
-      //* si j'ai besoin d'afficher un loading (spinner) ou de ne pas afficher un composant le temps de savoir si un user est co, je lance ce dispatch    
+   
 
-     //console.log("app.js:log de user",user);
-
-      //const userId = 
        const idToken = user.id
        const userId = idToken.toString()
-      //on envoie l'action getinfos au store avec dispatch 
+      //2 on envoie l'action getinfos au store avec dispatch 
       dispatch(actiongetinfos(userId, user.type));
-      //dispatch(actionSaveUser(pseudo, token));
+      // 3 on dispatch(actionSaveUser(pseudo, token));
       dispatch(actionSaveInfoForGetInStore(user, token));
     } 
   },[]);
 
   
-  /* const test = true;
-  console.log(test); */
+
   return (
     <div className="App">
-      {/*ici exemple de condition d'affichage de module JSX
-*/}
-      {/*  {test && (<header className='App-header'>
-  <Navigation />
-  </header>) } */}
+ 
       <header className='App-header'>
 
         <Navigation />
@@ -142,4 +132,3 @@ function App() {
 
 // ==   Export
 export default App;
-//<Route path="*" element={NotFound()} />
