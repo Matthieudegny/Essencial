@@ -28,9 +28,9 @@ const HomeConnexion = () => {
 
            </div>
 
-            <div className="homeConnexion-logo">
+            {/* <div className="homeConnexion-logo">
                 <img src={essencialLogo} alt="" />
-            </div>
+            </div> */}
 
 
         </div>
