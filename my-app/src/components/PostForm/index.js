@@ -20,10 +20,11 @@ function InscriptionForm({
   };
 
   return (
-    <div className="login-form">
+    <div className="post-form">
 
       <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
         <Field
+          className="title-post"
           name="title"
           placeholder="Titre"
           onChange={changeField}
@@ -36,10 +37,12 @@ function InscriptionForm({
           onChange={changeField}
           value={content}
         />
-
+       
         <Field
+        className="url"
           name="path"
-          placeholder="Url de votre image"
+          type="textarea"
+          placeholder="Url de l'image"
           onChange={changeField}
           value={path}
         />
@@ -50,8 +53,9 @@ function InscriptionForm({
           onChange={changeField}
           placeholder="catégorie 1"
         />
-
+        
         <Select
+        className="select-add"
           name="category_2"
           value={category_2}
           onChange={changeField}

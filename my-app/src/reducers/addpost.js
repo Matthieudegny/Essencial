@@ -1,8 +1,8 @@
 import { CHANGE_FORM_FIELD, SAVE_POST, SAVE_USER } from '../actions/addpost';
 
 export const initialState = {
-  title: 'Mon premier post',
-  content: "Lorem Ipsum est simplement un faux texte de l'industrie de l'impression et de la composition. Le Lorem Ipsum est le texte factice standard de l'industrie depuis les années 1500, lorsqu'un imprimeur inconnu a pris une galère de caractères et l'a brouillé pour en faire un livre de spécimens de caractères.",
+  title: '',
+  content: "",
   path: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1189.jpg',
 };
 

@@ -1,6 +1,10 @@
 
-.login-form {
-  
+.post-form {
+  margin-top: 10em;
+  height: 25em;
+   width: 50em;
+
+
     &-element {
       margin:1em;
       display:flex;
@@ -29,6 +33,40 @@
       height: 2.5em;
     }
   }
+
 #field-content{
-  min-height: 10em;
+  min-height: 1em;
+  width: 26em;
+  height: 4em;
+}
+#field-path{
+  height: 20em;
+  width: 26em;
+}
+#field-title{
+  width: 26em;
+}
+
+input{
+padding: 00.5em;
+  border-radius: 4px;
+}
+.title-post{
+  height: 8em;
+}
+.content{
+  height: 20em;
+}
+.url{
+  height: 6em;
+  margin-bottom:2em ;
+}
+#select-category_1{
+  margin: 1em;
+  display: block;
+}
+#select-category_2{
+  margin: 2em; 
+  background-color: aqua;
+  
 }
