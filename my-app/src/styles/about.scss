@@ -1,10 +1,19 @@
+@use './_reset.css';
+@use './_vars';
+
+
 .home-about{
   margin: 0px;  
-    background-color: red;
+    background-color: grey;
     height: 100%;
+  
 }
 
-.team{
-    height: 30%;
-   background-color: aqua; 
+
+.test{
+  height: 80%;
+  width: 100%;
+}
+.text-container{
+  background-color: #729883;
 }
