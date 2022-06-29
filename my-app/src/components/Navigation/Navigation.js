@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
-import essencialLogo from '../../media/logo-titre.svg'
+import essencialLogo from '../../media/essencialok.jpg'
 import '../../styles/navigation.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { actionLogout } from '../../actions/user';
