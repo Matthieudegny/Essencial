@@ -29,7 +29,7 @@ function Select({
       value={value}
        >
         
-        <option value="">--Choisissez une catégorie--</option>
+        <option value="">Choisissez une catégorie</option>
         <option value="Tutoriel">Tutoriel</option>
         <option value="Maison">Maison</option>
         <option value="Alimentation">Alimentation</option>

@@ -15,7 +15,7 @@ const Confidentiality = () => {
 
             <div className="confidentiality-right">
 
-                <h1 className="confidentiality-right-title">   Politique de confidentialité</h1>
+                <h1 className="confidentiality-right-title">Politique de confidentialité</h1>
 
                 <p>
                     Cette page est utilisée pour informer les visiteurs du site Web de nos politiques en matière de collecte,

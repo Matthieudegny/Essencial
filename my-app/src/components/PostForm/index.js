@@ -20,7 +20,7 @@ function InscriptionForm({
   };
 
   return (
-    <div className="login-form">
+    <div className="post-form">
 
       <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
         <Field
