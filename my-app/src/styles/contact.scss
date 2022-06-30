@@ -1,31 +1,51 @@
-// .home-contact{
-//     display: flex;
-//     justify-content: center;
-//     margin-top: 80px;
-// }
+.home-contact{
+    height: 100%;
+    width: 70%;
+    overflow-y: hidden;
 
-// .contact-title{
-//     font-size: 1.7em;
-//     margin-bottom: 50px;
-//     font-weight: bold;
-// }
+    &-title{
+        font-size: 2vw;
+        margin-top: 4%;
+        font-weight: bold;
+        font-style: italic;
+        text-shadow: 2px 2px 11px white ;
+    }
 
-// input[type="text"], textarea, input[type=email] {
-//     width: 100%;
-//     padding: 12px;
-//     font-size: 0.7em;
-//     border: 1px solid #ccc;
-//     border-radius: 4px;
-//     box-sizing: border-box;
-//     margin-top: 6px;
-//     margin-bottom: 16px;
-//     margin-right: 0px;
-//     margin-left: 0px;
-// }
+    &-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        margin: auto;
+        margin-top: 1%;
+        font-size: 1vw;
 
-// button[type="submit"]{
-//     font-size: 1.25vw;
-//     width: 150px;
-//     height: 40px;
-//     color: black;
-// }
+        &-inputs{
+            padding: 2%;
+            margin: 3%;
+            font-size: 1vw;
+            box-shadow: 0px 5px 29px 0px #86B19A;
+            border: none;
+        }
+
+        &-textArea{
+            margin: 3%;
+            font-size: 1vw;
+            box-shadow: 0px 5px 29px 0px #86B19A;
+            border: none;
+        }
+
+        &-button{
+            border-radius: 5px;
+            margin-top: 3%;
+            padding: 2%;
+            font-size: 1vw;
+            font-weight: bold;
+            background-color: #729883;
+            color: rgb(0, 0, 0);
+        }
+    }
+
+   
+}

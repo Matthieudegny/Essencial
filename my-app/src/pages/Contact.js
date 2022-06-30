@@ -5,27 +5,25 @@ import "../styles/contact.scss";
 const Contact = () => {
     return (
         < div className="home-contact" >
-            <form name="contact" method="post">
 
-                <h1 className="contact-title">Restons en contact</h1>
-                <p>
-                    <input type="text" placeholder="Prénom" name="first_name" />
-                </p>
-                <p>
-                    <input type="text" placeholder="Nom de famille" name="last_name" />
-                </p>
+            <h1 className="home-contact-title">Restons en contact</h1>
 
-                <p>
-                    <input type="email" placeholder="Email" name="email" />
-                </p>
-                <br/>
-                <p>
-                    <textarea name="message" placeholder="Votre message" rows="10" cols="43"></textarea>
-                </p>
-                <br/>
-                <p>
-                    <button type="submit">Envoyer</button>
-                </p>
+            <form className="home-contact-form" name="contact" method="post">
+
+                <input className="home-contact-form-inputs" type="text" placeholder="Prénom" name="first_name" />
+            
+            
+                <input className="home-contact-form-inputs" type="text" placeholder="Nom de famille" name="last_name" />              
+
+            
+                <input className="home-contact-form-inputs" type="email" placeholder="Email" name="email" />
+        
+            
+                <textarea className="home-contact-form-textArea" name="message" placeholder="Votre message" rows="10" cols="43"></textarea>
+            
+            
+                <button className="home-contact-form-button" type="submit">Envoyer</button>
+               
 
             </form>
 

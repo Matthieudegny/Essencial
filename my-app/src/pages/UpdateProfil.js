@@ -7,6 +7,8 @@ import {  actionChangeUpdateProfileUser, actionChangeUpdateProfileVillage,
 import * as dayjs from 'dayjs'
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import "../styles/update.scss";
+
 
 const UpdateProfil = () => {
     const dispatch = useDispatch();
@@ -127,104 +129,117 @@ const UpdateProfil = () => {
                     
                     <>
 
-                        <div className="form-container">
-
                         <div className="login-form-particular">
 
-                            <form autoComplete="off" className="login-form-element" onSubmit={handleSubmitUser}>
-                                <input
-                                name="last_name"
-                                placeholder="Nom"
-                                onChange={handleChangeUser}
-                                value={dataUser.last_name}
-                                />
-                                <input
-                                name="first_name"
-                                placeholder="Prenom"
-                                onChange={handleChangeUser}
-                                value={dataUser.first_name}
-                                />
-                                <input
-                                name="email"
-                                placeholder="Email"
-                                onChange={handleChangeUser}
-                                value={dataUser.email}
-                                />
-                                <input
-                                name="pseudo"
-                                placeholder="Pseudo"
-                                onChange={handleChangeUser}
-                                value={dataUser.pseudo}
-                                />
-                                <input
-                                name="password"
-                                type="password"
-                                placeholder="Nouveau mot de passe"
-                                onChange={handleChangeUser}
-                                value={dataUser.password}
-                                />
-                                <input
-                                name="address"
-                                placeholder="Adresse"
-                                onChange={handleChangeUser}
-                                value={dataUser.address}
-                                />
-                                <input
-                                name="zip_code"
-                                placeholder="Zip_code"
-                                onChange={handleChangeUser}
-                                value={dataUser.zip_code}
-                                />
-                                <input
-                                name="city"
-                                placeholder="Ville"
-                                onChange={handleChangeUser}
-                                value={dataUser.city}
-                                />
-                                <input
-                                name="region"
-                                placeholder="Region"
-                                onChange={handleChangeUser}
-                                value={dataUser.region}
-                                />
-                                <input
-                                name="path"
-                                placeholder="Url_image"
-                                onChange={handleChangeUser}
-                                value={dataUser.path}
-                                />
-                                <input
-                                name="description"
-                                placeholder="description"
-                                onChange={handleChangeUser}
-                                value={dataUser.description}
-                                />
-                                <button
-                                type="submit"
-                                className="login-form-button"
-                                >
-                                Modifier
-                                </button>
+                            <form autoComplete="off" className="login-form-particular-form" onSubmit={handleSubmitUser}>
+
+                                <div className="login-form-particular-form-left">
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="last_name"
+                                    placeholder="Nom"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.last_name}
+                                    />
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="first_name"
+                                    placeholder="Prenom"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.first_name}
+                                    />
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.email}
+                                    />
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="pseudo"
+                                    placeholder="Pseudo"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.pseudo}
+                                    />
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="password"
+                                    type="password"
+                                    placeholder="Nouveau mot de passe"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.password}
+                                    />
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="address"
+                                    placeholder="Adresse"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.address}
+                                    />
+                                 </div>
+
+                                <div className="login-form-particular-form-right">
+
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="zip_code"
+                                    placeholder="Zip_code"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.zip_code}
+                                    />
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="city"
+                                    placeholder="Ville"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.city}
+                                    />
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="region"
+                                    placeholder="Region"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.region}
+                                    />
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="path"
+                                    placeholder="Url_image"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.path}
+                                    />
+                                    <input
+                                    className="login-form-particular-form-inputs"
+                                    name="description"
+                                    placeholder="description"
+                                    onChange={handleChangeUser}
+                                    value={dataUser.description}
+                                    />
+                                    <button
+                                    className="login-form-particular-form-button"
+                                    type="submit"
+                                    >
+                                    Modifier
+                                    </button>
+                                </div>
 
                                
                             </form>
 
                             <button
                                     onClick={deleteUser}
-                                    className="login-form-button"
-                                >
+                                    className="login-form-particular-form-delete-button"
+                                    >
                                    Supprimer mon compte
                             </button>
 
                         </div>
 
-                        </div>
                 
                     </>
 
                     ) : (
-                        
-                    <div className="form-container">
 
                         <div className="login-form-particular">
 
@@ -335,7 +350,6 @@ const UpdateProfil = () => {
 
                         </div>
 
-                    </div>
                 )}
 
                 </>
