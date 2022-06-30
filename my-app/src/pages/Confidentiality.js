@@ -1,7 +1,7 @@
 // == Imports
 import React from "react";
 import '../styles/confidentiality.scss' ;
-import essenciallogo from '../media/typoEssencial.svg'
+import brancheok from '../media/brancheok.jpg';
 
 const Confidentiality = () => {
     return (
@@ -9,7 +9,8 @@ const Confidentiality = () => {
         <div className="confidentiality">
      
             <div className="confidentiality-left">
-                <img src={ essenciallogo  } className="confidentiality-left-logo" alt="logo" />
+                
+                <img src={ brancheok  } className="confidentiality-left-logo" alt="logo" />
             </div>
 
             <div className="confidentiality-right">

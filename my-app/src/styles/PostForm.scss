@@ -1,5 +1,5 @@
 
-.login-form {
+.post-form {
   
     &-element {
       margin:1em;
@@ -28,7 +28,56 @@
       padding: .7em;
       height: 2.5em;
     }
+
+
   }
-#field-content{
-  min-height: 10em;
+
+  #field-content{
+    min-height: 1em;
+    width: 26em;
+    height: 10em;
+    padding: 0.5em;
+    border-radius: 4px;
+    font-family: initial;
+    
+  
+  }
+  #field-path{
+    height: 4em;
+    width: 26em;
+    padding: 0.5em;
+    border-radius: 4px;
+    font-family: initial;
+  }
+  #field-title{
+    width: 26em;
+    height: 3em;
+    padding: 0.5em;
+    border-radius: 4px;
+    font-family: initial;
+  }
+
+  #select-category_1{
+    width: 15.5em;
+    margin-right: 0.3em;
+    padding: 0.5em;
+    border-radius: 4px;
+    font-family: initial;
+    
+    
+  }
+
+  #select-category_2{
+   
+    width: 15.5em;
+    margin-right: 0.3em;
+    margin-top: 0.2em;
+    padding: 0.5em;
+    border-radius: 4px;
+    font-family: initial;
+    
+  }
+
+.login-form-button{
+  margin-top: 2em;
 }
