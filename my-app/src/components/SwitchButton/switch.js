@@ -5,9 +5,6 @@ import '../../styles/switchButton.scss';
 
 
 function Switch({isswitch, setSwitch})  {
-/*   const switchvalue = useSelector((state) => state.switchvalue);
-  console.log(switch); 
-   */
   
   
   return (

@@ -20,7 +20,6 @@ function InscriptionForm({
     evt.preventDefault();
     handleForm();
   };
-  //const [isswitch,setSwitch] = useState(true);
   
   return (
     <div className="form-container">

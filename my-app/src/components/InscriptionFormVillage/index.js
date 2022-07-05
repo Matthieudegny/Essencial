@@ -27,8 +27,6 @@ function InscriptionFormVillage({
     evt.preventDefault();
     handleForm();
   };
-  //const [isswitch,setSwitch] = useState(true);
-
   return (
     
       <div className="login-form-village">

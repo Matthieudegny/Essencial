@@ -1,16 +1,16 @@
 import { CHANGE_FORM_FIELD, SAVE_USER } from '../actions/inscription';
 
 export const initialState = {
-  last_name: 'durand',
-  first_name: 'ginette',
-  email: 'ginette@laposte.net',
-  pseudo: 'ginettelaposte',
-  password: 'test',
-  address: 'rue de la poste',
-  zip_code: '67000',
-  city: 'Miami',
-  region: 'Elsass',
-  path: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1189.jpg',
+  last_name: '',
+  first_name: '',
+  email: '',
+  pseudo: '',
+  password: '',
+  address: '',
+  zip_code: '',
+  city: '',
+  region: '',
+  path: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
