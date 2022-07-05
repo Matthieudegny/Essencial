@@ -8,7 +8,7 @@
 
 &nbsp;
 
-## Technologies Used
+## Technologies Used for the Front:
 
 ✔️ REACT\
 ✔️ REDUX\
