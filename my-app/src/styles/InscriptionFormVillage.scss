@@ -1,0 +1,36 @@
+.switch-container{
+  display: flex;
+  margin-bottom: 1em;
+  
+}
+.login-form {
+  
+    &-element {
+      margin:1em;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    &-message {
+      margin: .3em 1em;
+    }
+  
+    &-logged {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  
+    &-button {
+      
+      font-size: 0.5em;
+      color: 3333;
+      border-radius: .3em;
+      border: 0;
+      padding: .7em;
+      height: 2.5em;
+    }
+  }
+  

@@ -1,0 +1,49 @@
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  box-shadow: 0px 5px 29px 0px #86B19A;
+  border-radius: 10px;
+  background-color: white;
+
+  
+
+  & p{
+    color: rgb(10, 10, 10);
+    font-size: 2vw;
+  }
+ 
+  &-element {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    h2{
+      color: black;
+    }
+  }
+
+  &-message {
+    margin: .3em 1em;
+  }
+
+  &-logged {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &-button {
+    font-size: 0.6em;
+    color: 3333;
+    border-radius: .3em;
+    border: 0;
+    padding: .7em;
+    height: 2.5em;
+    color: black;
+  }
+}

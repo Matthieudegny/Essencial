@@ -1,0 +1,52 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    
+
+    &-header{
+        height: 10vh;
+    }
+
+    &-main{
+        height: 83vh;
+        width: 100%;
+        display: flex;
+        
+
+        &-aside{
+            width: 18vw;
+            height: 80vh;
+            
+        }
+
+        &-page{
+            width: 100%;
+            display: flex;
+            flex-direction: column;    
+            background-image: url(../media/brancheok.jpg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: right 50% top 100%;      
+         
+            &-wall{
+                height: 100%;
+                overflow-y: scroll;
+                
+            }
+        }
+
+
+        &-footer{
+            height: 7vh;          
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 768px) {
+  .App-main-page{
+      min-width: 100vw;
+  }
+}
